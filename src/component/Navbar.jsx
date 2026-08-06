@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../css/Landing.module.css'
+import styles from '../pages/css/Landing.module.css'
 
 const Navbar = () => {
   return (
