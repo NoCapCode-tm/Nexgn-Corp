@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.0fabf29a.css",
-    "main.js": "/static/js/main.8cd0d4c6.js",
+    "main.css": "/static/css/main.2291b98d.css",
+    "main.js": "/static/js/main.fcb01aa4.js",
     "static/js/453.aa9f2141.chunk.js": "/static/js/453.aa9f2141.chunk.js",
     "static/media/benefits-dashboard.png": "/static/media/benefits-dashboard.f5d859c127e32fda298f.png",
     "static/media/footer-brand.png": "/static/media/footer-brand.78145f0673a711dc266f.png",
     "static/media/workflow-bg.png": "/static/media/workflow-bg.3a6a17707ca857e15fd1.png",
     "static/media/cta-bg.png": "/static/media/cta-bg.dc7faec8e02fcefa0bfb.png",
     "index.html": "/index.html",
-    "main.0fabf29a.css.map": "/static/css/main.0fabf29a.css.map",
-    "main.8cd0d4c6.js.map": "/static/js/main.8cd0d4c6.js.map",
+    "main.2291b98d.css.map": "/static/css/main.2291b98d.css.map",
+    "main.fcb01aa4.js.map": "/static/js/main.fcb01aa4.js.map",
     "453.aa9f2141.chunk.js.map": "/static/js/453.aa9f2141.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0fabf29a.css",
-    "static/js/main.8cd0d4c6.js"
+    "static/css/main.2291b98d.css",
+    "static/js/main.fcb01aa4.js"
   ]
 }
