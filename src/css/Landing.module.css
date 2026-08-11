@@ -52,8 +52,109 @@
   background-color: #ffffff;
   padding: 10px 32px;
   box-shadow: 0px 16px 31.4px 0px #00000085;
-  border-radius: 0 0 36px 36px;
+  /* border-radius: 0 0 36px 36px; */
   margin: 0 auto;
+}
+.navbar {
+  position: relative;
+  z-index: 54146245;
+}
+
+
+.menuToggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #111;
+  cursor: pointer;
+  padding: 4px;
+}
+
+
+.mobileMenu {
+  position: absolute;
+  top: 100%;
+  z-index:3554252525252525;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 0 24px;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.4s ease;
+  box-shadow: 0px 16px 31.4px 0px rgba(0, 0, 0, 0.15);
+  z-index: 999;
+}
+
+.mobileMenu a {
+  text-decoration: none;
+  color: #111;
+  font-size: 16px;
+  font-weight: 500;
+  width: 100%;
+  text-align: center;
+}
+
+.mobileGetStartedBtn {
+  background-color: #e8261c;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%;
+  max-width: 200px;
+}
+
+.mobileMenu.mobileMenuOpen {
+  max-height: 300px;
+  
+  opacity: 1;
+  padding: 24px;
+}
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .navActions{
+    display: none;
+  }
+
+  .navLinks {
+    display: none;
+  }
+
+  .navActions {
+    display: none;
+  }
+
+  .menuToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .heroTitle {
+    font-size: 32px;
+  }
+
+  .hero {
+    padding: 90px 20px 100px;
+  }
 }
 
 .logo {
@@ -82,11 +183,7 @@
   opacity: 0.7;
 }
 
-.navActions {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
+
 
 .loginLink {
   text-decoration: none;
@@ -110,6 +207,33 @@
 .getStartedBtn:hover {
   background-color: #c91e15;
 }
+
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    gap: 16px;
+    /* justify-content: center; */
+    /* text-align: center; */
+  }
+  /* .navLinks{
+    display:none;
+  } */
+
+  .navLinks {
+    display: none;
+  }
+
+  .heroTitle {
+    font-size: 32px;
+  }
+
+  .hero {
+    padding: 90px 20px 100px;
+  }
+}
+
+
 
 /* ===== HERO ===== */
 .hero {
@@ -211,8 +335,7 @@
   padding: 20px 20px;
   background-color: #170403;
   background-image:url(../pages/img2.png);
-  background-size:auto;
-  background-position: center;
+  background-size:cover;
   overflow: hidden;
   position: relative;
 }
@@ -250,6 +373,7 @@
   color: #ffffff;
   font-size: 32px;
   letter-spacing: 1px;
+  line-height: 25px;
   font-weight: 400;
   max-width: 610px;
 }
@@ -264,7 +388,7 @@
 
 /* ===== RIGHT SIDE (CARDS) ===== */
 .workingRight {
-  flex: 1;
+  
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -418,6 +542,28 @@
 }
 
 .benefitRow {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: #f0f0f0;
+  border-radius: 12px;
+  padding: 10px 40px 10px 20px;
+  overflow: hidden;
+  min-height: 160px;
+}
+.benefitRow1{
+  position: relative;
+  display: none;
+  align-items: center;
+  gap: 20px;
+  background-color: #f0f0f0;
+  border-radius: 12px;
+  padding: 10px 40px 10px 20px;
+  overflow: hidden;
+  min-height: 160px;
+}
+.benefitRow2 {
   position: relative;
   display: flex;
   align-items: center;
@@ -1067,12 +1213,14 @@
 /* ===== LEFT BANNER ===== */
 .faqBanner {
   position: relative;
-  background-color: #e8261c;
+  background-image:url(../../public/faqimage.png) ;
+  background-size: 100% 100%;
+  /* background-color: #e8261c; */
   border-radius: 8px;
   overflow: hidden;
   padding:  0px 24px ;
  
-  min-height: 440px;
+  /* min-height: 440px; */
 }
 
 .bannerText {
@@ -1506,54 +1654,481 @@
   }
 }
 /* ===== RESPONSIVE ===== */
+/* ===== RESPONSIVE: 1024px down to 320px ===== */
 @media (max-width: 1024px) {
-  .securityGrid {
-    grid-template-columns: 1fr;
+  .security {
+    padding: 32px 20px 60px;
   }
 
-  .redCard,
+  .securityHeader {
+    margin-bottom: 24px;
+  }
+
+  .securityTitle {
+    font-size: 28px;
+  }
+
+  .securitySubtitle {
+    font-size: 17px;
+  }
+
+  /* Flatten leftCol and rightCol so their children become
+     direct grid items of securityGrid */
+  .leftCol,
   .rightCol {
+    display: contents;
+  }
+
+  .securityGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+  }
+
+  /* Text block always spans the full row width */
+  .blockTitle {
+    grid-column: 1 / -1;
+    order: 1;
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+
+  .blockText {
+    grid-column: 1 / -1;
+    order: 2;
+    font-size: 15px;
+    margin-bottom: 0;
+    max-width: 100%;
+  }
+
+  /* Cards just get an order — grid auto-places them into
+     however many columns currently fit */
+  .outlineCard {
+    order: 3;
+    padding: 18px 16px;
+  }
+
+  .redCard {
+    order: 4;
     min-height: auto;
   }
 
+  .infraCard {
+    order: 5;
+    padding: 18px 16px;
+  }
+
+  .darkCard {
+    order: 6;
+    min-height: 180px;
+  }
+
+  /* ===== Scale down card typography ===== */
+  .outlineText {
+    font-size: 14px;
+  }
+
+  .outlineTitle {
+    font-size: 20px;
+    margin-top: 20px;
+  }
+
+  .infraTitle {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .infraText {
+    font-size: 13px;
+  }
+
+  .redList {
+    font-size: 10px;
+    line-height: 1.6;
+  }
+
+  .verticalLabel span {
+    font-size: 10px;
+  }
+
   .brandText {
-    font-size: 180px;
+    font-size: 90px;
+    letter-spacing: -10px;
+  }
+
+  .brandIcon {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .brandIcon svg {
+    transform: scale(0.6);
+  }
+
+  .redFooter {
+    font-size: 8px;
+    bottom: 10px;
+  }
+
+  .bold {
+    font-size: 10px;
+  }
+
+  .darkCardTop,
+  .darkCardBottom {
+    font-size: 9px;
+  }
+}
+
+/* ===== FURTHER SCALE DOWN: 480px to 320px ===== */
+@media (max-width: 480px) {
+  .security {
+    padding: 24px 16px 48px;
+  }
+
+  .securityGrid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+  }
+
+  .securityTitle {
+    font-size: 24px;
+  }
+
+  .securitySubtitle {
+    font-size: 15px;
+  }
+
+  .blockTitle {
+    font-size: 19px;
+  }
+
+  .blockText {
+    font-size: 13px;
+  }
+
+  .outlineCard,
+  .infraCard {
+    padding: 14px 12px;
+  }
+
+  .outlineText,
+  .infraText {
+    font-size: 12px;
+  }
+
+  .outlineTitle {
+    font-size: 17px;
+    margin-top: 14px;
+  }
+
+  .infraTitle {
+    font-size: 17px;
+  }
+
+  .brandText {
+    font-size: 64px;
+    letter-spacing: -6px;
+  }
+
+  .darkCard {
+    min-height: 150px;
+  }
+}
+@media (max-width: 760px){
+  .faq{
+    padding:40px 10px 100px;
   }
 }
 
 /* ===== RESPONSIVE ===== */
+/* ===== RESPONSIVE: 900px down to 320px ===== */
 @media (max-width: 900px) {
+  .features {
+    padding: 24px 20px 60px;
+    border: none;
+  }
+
+  .featuresHeader {
+    margin-bottom: 24px;
+  }
+
+  .featuresTitle {
+    font-size: 32px;
+    letter-spacing: 1px;
+  }
+
+  .featuresSubtitle {
+    font-size: 17px;
+    padding-bottom: 8px;
+  }
+
   .featuresGrid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 100%;
   }
 
-  .featuresText,
-  .featureCard:nth-child(2),
-  .featureCard:nth-child(3),
-  .featureCard:nth-child(4),
-  .featureCard:nth-child(5) {
-    grid-column: 1 / 2;
-    grid-row: auto;
+  .featuresText {
+    padding-left: 0;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .featuresText p {
+    font-size: 16px;
+    letter-spacing: 0.3px;
+    margin-bottom: 0;
+  }
+
+  .featuresText p:first-child {
+    text-align: left;
+    color: #666666;
+  }
+
+  .featuresText p:last-child {
+    text-align: right;
+    color: #111111;
+    font-weight: 500;
+    padding-left: 15%;
+  }
+
+  /* ===== CARDS: 2x2 GRID ===== */
+  .cardsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+  }
+
+  .featureCard {
+    grid-column: unset !important;
+    grid-row: unset !important;
+    width: 100%;
+    min-height: 340px;
+    padding: 20px 16px;
+  }
+
+  .featureCard h3 {
+    font-size: 17px;
+  }
+
+  .cardDesc {
+    font-size: 13px;
+    letter-spacing: 0.2px;
+    margin-top: 20px;
+  }
+
+  .iconWrap {
+    margin-top: 8px;
+    margin-bottom: 16px;
+    transform: scale(0.75);
+    transform-origin: left center;
+  }
+}
+
+/* ===== FURTHER SCALE DOWN: 480px to 320px ===== */
+@media (max-width: 480px) {
+  .features {
+    padding: 20px 16px 48px;
+  }
+
+  .featuresTitle {
+    font-size: 26px;
+  }
+
+  .featuresSubtitle {
+    font-size: 15px;
+  }
+
+  .featuresText p {
+    font-size: 14px;
+  }
+
+  .featuresText p:last-child {
+    padding-left: 8%;
+  }
+
+  .cardsGrid {
+    gap: 10px;
+  }
+
+  .featureCard {
+    padding: 16px 12px;
+    min-height: 300px;
+  }
+
+  .featureCard h3 {
+    font-size: 15px;
+  }
+
+  .cardDesc {
+    font-size: 12px;
+    margin-top: 16px;
+  }
+
+  .iconWrap {
+    transform: scale(0.65);
+  }
+}
+
+@media (min-width: 901px) {
+  .cardsGrid {
+    display: contents;
+  }
+}
+@media (max-width: 768px){
+  .faqTitle{
+    font-size: 24px;
+  }
+  .faqSubtitle{
+    font-size: 12px;
   }
 }
 
 /* ===== RESPONSIVE ===== */
+/* ===== RESPONSIVE: 900px down to 320px ===== */
 @media (max-width: 900px) {
+  .benefits {
+    padding: 40px 24px 60px;
+  }
+
+  .benefitsTitle {
+    font-size: 28px;
+  }
+
+  .benefitsSubtitle {
+    font-size: 14px;
+  }
+
+  /* Stack everything into one column and reorder items */
   .benefitsContent {
     flex-direction: column;
+    gap: 20px;
+  }
+
+  /* Break benefitsList open so its children become direct flex items
+     of benefitsContent — lets us interleave imageCard between them */
+  .benefitsList {
+    display: contents;
   }
 
   .imageCard {
+    order: 2;
     flex: none;
-    min-height: 320px;
+    width: 100%;
+    min-height: 420px;
+  }
+
+  .benefitRow:nth-child(1) {
+    order: 1;
+  }
+
+  .benefitRow:nth-child(2) {
+    order: 3;
+  }
+
+  .benefitRow:nth-child(3) {
+    order: 4;
+    border: 2px solid #2b8ce6;
+  }
+
+  /* Re-layout each card: heading spans full width on top,
+     number sits bottom-left, paragraph sits to its right */
+  .benefitRow {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    column-gap: 16px;
+    row-gap: 4px;
+    align-items: start;
+    padding: 24px;
+    min-height: auto;
+  }
+
+  .benefitText {
+    display: contents;
+  }
+
+  .benefitText h3 {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    font-size: 22px;
+    margin-bottom: 4px;
   }
 
   .bigNumber {
+    grid-column: 1;
+    grid-row: 2;
     font-size: 90px;
+    margin-bottom: -20px;
+    align-self: start;
+  }
+
+  .benefitText p {
+    grid-column: 2;
+    grid-row: 2;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+  }
+
+  .statTop {
+    top: 16px;
+    left: 16px;
+  }
+
+  .statBottom {
+    bottom: 16px;
+    left: 16px;
+  }
+}
+
+/* ===== FURTHER SCALE DOWN: 480px to 320px ===== */
+@media (max-width: 480px) {
+  .benefits {
+    padding: 32px 16px 48px;
+  }
+
+  .benefitsTitle {
+    font-size: 22px;
+    letter-spacing: 1px;
+  }
+
+  .benefitsSubtitle {
+    font-size: 13px;
+  }
+
+  .imageCard {
+    min-height: 340px;
+  }
+
+  .statPercent {
+    font-size: 20px;
+  }
+
+  .statBig {
+    font-size: 16px;
   }
 
   .benefitRow {
-    padding: 24px;
+    padding: 18px;
+    grid-template-columns: max-content 1fr;
+    column-gap: 10px;
+  }
+
+  .benefitText h3 {
+    font-size: 18px;
+  }
+
+  .bigNumber {
+    font-size: 64px;
+    margin-bottom: -12px;
+  }
+
+  .benefitText p {
+    font-size: 13px;
+    line-height: 1.5;
   }
 }
 
@@ -1562,18 +2137,18 @@
   .working {
     flex-direction: column;
     align-items: flex-start;
-    padding: 60px 24px;
+    padding: 60px 40px;
     height: auto;
   }
 
   .workingRight {
     width: 100%;
-    justify-content: center;
+    justify-content: flex-start;
     height: 340px;
   }
 
   .heading h2 {
-    font-size: 26px;
+    font-size: 22px;
   }
 
   .mainText {
@@ -1581,25 +2156,19 @@
   }
 }
 
-@media (max-width: 768px) {
-  .navbar {
-    flex-wrap: wrap;
-    gap: 16px;
-    justify-content: center;
-    text-align: center;
-  }
 
-  .navLinks {
-    order: 3;
-    gap: 20px;
-  }
 
-  .heroTitle {
-    font-size: 32px;
-  }
 
-  .hero {
-    padding: 90px 20px 100px;
+
+/* my responsiveness */
+@media (max-width: 768px){
+  .about span{
+    font-size: 30px;
+  }
+}
+@media (max-width: 425px){
+  .about span{
+    font-size: 24px;
   }
 }
 

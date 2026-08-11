@@ -137,7 +137,18 @@ const faqData = [
     <h2 className={styles.benefitsTitle}>KEY BENEFITS</h2>
     <p className={styles.benefitsSubtitle}>Unlock speed, security, and simplicity</p>
   </div>
-
+  {/* <div className={styles.benefitRow}>
+        <span className={styles.bigNumber}>1</span>
+        <div className={styles.benefitText}>
+          <h3>
+            <span className={styles.red}>Paperless</span> Workflow
+          </h3>
+          <p>
+            enables seamless digital document handling, eliminating manual
+            paperwork for faster, eco-friendly processes.
+          </p>
+        </div>
+      </div> */}
   <div className={styles.benefitsContent}>
     <div className={styles.imageCard}>
       <img
@@ -217,7 +228,7 @@ const faqData = [
         Not just a tool, but a masterpiece of engineering innovation.
       </p>
     </div>
-
+    <div className={styles.cardsGrid}>
     <div className={styles.featureCard}>
       <div className={styles.iconWrap}>
         <div className={styles.single}>
@@ -329,6 +340,7 @@ const faqData = [
       <p className={styles.cardDesc}>
         Nexgn ensures complete transparency and accessibility.
       </p>
+    </div>
     </div>
   </div>
 </section>
@@ -519,19 +531,12 @@ const faqData = [
 
       <div className={styles.faqGrid}>
         <div className={styles.faqBanner}>
-          <div className={styles.bannerText}>
-            <span style={{fontWeight:300 , fontSize:80 ,borderBottom:"1px solid #FFAF9A"}}>Got</span>
-            <span className={styles.indent1} style={{fontWeight:300 , fontSize:80 , borderBottom:"1px solid #FFAF9A"}}>Questions?</span>
-            <span style={{fontWeight:300 , fontSize:80 , borderBottom:"1px solid #FFAF9A"}}>We&apos;ve</span>
-            <span style={{fontWeight:300 , fontSize:80 , borderBottom:"1px solid #FFAF9A"}}>Got</span>
-            <span className={styles.indent2} style={{fontWeight:300 , fontSize:80 , borderBottom:"1px solid #FFAF9A"}}>Answers</span>
-          </div>
-          <h1 className={styles.bannerBrand}>
+          {/* <h1 className={styles.bannerBrand}>
             
 <svg width="722" height="111" viewBox="0 0 641 141" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M104.35 166.518C95.7633 166.518 88.1733 164.601 81.58 160.768C75.14 156.781 70.08 151.414 66.4 144.668C62.72 137.921 60.88 130.331 60.88 121.898V41.6278C60.88 37.4878 59.8833 33.7311 57.89 30.3578C55.8967 26.9845 53.2133 24.3011 49.84 22.3078C46.4667 20.3145 42.7867 19.3178 38.8 19.3178C34.8133 19.3178 31.1333 20.3145 27.76 22.3078C24.54 24.3011 21.9333 26.9845 19.94 30.3578C18.1 33.7311 17.18 37.4878 17.18 41.6278V163.758H-4.9V44.6178C-4.9 36.1845 -3.06 28.5945 0.620001 21.8478C4.3 15.1011 9.43667 9.81114 16.03 5.9778C22.6233 1.99114 30.2133 -0.00219035 38.8 -0.00219035C47.54 -0.00219035 55.2067 1.99114 61.8 5.9778C68.3933 9.81114 73.53 15.1011 77.21 21.8478C80.89 28.5945 82.73 36.1845 82.73 44.6178V124.888C82.73 129.028 83.7267 132.784 85.72 136.158C87.7133 139.531 90.32 142.214 93.54 144.208C96.9133 146.201 100.517 147.198 104.35 147.198C108.183 147.198 111.71 146.201 114.93 144.208C118.15 142.214 120.68 139.531 122.52 136.158C124.513 132.784 125.51 129.028 125.51 124.888V2.7578H147.59V121.898C147.59 130.331 145.75 137.921 142.07 144.668C138.39 151.414 133.33 156.781 126.89 160.768C120.45 164.601 112.937 166.518 104.35 166.518ZM224.989 163.758C212.109 163.758 200.686 161.381 190.719 156.628C180.752 151.721 172.932 144.898 167.259 136.158C161.739 127.264 158.979 116.914 158.979 105.108C158.979 93.4545 161.356 83.0278 166.109 73.8278C170.862 64.4745 177.456 57.1145 185.889 51.7478C194.322 46.3811 204.136 43.6978 215.329 43.6978C227.442 43.6978 237.486 46.3045 245.459 51.5178C253.586 56.7311 259.642 63.7845 263.629 72.6778C267.616 81.4178 269.609 91.2311 269.609 102.118C269.609 103.804 269.532 105.568 269.379 107.408C269.379 109.248 269.226 110.858 268.919 112.238H181.519C182.286 119.444 184.662 125.578 188.649 130.638C192.636 135.544 197.696 139.301 203.829 141.908C210.116 144.361 217.016 145.588 224.529 145.588H255.119V163.758H224.989ZM181.289 97.2878H248.219C248.219 94.3745 247.912 91.3078 247.299 88.0878C246.686 84.7145 245.612 81.4945 244.079 78.4278C242.546 75.2078 240.476 72.3711 237.869 69.9178C235.416 67.3111 232.272 65.2411 228.439 63.7078C224.759 62.1745 220.389 61.4078 215.329 61.4078C209.962 61.4078 205.209 62.4811 201.069 64.6278C197.082 66.6211 193.632 69.3811 190.719 72.9078C187.806 76.2811 185.582 80.1145 184.049 84.4078C182.516 88.7011 181.596 92.9945 181.289 97.2878ZM274.691 163.758L314.941 109.708C307.734 107.254 301.371 103.728 295.851 99.1278C290.484 94.3745 286.191 88.8545 282.971 82.5678C279.904 76.1278 278.371 69.3045 278.371 62.0978V46.4578H299.761V62.0978C299.761 67.7711 301.217 72.9845 304.131 77.7378C307.044 82.4911 310.954 86.3245 315.861 89.2378C320.767 92.1511 326.057 93.9911 331.731 94.7578L367.151 46.4578H390.611L352.431 98.2078C360.404 100.508 367.227 104.111 372.901 109.018C378.727 113.771 383.251 119.521 386.471 126.268C389.691 132.861 391.301 140.068 391.301 147.888V163.758H370.141V147.888C370.141 141.754 368.607 136.234 365.541 131.328C362.474 126.268 358.334 122.204 353.121 119.138C347.907 115.918 341.927 114.001 335.181 113.388L298.381 163.758H274.691ZM422.211 210.448V192.278H479.711C485.384 192.278 489.754 190.591 492.821 187.218C496.041 183.844 497.651 179.398 497.651 173.878V141.678H497.191C494.278 146.124 490.751 150.111 486.611 153.638C482.471 157.164 477.718 160.001 472.351 162.148C466.984 164.141 460.928 165.138 454.181 165.138C443.141 165.138 433.404 162.608 424.971 157.548C416.538 152.334 409.944 145.204 405.191 136.158C400.438 126.958 398.061 116.454 398.061 104.648C398.061 93.1478 400.438 82.7978 405.191 73.5978C409.944 64.3978 416.768 57.1145 425.661 51.7478C434.708 46.3811 445.594 43.6978 458.321 43.6978C470.588 43.6978 481.244 46.3045 490.291 51.5178C499.338 56.7311 506.314 64.0145 511.221 73.3678C516.281 82.5678 518.811 93.3778 518.811 105.798V175.258C518.811 185.991 515.668 194.501 509.381 200.788C503.094 207.228 494.508 210.448 483.621 210.448H422.211ZM458.091 146.968C465.911 146.968 472.734 145.128 478.561 141.448C484.541 137.768 489.141 132.784 492.361 126.498C495.734 120.058 497.421 112.851 497.421 104.878C497.421 96.7511 495.811 89.4678 492.591 83.0278C489.371 76.5878 484.848 71.5278 479.021 67.8478C473.194 64.0145 466.218 62.0978 458.091 62.0978C450.118 62.0978 443.218 64.0145 437.391 67.8478C431.718 71.5278 427.271 76.6645 424.051 83.2578C420.984 89.6978 419.451 96.9811 419.451 105.108C419.451 112.774 420.984 119.828 424.051 126.268C427.271 132.554 431.718 137.614 437.391 141.448C443.218 145.128 450.118 146.968 458.091 146.968ZM536.62 163.758V95.9078C536.62 85.4811 538.92 76.3578 543.52 68.5378C548.273 60.7178 554.79 54.6611 563.07 50.3678C571.35 45.9211 580.78 43.6978 591.36 43.6978C602.093 43.6978 611.523 45.9211 619.65 50.3678C627.93 54.6611 634.37 60.7178 638.97 68.5378C643.723 76.3578 646.1 85.4811 646.1 95.9078V163.758H624.94V96.1378C624.94 89.0845 623.33 83.0278 620.11 77.9678C617.043 72.7545 612.903 68.7678 607.69 66.0078C602.63 63.2478 597.187 61.8678 591.36 61.8678C585.533 61.8678 580.013 63.2478 574.8 66.0078C569.74 68.7678 565.6 72.7545 562.38 77.9678C559.313 83.0278 557.78 89.0845 557.78 96.1378V163.758H536.62Z" fill="#FFAF9A"/>
 </svg>
-          </h1>
+          </h1> */}
         </div>
 
         <div className={styles.faqList}>
@@ -568,49 +573,10 @@ const faqData = [
     src="./ascii-animation.mp4"
   />
   <div className={styles.overlay1}> 
-<svg width="237" height="237" viewBox="0 0 237 237" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_ddddii_3282_35290)">
-<path d="M143 72C148.523 72 153 76.4772 153 82V141.17L131.872 120.503C129.898 118.572 126.715 118.59 124.763 120.542L118.512 126.793C116.559 128.746 116.577 131.894 118.551 133.825L138.152 153H85.375L137.93 101.591C139.904 99.6598 139.92 96.5112 137.968 94.5586L131.718 88.3076C129.765 86.355 126.581 86.3376 124.607 88.2686L72 139.73V86.7354L93.0381 107.314C95.012 109.245 98.1958 109.228 100.148 107.275L106.398 101.024C108.351 99.0718 108.334 95.9232 106.36 93.9922L83.8779 72H143Z" fill="black"/>
-</g>
-<defs>
-<filter id="filter0_ddddii_3282_35290" x="0" y="0" width="237" height="237" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dx="24" dy="24"/>
-<feGaussianBlur stdDeviation="30"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0.503846 0 0 0 0 0.503846 0 0 0 0 0.503846 0 0 0 0.9 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_3282_35290"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dx="-24" dy="-24"/>
-<feGaussianBlur stdDeviation="24"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0.638461 0 0 0 0 0.638461 0 0 0 0 0.638461 0 0 0 0.9 0"/>
-<feBlend mode="normal" in2="effect1_dropShadow_3282_35290" result="effect2_dropShadow_3282_35290"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dx="24" dy="-24"/>
-<feGaussianBlur stdDeviation="24"/>
-<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.2 0"/>
-<feBlend mode="normal" in2="effect2_dropShadow_3282_35290" result="effect3_dropShadow_3282_35290"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dx="-24" dy="24"/>
-<feGaussianBlur stdDeviation="24"/>
-<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.2 0"/>
-<feBlend mode="normal" in2="effect3_dropShadow_3282_35290" result="effect4_dropShadow_3282_35290"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect4_dropShadow_3282_35290" result="shape"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dx="-1" dy="-1"/>
-<feGaussianBlur stdDeviation="1"/>
-<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0.4 0 0 0 0 0.0156863 0 0 0 0 0.0313726 0 0 0 0.5 0"/>
-<feBlend mode="normal" in2="shape" result="effect5_innerShadow_3282_35290"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dx="1" dy="1"/>
-<feGaussianBlur stdDeviation="1"/>
-<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.3 0"/>
-<feBlend mode="normal" in2="effect5_innerShadow_3282_35290" result="effect6_innerShadow_3282_35290"/>
-</filter>
-</defs>
-</svg></div>
+<svg width="70" height="70" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M29.0205 0C34.5433 0 39.0205 4.47717 39.0205 10V29.0205C39.0205 30.304 38.7755 31.5298 38.335 32.6572L30.3623 24.8584C28.5708 23.1059 25.6823 23.1214 23.9102 24.8936C22.1383 26.6657 22.1539 29.523 23.9453 31.2754L31.5352 38.7002C30.7316 38.9083 29.8891 39.0205 29.0205 39.0205H10C8.93076 39.0205 7.90149 38.8498 6.93555 38.5391L30.2363 15.7471C32.0279 13.9946 32.0436 11.1374 30.2715 9.36523C28.4993 7.59324 25.6108 7.57761 23.8193 9.33008L0.5 32.1406C0.177637 31.1586 3.84748e-05 30.1104 0 29.0205V10C2.47359e-06 9.11162 0.117554 8.25064 0.334961 7.43066L8.61133 15.5264C10.4027 17.2787 13.2913 17.2629 15.0635 15.4912C16.8356 13.7191 16.8199 10.8619 15.0283 9.10938L6.40039 0.669922C7.51751 0.238592 8.73076 5.31673e-05 10 0H29.0205Z" fill="#FF0915"/>
+</svg>
+</div>
   
   
     </section>
