@@ -35,7 +35,7 @@ const Footer = () => {
             <span className={styles.greenText}>Bharat</span>
           </p>
         </div>
-
+        
         <div className={styles.linkCol}>
           <h4>COMPANY</h4>
           <a href="#!">About Us</a>
