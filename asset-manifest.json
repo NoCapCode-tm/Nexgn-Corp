@@ -1,20 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.5102531a.css",
-    "main.js": "/static/js/main.9f2fd060.js",
+    "main.css": "/static/css/main.3f3a7b4e.css",
+    "main.js": "/static/js/main.3ed47818.js",
     "static/js/453.aa9f2141.chunk.js": "/static/js/453.aa9f2141.chunk.js",
     "static/media/benefits-dashboard.png": "/static/media/benefits-dashboard.f5d859c127e32fda298f.png",
     "static/media/footer-brand.png": "/static/media/footer-brand.78145f0673a711dc266f.png",
     "static/media/workflow-bg.png": "/static/media/workflow-bg.3a6a17707ca857e15fd1.png",
     "static/media/cta-bg.png": "/static/media/cta-bg.dc7faec8e02fcefa0bfb.png",
+    "static/media/trust-hero-bg.png": "/static/media/trust-hero-bg.e71b27ede491e4afced4.png",
+    "static/media/privacy-hero-bg.png": "/static/media/privacy-hero-bg.f54bacec5ed82a50fd66.png",
     "static/media/faqimage.png": "/static/media/faqimage.c6f84ead2c01b4376755.png",
     "index.html": "/index.html",
-    "main.5102531a.css.map": "/static/css/main.5102531a.css.map",
-    "main.9f2fd060.js.map": "/static/js/main.9f2fd060.js.map",
+    "main.3f3a7b4e.css.map": "/static/css/main.3f3a7b4e.css.map",
+    "main.3ed47818.js.map": "/static/js/main.3ed47818.js.map",
     "453.aa9f2141.chunk.js.map": "/static/js/453.aa9f2141.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5102531a.css",
-    "static/js/main.9f2fd060.js"
+    "static/css/main.3f3a7b4e.css",
+    "static/js/main.3ed47818.js"
   ]
 }
