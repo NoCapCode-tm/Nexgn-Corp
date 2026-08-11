@@ -335,7 +335,7 @@
   gap: 20px;
   padding: 20px 20px;
   background-color: #170403;
-  background-image:url(../pages/img2.png);
+  background-image:url(../../assets/workflow-bg.png);
   background-size:cover;
   overflow: hidden;
   position: relative;
@@ -1214,7 +1214,7 @@
 /* ===== LEFT BANNER ===== */
 .faqBanner {
   position: relative;
-  background-image:url(../../public/faqimage.png) ;
+  background-image:url(../../assets/faqimage.png);
   background-size: 100% 100%;
   /* background-color: #e8261c; */
   border-radius: 8px;

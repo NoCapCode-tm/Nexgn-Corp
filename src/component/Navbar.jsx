@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styles from '../css/Landing.module.css'
+import styles from '../pages/css/Landing.module.css'
 import { Menu, X } from 'lucide-react'
 
 const Navbar = () => {
