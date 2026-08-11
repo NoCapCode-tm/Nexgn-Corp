@@ -1,0 +1,161 @@
+.navbar {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  padding: 24px 40px;
+  position: relative;
+  z-index: 50;
+  box-sizing: border-box;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.navLinks {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+}
+
+.navLinks a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 400;
+  transition: opacity 0.2s ease;
+}
+
+.navLinks a:hover {
+  opacity: 0.7;
+}
+
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.loginLink {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+
+.loginLink:hover {
+  opacity: 0.7;
+}
+
+.getStartedBtn {
+  background-color: #ffffff;
+  color: #111111;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.getStartedBtn:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-1px);
+}
+
+/* MOBILE TOGGLE & MENU - Hidden on Desktop */
+.mobileToggleBtn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 55;
+}
+
+.mobileMenu {
+  display: none;
+}
+
+/* ===== RESPONSIVE MEDIA QUERIES ===== */
+@media (max-width: 900px) {
+  .navbar {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 20px;
+  }
+  
+  /* Hide desktop items */
+  .navLinks, .navActions {
+    display: none; 
+  }
+  
+  /* Show hamburger button */
+  .mobileToggleBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Mobile Dropdown Styling */
+  .mobileMenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    
+    /* Matches the dark overlay aesthetic of the hero section */
+    background: rgba(24, 3, 3, 0.98); 
+    backdrop-filter: blur(10px);
+    
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    gap: 20px;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .mobileMenuOpen {
+    max-height: 400px;
+    padding: 30px 24px;
+  }
+
+  .mobileMenu a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+  }
+
+  .mobileGetStartedBtn {
+    background-color: #ffffff;
+    color: #111111;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    max-width: 200px;
+    margin-top: 10px;
+  }
+}

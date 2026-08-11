@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from '../component/css/Footer.module.css';
 import { FaLinkedin, FaInstagram } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 // 1. IMPORT THE IMAGE HERE
 import footerBrand from '../assets/footer-brand.png';
@@ -14,8 +15,8 @@ const Footer = () => {
           <p className={styles.footerEmail}>gateway@nexgn.cloud</p>
 
           <div className={styles.socialRow}>
-            <a href="https://www.linkedin.com/company/nexgncloud" target='_blank' rel="noreferrer" className={styles.socialIcon}><FaLinkedin /></a>
-            <a href="#!" className={styles.socialIcon}><FaInstagram /></a>
+            <a href="https://www.linkedin.com/company/nexgncloud" target='_blank' rel="noreferrer" className={styles.socialIcon}><FaLinkedin  size={28}/></a>
+            <a href="#!" className={styles.socialIcon}><FaInstagram size={28} /></a>
           </div>
 
           <div className={styles.legalText}>
@@ -53,8 +54,8 @@ const Footer = () => {
 
         <div className={styles.linkCol}>
           <h4>LEGAL & TRUST</h4>
-          <a href="#!">Trust & Compliance</a>
-          <a href="#!">Privacy Policy</a>
+          <a href="/trust">Trust & Compliance</a>
+          <Link to="/privacy-policy">Privacy Policy</Link>
           <a href="#!">Terms & Services</a>
         </div>
       </div>

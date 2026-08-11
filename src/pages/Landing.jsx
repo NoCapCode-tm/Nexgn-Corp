@@ -54,11 +54,18 @@ const faqData = [
   return (
     <>
     <Helmet>
-        <title>Nexgn | The Next Generation of Document Signatures</title>
-        <meta name="description" content="Replace manual paperwork with borderless, lightning-fast workflows. Nexgn delivers military-grade AES-256 encryption and multi-signer capabilities." />
-        <meta name="keywords" content="digital signature, e-signature, document workflow, AES-256, secure signing, India" />
-        <link rel="canonical" href="https://nexgn.cloud" />
-      </Helmet>
+      <title>Nexgn | The Next Generation of Document Signatures</title>
+      <meta name="description" content="Replace manual paperwork with borderless, lightning-fast workflows. Nexgn delivers military-grade AES-256 encryption and multi-signer capabilities." />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "Nexgn",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web"
+        })}
+      </script>
+    </Helmet>
 
     <div className={styles.landing}>
   <video
