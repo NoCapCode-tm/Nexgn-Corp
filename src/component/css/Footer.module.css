@@ -1,0 +1,125 @@
+.footer {
+  width: 100%;
+  position: relative;
+  background-color: #ffffff;
+  padding: 50px;
+  overflow: hidden;
+}
+
+.footerTop {
+  display: grid;
+  grid-template-columns: 1.3fr 0.8fr 0.7fr 0.7fr 0.7fr;
+  gap: 24px;
+  padding-bottom: 40px;
+}
+
+.footerCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.footerHeading {
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #111111;
+  line-height: 1.4;
+  margin-bottom: 14px;
+}
+
+.footerEmail {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: #666666;
+  margin-bottom: 16px;
+}
+
+.socialRow {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.socialIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  color: #787676;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.legalText p {
+  font-size: 11px;
+  line-height: 1.7;
+  letter-spacing: 1px;
+  color: #666666;
+}
+
+.proudlyText {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #111111;
+  margin-bottom: 2px;
+}
+
+.madeInBharat {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.orangeText { color: #ff8a00; }
+.blueText { color: #4a72e8; }
+.greenText { color: #2fa84f; }
+
+.linkCol {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.linkCol h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #999999;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.linkCol a {
+  font-size: 14px;
+  color: #222222;
+  text-decoration: none;
+}
+
+.linkCol a:hover {
+  color: #e8261c;
+}
+
+.footerBrand {
+  width: 100%;
+  line-height: 0;
+  margin-bottom: -50px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .footerTop {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footerTop {
+    grid-template-columns: 1fr;
+  }
+  .footer {
+    padding: 40px 24px 0;
+  }
+}

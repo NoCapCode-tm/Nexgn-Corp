@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
-import styles from '../css/Landing.module.css'
+import styles from '../pages/css/Landing.module.css'
 import { ArrowRight, ChevronDown } from 'lucide-react'
+import { Helmet } from 'react-helmet-async'
 import Navbar from '../component/Navbar'
-// import { Linkedin, Instagram } from 'lucide-react'
-import { FaLinkedin , FaInstagram  } from "react-icons/fa";
+import Footer from '../component/Footer'
+
+
+// 1. IMPORT THE IMAGE HERE
+import benefitsDashboard from '../assets/benefits-dashboard.png'
 
 
 const Landing = () => {
@@ -17,37 +21,55 @@ const [activeIndex, setActiveIndex] = useState(null)
 const faqData = [
   {
     question: "How do I use Nexgn to execute a document?",
-    answer: "Upload your document, add the required signers, place signature fields where needed, and send it for signing. Signers get a secure link, and once everyone signs, you'll receive the completed, tamper-proof document automatically."
+    answer:
+      "Using Nexgn is frictionless and requires zero technical expertise from your signers. Simply upload your PDF or contract into our encrypted zero-trust vault, assign signers, define the workflow, and place signature fields using our drag-and-drop editor. Once dispatched, recipients receive a secure email link to sign instantly on any device without creating an account. After completion, all parties automatically receive the finalized document along with a cryptographically sealed, legally binding audit certificate."
   },
   {
     question: "Are Nexgn digital signatures legally binding internationally?",
-    answer: "Yes. Nexgn signatures comply with major global e-signature standards, including eIDAS, ESIGN, and UETA, and are recognized as legally binding across most jurisdictions worldwide."
+    answer:
+      "Yes. Nexgn complies with major global electronic signature frameworks. Our cryptographic signatures are legally binding under the U.S. ESIGN Act and UETA. In India, Section 5 of the Information Technology Act, 2000 recognizes electronic signatures as legally equivalent to handwritten signatures, while Section 10A validates electronically formed contracts. Nexgn also aligns with the European Union's eIDAS regulation, ensuring executed agreements are recognized across major international jurisdictions."
   },
   {
     question: "How does Nexgn protect my sensitive corporate data?",
-    answer: "All documents are protected with AES-256 encryption both at rest and in transit, backed by strict access controls, timestamped audit logs, and regular security audits to keep your data safe."
+    answer:
+      "Nexgn operates on a zero-trust security architecture. Every document is protected using military-grade AES-256 encryption both at rest and in transit. Each completed agreement is secured with an immutable cryptographic audit trail containing timestamps, IP addresses, and signer activity, ensuring complete document integrity, traceability, and compliance."
   },
   {
     question: "Can I control where my enterprise data is stored?",
-    answer: "Yes, Enterprise plans support region-specific data residency, so you can choose where your documents and data are stored to meet your organization's compliance requirements."
+    answer:
+      "Absolutely. Enterprise customers can choose where their encrypted documents are stored using either India-based or US-based secure server regions. This flexible data residency model helps organizations comply with international privacy regulations, the Digital Personal Data Protection (DPDP) Act, and corporate data sovereignty requirements."
   },
   {
-    question: "Can I control where my enterprise data is stored?",
-    answer: "Absolutely, our Enterprise tier lets you configure data residency settings and storage regions directly from your admin dashboard."
+    question: "Can I orchestrate workflows with multiple signers and approvals?",
+    answer:
+      "Yes. Nexgn supports advanced enterprise workflow automation with sequential signing, parallel approvals, and multi-level approval routing. Documents can be securely routed between legal teams, managers, partners, and clients within a single encrypted workflow, providing complete control over complex business processes."
+  },
+  {
+    question: "How does the pricing structure work? Do I need a credit card to start?",
+    answer:
+      "No credit card is required to get started. Nexgn offers a free Starter plan with up to 9 signatures per month secured by AES-256 encryption. Professional plans support up to 99 signatures monthly with multi-signer workflows, while Business and Enterprise plans provide unlimited signatures, API access, advanced workflow automation, dedicated support, and configurable data residency options."
   }
-]
+];
 
   return (
     <>
+    <Helmet>
+        <title>Nexgn | The Next Generation of Document Signatures</title>
+        <meta name="description" content="Replace manual paperwork with borderless, lightning-fast workflows. Nexgn delivers military-grade AES-256 encryption and multi-signer capabilities." />
+        <meta name="keywords" content="digital signature, e-signature, document workflow, AES-256, secure signing, India" />
+        <link rel="canonical" href="https://nexgn.cloud" />
+      </Helmet>
+
     <div className={styles.landing}>
-      <video
+  <video
     className={styles.bgVideo}
     autoPlay
     loop
     muted
     playsInline
-    src="./ascii-animation.mp4"
+    src="/hero-bg-ascii.mp4" 
   />
+
   <div className={styles.overlay}></div>
       {/* <nav className={styles.navbar}>
         <div className={styles.logo}>
@@ -152,7 +174,7 @@ const faqData = [
   <div className={styles.benefitsContent}>
     <div className={styles.imageCard}>
       <img
-        src="./img3.png"
+        src={benefitsDashboard}
         alt="Secure document folders"
         className={styles.benefitImage}
       />
@@ -233,17 +255,17 @@ const faqData = [
       <div className={styles.iconWrap}>
         <div className={styles.single}>
         <svg width="90" height="70" viewBox="0 0 110 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M7.36753 56.3713C3.6286 55.104 0.597656 52.0217 0.597656 49.4866V3.43929C0.597656 0.904255 3.6286 -0.122876 7.36753 1.1444L102.509 33.3957C106.247 34.6635 109.278 37.7459 109.278 40.2804V86.3278C109.278 88.8628 106.247 89.8904 102.509 88.6231L7.36753 56.3713Z" fill="white" fill-opacity="0.94902" stroke="#FF7178" stroke-width="1.19626" stroke-miterlimit="10"/>
+<path d="M7.36753 56.3713C3.6286 55.104 0.597656 52.0217 0.597656 49.4866V3.43929C0.597656 0.904255 3.6286 -0.122876 7.36753 1.1444L102.509 33.3957C106.247 34.6635 109.278 37.7459 109.278 40.2804V86.3278C109.278 88.8628 106.247 89.8904 102.509 88.6231L7.36753 56.3713Z" fill="white" fillOpacity="0.94902" stroke="#FF7178" strokeWidth="1.19626" strokeMiterlimit="10"/>
 </svg>
 </div>
 <div className={styles.single2}>
         <svg width="130" height="80" viewBox="0 0 110 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M7.36753 56.3713C3.6286 55.104 0.597656 52.0217 0.597656 49.4866V3.43929C0.597656 0.904255 3.6286 -0.122876 7.36753 1.1444L102.509 33.3957C106.247 34.6635 109.278 37.7459 109.278 40.2804V86.3278C109.278 88.8628 106.247 89.8904 102.509 88.6231L7.36753 56.3713Z" fill="white" fill-opacity="0.94902" stroke="#FF7178" stroke-width="1.19626" stroke-miterlimit="10"/>
+<path d="M7.36753 56.3713C3.6286 55.104 0.597656 52.0217 0.597656 49.4866V3.43929C0.597656 0.904255 3.6286 -0.122876 7.36753 1.1444L102.509 33.3957C106.247 34.6635 109.278 37.7459 109.278 40.2804V86.3278C109.278 88.8628 106.247 89.8904 102.509 88.6231L7.36753 56.3713Z" fill="white" fillOpacity="0.94902" stroke="#FF7178" strokeWidth="1.19626" strokeMiterlimit="10"/>
 </svg>
 </div>
 <div className={styles.single3}>
         <svg width="180" height="70" viewBox="0 0 110 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M7.36753 56.3713C3.6286 55.104 0.597656 52.0217 0.597656 49.4866V3.43929C0.597656 0.904255 3.6286 -0.122876 7.36753 1.1444L102.509 33.3957C106.247 34.6635 109.278 37.7459 109.278 40.2804V86.3278C109.278 88.8628 106.247 89.8904 102.509 88.6231L7.36753 56.3713Z" fill="white" fill-opacity="0.94902" stroke="#FF7178" stroke-width="1.19626" stroke-miterlimit="10"/>
+<path d="M7.36753 56.3713C3.6286 55.104 0.597656 52.0217 0.597656 49.4866V3.43929C0.597656 0.904255 3.6286 -0.122876 7.36753 1.1444L102.509 33.3957C106.247 34.6635 109.278 37.7459 109.278 40.2804V86.3278C109.278 88.8628 106.247 89.8904 102.509 88.6231L7.36753 56.3713Z" fill="white" fillOpacity="0.94902" stroke="#FF7178" strokeWidth="1.19626" strokeMiterlimit="10"/>
 </svg>
 </div>
 
@@ -299,7 +321,7 @@ const faqData = [
     <div className={styles.featureCard}>
       <div className={styles.iconWrap}>
         <svg width="202" height="62" viewBox="0 0 202 62" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.5 36.8138C1.90808 35.99 12.6245 33.7683 30.8865 34.4465C38.039 34.7121 39.5499 40.4085 40.2647 42.622C41.7659 47.2705 40.2808 53.6974 38.1364 59.518C37.2857 61.8271 35.9921 62.5926 35.4439 59.1726C33.6756 48.1405 40.2163 34.1011 54.4852 22.2019C85.2878 -3.48522 105.646 -0.385587 108.675 2.13975C117.5 9.49788 92.7248 29.8082 95 42.622C98 59.518 118.757 51.4257 129.205 50.5312C139.652 49.6367 161.644 43.3209 175.811 39.6555C189.977 35.99 195.653 35.1662 201.5 34.3175" stroke="#FF7178" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0.5 36.8138C1.90808 35.99 12.6245 33.7683 30.8865 34.4465C38.039 34.7121 39.5499 40.4085 40.2647 42.622C41.7659 47.2705 40.2808 53.6974 38.1364 59.518C37.2857 61.8271 35.9921 62.5926 35.4439 59.1726C33.6756 48.1405 40.2163 34.1011 54.4852 22.2019C85.2878 -3.48522 105.646 -0.385587 108.675 2.13975C117.5 9.49788 92.7248 29.8082 95 42.622C98 59.518 118.757 51.4257 129.205 50.5312C139.652 49.6367 161.644 43.3209 175.811 39.6555C189.977 35.99 195.653 35.1662 201.5 34.3175" stroke="#FF7178" strokeLinecap="round" strokeLinejoin="round"/>
 </svg>
 
       </div>
@@ -315,14 +337,14 @@ const faqData = [
         <div className={styles.three}>
 <svg width="58" height="103" viewBox="0 0 58 103" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M39.736 16.9851L11.3453 1.86588C5.35655 -1.32266 0.5 1.26119 0.5 7.6404V65.0061C0.5 71.3853 5.35655 79.1411 11.3453 82.3318L46.6524 101.133C52.6434 104.323 57.5 101.74 57.5 95.3583V45.2788M39.736 16.9851V32.7798C39.736 34.4567 41.0147 36.5002 42.5886 37.3386L57.5 45.2788M39.736 16.9851L57.5 45.2788L39.736 16.9851Z" fill="white"/>
-<path d="M57.5 45.2788L39.736 16.9851L11.3453 1.86588C5.35655 -1.32266 0.5 1.26119 0.5 7.6404V65.0061C0.5 71.3853 5.35655 79.1411 11.3453 82.3318L46.6524 101.133C52.6434 104.323 57.5 101.74 57.5 95.3583V45.2788ZM39.736 16.9851V32.7798C39.736 34.4567 41.0147 36.5002 42.5886 37.3386L57.5 45.2788" stroke="#FF7178" stroke-linejoin="round"/>
+<path d="M57.5 45.2788L39.736 16.9851L11.3453 1.86588C5.35655 -1.32266 0.5 1.26119 0.5 7.6404V65.0061C0.5 71.3853 5.35655 79.1411 11.3453 82.3318L46.6524 101.133C52.6434 104.323 57.5 101.74 57.5 95.3583V45.2788ZM39.736 16.9851V32.7798C39.736 34.4567 41.0147 36.5002 42.5886 37.3386L57.5 45.2788" stroke="#FF7178" strokeLinejoin="round"/>
 </svg>
 </div>
 
   <div className={styles.three1}>
 <svg width="58" height="103" viewBox="0 0 58 103" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M39.736 16.9851L11.3453 1.86588C5.35655 -1.32266 0.5 1.26119 0.5 7.6404V65.0061C0.5 71.3853 5.35655 79.1411 11.3453 82.3318L46.6524 101.133C52.6434 104.323 57.5 101.74 57.5 95.3583V45.2788M39.736 16.9851V32.7798C39.736 34.4567 41.0147 36.5002 42.5886 37.3386L57.5 45.2788M39.736 16.9851L57.5 45.2788L39.736 16.9851Z" fill="white"/>
-<path d="M57.5 45.2788L39.736 16.9851L11.3453 1.86588C5.35655 -1.32266 0.5 1.26119 0.5 7.6404V65.0061C0.5 71.3853 5.35655 79.1411 11.3453 82.3318L46.6524 101.133C52.6434 104.323 57.5 101.74 57.5 95.3583V45.2788ZM39.736 16.9851V32.7798C39.736 34.4567 41.0147 36.5002 42.5886 37.3386L57.5 45.2788" stroke="#FF7178" stroke-linejoin="round"/>
+<path d="M57.5 45.2788L39.736 16.9851L11.3453 1.86588C5.35655 -1.32266 0.5 1.26119 0.5 7.6404V65.0061C0.5 71.3853 5.35655 79.1411 11.3453 82.3318L46.6524 101.133C52.6434 104.323 57.5 101.74 57.5 95.3583V45.2788ZM39.736 16.9851V32.7798C39.736 34.4567 41.0147 36.5002 42.5886 37.3386L57.5 45.2788" stroke="#FF7178" strokeLinejoin="round"/>
 </svg>
 </div>
 
@@ -330,7 +352,7 @@ const faqData = [
   <div className={styles.three2}>
 <svg width="58" height="103" viewBox="0 0 58 103" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M39.736 16.9851L11.3453 1.86588C5.35655 -1.32266 0.5 1.26119 0.5 7.6404V65.0061C0.5 71.3853 5.35655 79.1411 11.3453 82.3318L46.6524 101.133C52.6434 104.323 57.5 101.74 57.5 95.3583V45.2788M39.736 16.9851V32.7798C39.736 34.4567 41.0147 36.5002 42.5886 37.3386L57.5 45.2788M39.736 16.9851L57.5 45.2788L39.736 16.9851Z" fill="white"/>
-<path d="M57.5 45.2788L39.736 16.9851L11.3453 1.86588C5.35655 -1.32266 0.5 1.26119 0.5 7.6404V65.0061C0.5 71.3853 5.35655 79.1411 11.3453 82.3318L46.6524 101.133C52.6434 104.323 57.5 101.74 57.5 95.3583V45.2788ZM39.736 16.9851V32.7798C39.736 34.4567 41.0147 36.5002 42.5886 37.3386L57.5 45.2788" stroke="#FF7178" stroke-linejoin="round"/>
+<path d="M57.5 45.2788L39.736 16.9851L11.3453 1.86588C5.35655 -1.32266 0.5 1.26119 0.5 7.6404V65.0061C0.5 71.3853 5.35655 79.1411 11.3453 82.3318L46.6524 101.133C52.6434 104.323 57.5 101.74 57.5 95.3583V45.2788ZM39.736 16.9851V32.7798C39.736 34.4567 41.0147 36.5002 42.5886 37.3386L57.5 45.2788" stroke="#FF7178" strokeLinejoin="round"/>
 </svg>
 </div>
 
@@ -416,7 +438,7 @@ const faqData = [
         <div className={styles.darkIconWrap}>
           
 <svg width="104" height="104" viewBox="0 0 104 104" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M97.0518 0C100.889 0 103.999 3.11044 103.999 6.94727V88.7666L74.7588 60.1631C73.3875 58.8217 71.1759 58.8333 69.8193 60.1895L57.627 72.3818C56.2706 73.7384 56.283 75.9261 57.6543 77.2676L84.9824 104.001H17.1055L86.7451 35.8779C88.1164 34.5364 88.1289 32.3487 86.7725 30.9922L74.5801 18.7998C73.2235 17.4437 71.0119 17.4321 69.6406 18.7734L0 86.8975V18.9082L29.1152 47.3896C30.4866 48.7311 32.6982 48.7187 34.0547 47.3623L46.2471 35.1699C47.6032 33.8133 47.591 31.6265 46.2197 30.2852L15.2607 0H97.0518Z" fill="#D8D8D8" fill-opacity="0.3"/>
+<path d="M97.0518 0C100.889 0 103.999 3.11044 103.999 6.94727V88.7666L74.7588 60.1631C73.3875 58.8217 71.1759 58.8333 69.8193 60.1895L57.627 72.3818C56.2706 73.7384 56.283 75.9261 57.6543 77.2676L84.9824 104.001H17.1055L86.7451 35.8779C88.1164 34.5364 88.1289 32.3487 86.7725 30.9922L74.5801 18.7998C73.2235 17.4437 71.0119 17.4321 69.6406 18.7734L0 86.8975V18.9082L29.1152 47.3896C30.4866 48.7311 32.6982 48.7187 34.0547 47.3623L46.2471 35.1699C47.6032 33.8133 47.591 31.6265 46.2197 30.2852L15.2607 0H97.0518Z" fill="#D8D8D8" fillOpacity="0.3"/>
 </svg>
 
         </div>
@@ -438,7 +460,7 @@ const faqData = [
           <span>Pricing</span>
           
 <svg width="162" height="162" viewBox="0 0 162 162" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M81 0C125.735 0 162 36.2649 162 81C162 97.9279 156.805 113.641 147.926 126.638L122.16 101.434C118.212 97.5718 111.846 97.6066 107.94 101.512L94.1045 115.348C90.1995 119.253 90.2339 125.55 94.1816 129.412L118.241 152.947C107.091 158.73 94.4278 162 81 162C67.1906 162 54.189 158.543 42.8115 152.449L135.555 61.7275C139.502 57.8655 139.537 51.5692 135.632 47.6641L121.796 33.8281C117.891 29.9231 111.524 29.8881 107.576 33.75L13.4941 125.78C4.96811 112.953 0 97.5568 0 81C0 67.3762 3.36379 54.5381 9.30566 43.2705L41.3086 74.5752C45.2565 78.437 51.6231 78.4011 55.5283 74.4961L69.3652 60.6602C73.2702 56.7549 73.235 50.4586 69.2871 46.5967L35.7607 13.8018C48.679 5.08783 64.2452 0 81 0Z" fill="#FF0915" fill-opacity="0.4"/>
+<path d="M81 0C125.735 0 162 36.2649 162 81C162 97.9279 156.805 113.641 147.926 126.638L122.16 101.434C118.212 97.5718 111.846 97.6066 107.94 101.512L94.1045 115.348C90.1995 119.253 90.2339 125.55 94.1816 129.412L118.241 152.947C107.091 158.73 94.4278 162 81 162C67.1906 162 54.189 158.543 42.8115 152.449L135.555 61.7275C139.502 57.8655 139.537 51.5692 135.632 47.6641L121.796 33.8281C117.891 29.9231 111.524 29.8881 107.576 33.75L13.4941 125.78C4.96811 112.953 0 97.5568 0 81C0 67.3762 3.36379 54.5381 9.30566 43.2705L41.3086 74.5752C45.2565 78.437 51.6231 78.4011 55.5283 74.4961L69.3652 60.6602C73.2702 56.7549 73.235 50.4586 69.2871 46.5967L35.7607 13.8018C48.679 5.08783 64.2452 0 81 0Z" fill="#FF0915" fillOpacity="0.4"/>
 </svg>
         </div>
       ))}
@@ -570,7 +592,7 @@ const faqData = [
     loop
     muted
     playsInline
-    src="./ascii-animation.mp4"
+    src="/hero-bg-ascii.mp4"
   />
   <div className={styles.overlay1}> 
 <svg width="70" height="70" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -593,61 +615,7 @@ const faqData = [
   </div>
 </section>
 
-<footer className={styles.footer}>
-      <div className={styles.footerTop}>
-        <div className={styles.footerCol}>
-          <h3 className={styles.footerHeading}>The Next Generation of Document Signature</h3>
-          <p className={styles.footerEmail}>gateway@nexgn.cloud</p>
-
-          <div className={styles.socialRow}>
-            <a href="https://www.linkedin.com/company/nexgncloud" target='_blank' className={styles.socialIcon}><FaLinkedin /></a>
-            <a href="#" className={styles.socialIcon}><FaInstagram /></a>
-          </div>
-
-          <div className={styles.legalText}>
-            <p>© 2026 Nexgn, Inc. All rights reserved.</p>
-            <p>Global Backing: New Mexico, USA</p>
-            <p>Engineering HQ: Bharat (India)</p>
-            <p>Globally Compliant (ESIGN, UETA, eIDAS, IT Act)</p>
-            <p>Data Sovereignty across North America &amp; APAC</p>
-          </div>
-        </div>
-
-        <div className={styles.footerCol}>
-          <p className={styles.proudlyText}>Proudly</p>
-          <p className={styles.madeInBharat}>
-            <span className={styles.orangeText}>Made</span>{" "}
-            <span className={styles.blueText}>in</span>{" "}
-            <span className={styles.greenText}>Bharat</span>
-          </p>
-        </div>
-
-        <div className={styles.linkCol}>
-          <h4>COMPANY</h4>
-          <a href="#">About Us</a>
-          <a href="#">Contact Us</a>
-          <a href="#">Blog</a>
-        </div>
-
-        <div className={styles.linkCol}>
-          <h4>RESOURCES</h4>
-          <a href="#">Help center</a>
-          <a href="#">System Status</a>
-          <a href="#">Security</a>
-        </div>
-
-        <div className={styles.linkCol}>
-          <h4>LEGAL &amp; TRUST</h4>
-          <a href="#">Trust &amp; Compliance</a>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms &amp; Services</a>
-        </div>
-      </div>
-
-      <div className={styles.footerBrand}>
-        <img src ="./nexgnfooter.png" width="100%" height="100%"/>
-      </div>
-    </footer>
+          <Footer/>
     </>
   )
 }
