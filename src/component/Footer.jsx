@@ -40,13 +40,13 @@ const Footer = () => {
         <div className={styles.linkCol}>
           <h4>COMPANY</h4>
           <a href="#!">About Us</a>
-          <a href="#!">Contact Us</a>
+          <a href="/contact">Contact Us</a>
           <a href="#!">Blog</a>
         </div>
 
         <div className={styles.linkCol}>
           <h4>RESOURCES</h4>
-          <a href="#!">Help center</a>
+          <a href="/help">Help center</a>
           <a href="https://status.nexgn.cloud">System Status</a>
           <a href="#!">Security</a>
         </div>
