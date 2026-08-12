@@ -358,7 +358,7 @@
   color: #ffffff;
   font-size: 32px;
   letter-spacing: 1px;
-  line-height: 25px;
+  line-height: 36px;
   font-weight: 400;
   max-width: 610px;
 }
@@ -1263,7 +1263,8 @@
   background: none;
   border: none;
   padding: 22px 24px;
-  font-size: 15px;
+  font-size: 13px;
+  letter-spacing: 1px;
   font-weight: 500;
   color: #111111;
   cursor: pointer;
@@ -1507,7 +1508,7 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
   .pricingGrid {
     grid-template-columns: 1fr;
   }
@@ -1802,7 +1803,7 @@
 @media (max-width : 553px){
     .cardsGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 16px;
   }
 }
