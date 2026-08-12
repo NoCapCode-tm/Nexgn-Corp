@@ -96,6 +96,22 @@ const HelpCenter = () => {
     setExpandedQuestion(expandedQuestion === q ? null : q);
   };
 
+  // Convert faqData to Schema.org FAQPage format
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqData.flatMap(cat => 
+      cat.questions.map(item => ({
+        "@type": "Question",
+        "name": item.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.a
+        }
+      }))
+    )
+  };
+
   return (
     <>
       <Helmet>
@@ -105,6 +121,11 @@ const HelpCenter = () => {
           content="Everything you need to know about Nexgn's platform, features, security, billing, and more."
         />
         <link rel="canonical" href="https://nexgn.cloud/help" />
+        
+        {/* JSON-LD Schema for AI & Search Engines */}
+        <script type="application/ld+json">
+          {JSON.stringify(faqSchema)}
+        </script>
       </Helmet>
 
       <div className={styles.pageWrapper}>
