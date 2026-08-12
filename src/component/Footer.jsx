@@ -55,8 +55,8 @@ const Footer = () => {
         <div className={styles.linkCol}>
           <h4>LEGAL & TRUST</h4>
           <a href="/trust">Trust & Compliance</a>
-          <Link to="/privacy-policy">Privacy Policy</Link>
-          <a href="#!">Terms & Services</a>
+          <Link to="/privacy">Privacy Policy</Link>
+          <a href="/terms">Terms & Services</a>
         </div>
       </div>
 

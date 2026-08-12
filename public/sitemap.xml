@@ -16,12 +16,17 @@
   </url>
 
   <url>
-    <loc>https://www.nexgn.cloud/privacy-policy</loc>
+    <loc>https://www.nexgn.cloud/privacy</loc>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.nexgn.cloud/security</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.nexgn.cloud/terms</loc>
     <priority>0.8</priority>
   </url>
 
