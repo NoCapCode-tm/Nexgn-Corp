@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.976205c3.css",
-    "main.js": "/static/js/main.d7f18f79.js",
+    "main.css": "/static/css/main.e8acf6ae.css",
+    "main.js": "/static/js/main.f23659a8.js",
     "static/js/453.aa9f2141.chunk.js": "/static/js/453.aa9f2141.chunk.js",
     "static/media/benefits-dashboard.png": "/static/media/benefits-dashboard.f5d859c127e32fda298f.png",
     "static/media/footer-brand.png": "/static/media/footer-brand.78145f0673a711dc266f.png",
@@ -10,14 +10,15 @@
     "static/media/terms-hero-bg.png": "/static/media/terms-hero-bg.09eae578ef4cab14b776.png",
     "static/media/trust-hero-bg.png": "/static/media/trust-hero-bg.e71b27ede491e4afced4.png",
     "static/media/privacy-hero-bg.png": "/static/media/privacy-hero-bg.f54bacec5ed82a50fd66.png",
+    "static/media/contact-hero.png": "/static/media/contact-hero.13e22e6c4b502f00869e.png",
     "static/media/faqimage.png": "/static/media/faqimage.c6f84ead2c01b4376755.png",
     "index.html": "/index.html",
-    "main.976205c3.css.map": "/static/css/main.976205c3.css.map",
-    "main.d7f18f79.js.map": "/static/js/main.d7f18f79.js.map",
+    "main.e8acf6ae.css.map": "/static/css/main.e8acf6ae.css.map",
+    "main.f23659a8.js.map": "/static/js/main.f23659a8.js.map",
     "453.aa9f2141.chunk.js.map": "/static/js/453.aa9f2141.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.976205c3.css",
-    "static/js/main.d7f18f79.js"
+    "static/css/main.e8acf6ae.css",
+    "static/js/main.f23659a8.js"
   ]
 }
