@@ -230,71 +230,6 @@
   text-decoration: underline;
 }
 
-/* ===== CTA WRAPPER & CARD ===== */
-.ctaWrapper {
-  width: 100%;
-  padding: 40px 32px 60px;
-  background-color: #ffffff;
-  box-sizing: border-box;
-}
-
-.ctaCard {
-  position: relative;
-  max-width: 1180px;
-  margin: 0 auto;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.08);
-  border: 1px solid #eeeeee;
-  background-color: #f9f9f9;
-  background-image: url('../../assets/cta-bg.png');
-  background-size: cover;
-  background-position: center;
-  min-height: 380px;
-  display: flex;
-  align-items: center;
-}
-
-.ctaContent {
-  padding: 60px 48px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  z-index: 2;
-}
-
-.ctaTitle {
-  font-size: 32px;
-  font-weight: 500;
-  color: #333333;
-  line-height: 1.25;
-}
-
-.ctaSubtext {
-  font-size: 17px;
-  color: #777777;
-  max-width: 480px;
-  line-height: 1.5;
-}
-
-.ctaButton {
-  background-color: #e8261c;
-  color: #ffffff;
-  border: none;
-  padding: 14px 28px;
-  border-radius: 10px;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  width: fit-content;
-  margin-top: 40px;
-  transition: background-color 0.2s ease, transform 0.15s ease;
-}
-
-.ctaButton:hover {
-  background-color: #c91e15;
-  transform: translateY(-1px);
-}
 
 /* ===== FULL RESPONSIVE ADJUSTMENTS ===== */
 @media (max-width: 1024px) {
@@ -338,32 +273,6 @@
   }
   
 
-  .ctaWrapper {
-    padding: 30px 16px 50px;
-  }
-
-  .ctaCard {
-    min-height: auto;
-    border-radius: 16px;
-  }
-
-  .ctaContent {
-    padding: 36px 24px;
-  }
-
-  .ctaTitle {
-    font-size: 24px;
-  }
-
-  .ctaSubtext {
-    font-size: 14px;
-  }
-
-  .ctaButton {
-    margin-top: 20px;
-    width: 100%;
-    text-align: center;
-  }
 }
 
 @media (max-width: 480px) {

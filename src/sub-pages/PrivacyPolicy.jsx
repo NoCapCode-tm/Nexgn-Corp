@@ -262,23 +262,6 @@ const PrivacyPolicy = () => {
           </div>
         </main>
 
-        {/* ================= CTA BANNER ================= */}
-        <section className={styles.ctaWrapper}>
-          <div className={styles.ctaCard}>
-            <div className={styles.ctaContent}>
-              <h2 className={styles.ctaTitle}>
-                Start signing documents the simpler way
-              </h2>
-              <p className={styles.ctaSubtext}>
-                Join modern businesses sending and signing documents securely
-                with Nexgn.
-              </p>
-              <button className={styles.ctaButton}>
-                Create your free account
-              </button>
-            </div>
-          </div>
-        </section>
 
         {/* ================= FOOTER ================= */}
         <Footer />

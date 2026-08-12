@@ -1,68 +1,137 @@
 import React from 'react';
-import styles from '../component/css/Footer.module.css';
+import styles from './css/Footer.module.css';
 import { FaLinkedin, FaInstagram } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-// 1. IMPORT THE IMAGE HERE
+// IMPORT YOUR ASSETS HERE
 import footerBrand from '../assets/footer-brand.png';
+import ctaBgImage from '../assets/cta-bg.png'; // Rope background image for CTA
 
 const Footer = () => {
   return (
-    <footer className={styles.footer}>
-      <div className={styles.footerTop}>
-        <div className={styles.footerCol}>
-          <h3 className={styles.footerHeading}>The Next Generation of Document Signature</h3>
-          <p className={styles.footerEmail}>gateway@nexgn.cloud</p>
+    <footer className={styles.footerWrapper}>
+      
+      {/* ================= 1. INTEGRATED CTA CARD ================= */}
+      <div className={styles.ctaContainer}>
+        <div 
+          className={styles.ctaCard} 
+          style={{ backgroundImage: `url(${ctaBgImage})` }}
+        >
+          <div className={styles.ctaContent}>
+            <h2 className={styles.ctaHeading}>
+              Start signing documents the simpler way
+            </h2>
+            <p className={styles.ctaSubheading}>
+              Join modern businesses sending and signing documents securely with Nexgn.
+            </p>
+            <div className={styles.ctaButtonWrapper}>
+              <Link to="/register" className={styles.ctaButton}>
+                Create your free account
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
 
-          <div className={styles.socialRow}>
-            <a href="https://www.linkedin.com/company/nexgncloud" target='_blank' rel="noreferrer" className={styles.socialIcon}><FaLinkedin  size={28}/></a>
-            <a href="#!" className={styles.socialIcon}><FaInstagram size={28} /></a>
+      {/* ================= 2. FOOTER CONTENT GRID ================= */}
+      <div className={styles.footerInner}>
+        <div className={styles.footerGrid}>
+          
+          {/* Row 1/Col 1: Main Brand Headline & Email */}
+          <div className={styles.brandTitleCol}>
+            <h3 className={styles.footerHeading}>
+              The Next Generation of Document Signature
+            </h3>
+            <p className={styles.footerEmail}>gateway@nexgn.cloud</p>
+
+            <div className={styles.socialRow}>
+              <a 
+                href="https://www.linkedin.com/company/nexgncloud" 
+                target="_blank" 
+                rel="noreferrer" 
+                className={styles.socialIcon} 
+                aria-label="LinkedIn"
+              >
+                <FaLinkedin size={22} />
+              </a>
+              <a 
+                href="https://www.instagram.com" 
+                target="_blank" 
+                rel="noreferrer" 
+                className={styles.socialIcon} 
+                aria-label="Instagram"
+              >
+                <FaInstagram size={22} />
+              </a>
+            </div>
+
+            {/* Desktop Legal Text */}
+            <div className={`${styles.legalBox} ${styles.desktopOnly}`}>
+              <p>© 2026 Nexgn, Inc. All rights reserved.</p>
+              <p>Global Backing: New Mexico, USA</p>
+              <p>Engineering HQ: Bharat (India)</p>
+              <p>Globally Compliant (ESIGN, UETA, eIDAS, IT Act)</p>
+              <p>Data Sovereignty across North America & APAC</p>
+            </div>
           </div>
 
-          <div className={styles.legalText}>
+          {/* Row 1/Col 2: Proudly Made in Bharat */}
+          <div className={styles.proudlyCol}>
+            <p className={styles.proudlyText}>Proudly</p>
+            <p className={styles.madeInBharat}>
+              <span className={styles.orangeText}>Made</span>{" "}
+              <span className={styles.blueText}>in</span>{" "}
+              <span className={styles.greenText}>Bharat</span>
+            </p>
+          </div>
+
+          {/* Mobile Legal Text (Placed between header and link columns on mobile) */}
+          <div className={`${styles.legalBox} ${styles.mobileOnly}`}>
             <p>© 2026 Nexgn, Inc. All rights reserved.</p>
             <p>Global Backing: New Mexico, USA</p>
             <p>Engineering HQ: Bharat (India)</p>
             <p>Globally Compliant (ESIGN, UETA, eIDAS, IT Act)</p>
             <p>Data Sovereignty across North America & APAC</p>
           </div>
+
+          {/* Links 1: Company */}
+          <div className={styles.linkColCompany}>
+            <h4>COMPANY</h4>
+            <Link to="/about">About Us</Link>
+            <Link to="/contact">Contact Us</Link>
+            <Link to="/blog">Blog</Link>
+          </div>
+
+          {/* Links 2: Resources */}
+          <div className={styles.linkColResources}>
+            <h4>RESOURCES</h4>
+            <Link to="/help">Help center</Link>
+            <a href="https://status.nexgn.cloud" target="_blank" rel="noreferrer">
+              System Status
+            </a>
+            <Link to="/security">Security</Link>
+          </div>
+
+          {/* Links 3: Legal & Trust */}
+          <div className={styles.linkColLegal}>
+            <h4>LEGAL & TRUST</h4>
+            <Link to="/trust">Trust & Compliance</Link>
+            <Link to="/privacy">Privacy Policy</Link>
+            <Link to="/terms">Terms & Services</Link>
+          </div>
+
         </div>
 
-        <div className={styles.footerCol}>
-          <p className={styles.proudlyText}>Proudly</p>
-          <p className={styles.madeInBharat}>
-            <span className={styles.orangeText}>Made</span>{" "}
-            <span className={styles.blueText}>in</span>{" "}
-            <span className={styles.greenText}>Bharat</span>
-          </p>
-        </div>
-        
-        <div className={styles.linkCol}>
-          <h4>COMPANY</h4>
-          <a href="#!">About Us</a>
-          <a href="/contact">Contact Us</a>
-          <a href="#!">Blog</a>
-        </div>
-
-        <div className={styles.linkCol}>
-          <h4>RESOURCES</h4>
-          <a href="/help">Help center</a>
-          <a href="https://status.nexgn.cloud">System Status</a>
-          <a href="#!">Security</a>
-        </div>
-        
-
-        <div className={styles.linkCol}>
-          <h4>LEGAL & TRUST</h4>
-          <a href="/trust">Trust & Compliance</a>
-          <Link to="/privacy">Privacy Policy</Link>
-          <a href="/terms">Terms & Services</a>
+        {/* ================= 3. FULL NEXGN BRAND LOGO (FULL DISPLAY) ================= */}
+        <div className={styles.footerBrand}>
+          <img 
+            src={footerBrand} 
+            alt="NEXGN" 
+            className={styles.brandImage}
+          />
         </div>
       </div>
 
-      <div className={styles.footerBrand}>
-        <img src={footerBrand} alt="Nexgn Logo" width="100%" height="100%" />
-      </div>
     </footer>
   );
 };
