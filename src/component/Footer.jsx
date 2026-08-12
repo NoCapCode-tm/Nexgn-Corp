@@ -105,19 +105,25 @@ const Footer = () => {
           {/* Links 2: Resources */}
           <div className={styles.linkColResources}>
             <h4>RESOURCES</h4>
-            <Link to="/help">Help center</Link>
+            <Link to="/help" onClick={() => window.scrollTo(0, 0)}>Help center</Link>
             <a href="https://status.nexgn.cloud" target="_blank" rel="noreferrer">
               System Status
             </a>
-            <Link to="/security">Security</Link>
+            <Link to="/security" onClick={() => window.scrollTo(0, 0)}>Security</Link>
           </div>
 
           {/* Links 3: Legal & Trust */}
           <div className={styles.linkColLegal}>
             <h4>LEGAL & TRUST</h4>
-            <Link to="/trust">Trust & Compliance</Link>
-            <Link to="/privacy">Privacy Policy</Link>
-            <Link to="/terms">Terms & Services</Link>
+              <Link to="/trust" onClick={() => window.scrollTo(0, 0)}>
+                Trust & Compliance
+              </Link>
+              <Link to="/privacy" onClick={() => window.scrollTo(0, 0)}>
+                Privacy Policy
+              </Link>
+              <Link to="/terms" onClick={() => window.scrollTo(0, 0)}>
+                Terms & Services
+              </Link>
           </div>
 
         </div>

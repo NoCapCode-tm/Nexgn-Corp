@@ -1,13 +1,12 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Headphones, ShieldCheck, Building2, Mail, ExternalLink, MapPin, User } from 'lucide-react';
-import PrivacyNavbar from '../component/PrivacyNavbar';
+import PrivacyNavbar from '../component/Navbar';
 import Footer from '../component/Footer';
 import styles from './css/Contact.module.css';
 
 // IMPORT YOUR IMAGES HERE
 import contactHeroImage from '../assets/contact-hero.png'; 
-import ctaBackgroundImage from '../assets/cta-bg.png';
 
 const Contact = () => {
   return (
@@ -132,23 +131,6 @@ const Contact = () => {
 
         </main>
 
-        {/* ================= CTA BANNER ================= */}
-        <section className={styles.ctaWrapper}>
-          <div className={styles.ctaCard} style={{ backgroundImage: `url(${ctaBackgroundImage})` }}>
-            <div className={styles.ctaContent}>
-              <h2 className={styles.ctaTitle}>
-                Start signing documents the simpler way
-              </h2>
-              <p className={styles.ctaSubtext}>
-                Join modern businesses sending and signing documents securely
-                with Nexgn.
-              </p>
-              <button className={styles.ctaButton}>
-                Create your free account
-              </button>
-            </div>
-          </div>
-        </section>
 
         {/* ================= FOOTER ================= */}
         <Footer />
