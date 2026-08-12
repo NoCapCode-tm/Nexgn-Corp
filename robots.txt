@@ -1,55 +1,44 @@
-# =========================================================
-
-# Nexgn Cloud Infrastructure
-
-# Access Policy: nexgn.cloud/robots.txt
-
-# =========================================================
-
-# --------------------------------------------------------
-
-# Standard Search Engine Crawlers
-
-# --------------------------------------------------------
-
+=========================================================
+Nexgn Cloud Infrastructure
+Access Policy: nexgn.cloud/robots.txt
+=========================================================
+--------------------------------------------------------
+Standard Search Engine Crawlers
+--------------------------------------------------------
 User-agent: *
 Allow: /
 
-# --------------------------------------------------------
-
-# Restricted / Private Directories
-
-# --------------------------------------------------------
-
+--------------------------------------------------------
+Restricted / Private Directories
+--------------------------------------------------------
 Disallow: /admin/
 Disallow: /private/
 Disallow: /internal/
 Disallow: /api/
 
-# --------------------------------------------------------
-
-# AI Training and Aggressive Scraping Bots
-
-# (Blocked to preserve bandwidth and IP rights)
-
-# --------------------------------------------------------
-
+--------------------------------------------------------
+AI Training and Answer Engine Bots
+(Explicitly allowed to ensure AI consensus and citations)
+--------------------------------------------------------
 User-agent: CCBot
-Disallow: /
+Allow: /
 
 User-agent: GPTBot
-Disallow: /
+Allow: /
 
 User-agent: ChatGPT-User
-Disallow: /
+Allow: /
 
 User-agent: anthropic-ai
-Disallow: /
+Allow: /
 
-# --------------------------------------------------------
+User-agent: Google-Extended
+Allow: /
 
-# Sitemap Location
+User-agent: PerplexityBot
+Allow: /
 
-# --------------------------------------------------------
-
+--------------------------------------------------------
+Sitemap Location
+--------------------------------------------------------
 Sitemap: https://nexgn.cloud/sitemap.xml
