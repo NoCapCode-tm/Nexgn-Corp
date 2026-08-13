@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+.pageContainer {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffffff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  display: flex;
+  flex-direction: column;
+  padding: 40px clamp(20px, 5vw, 60px) 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* =========================================
+   HEADER & LOGO
+========================================= */
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: clamp(40px, 8vh, 100px);
+}
+
+.logo {
+  height: clamp(30px, 4vw, 45px);
+  width: auto;
+}
+
+/* =========================================
+   INFO SECTION (Row on Desktop)
+========================================= */
+.infoSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e8261c;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.tagline {
+  color: #e8261c;
+  font-size: clamp(18px, 1.8vw, 26px);
+  font-weight: 600;
+  margin: 0;
+  max-width: 800px;
+}
+
+.actionBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+}
+
+.notifyBtn {
+  background-color: #e8261c;
+  color: #ffffff;
+  border: none;
+  padding: 8px 24px;
+  font-size: clamp(16px, 1.5vw, 20px);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.notifyBtn:hover {
+  background-color: #cb1d14;
+}
+
+.dateText {
+  color: #e8261c;
+  font-size: clamp(16px, 1.5vw, 20px);
+  font-weight: 600;
+}
+
+/* =========================================
+   MAIN VISUAL (Text & Image Overlay)
+========================================= */
+.mainVisual {
+  position: relative;
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.hugeTextContainer {
+  position: absolute;
+  top: 5%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hugeText {
+  color: #e8261c;
+  font-size: clamp(100px, 18vw, 280px);
+  font-weight: 800;
+  line-height: 0.9;
+  text-align: center;
+  margin: 0;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+
+.mobileBreak {
+  display: none;
+}
+
+.heroWrapper {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.heroImage {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* =========================================
+   FOOTER TEXT
+========================================= */
+.footerText {
+  position: absolute;
+  bottom: 20px;
+  text-align: center;
+  color: #ffffff;
+  font-size: clamp(12px, 1.2vw, 16px);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.footerText p {
+  margin: 0;
+}
+
+/* =========================================
+   MOBILE RESPONSIVE ADJUSTMENTS
+========================================= */
+@media (max-width: 768px) {
+  .pageContainer {
+    padding-top: 30px;
+  }
+
+  .header {
+    margin-bottom: 40px;
+  }
+
+  /* Magic Flexbox reordering for Mobile */
+  .infoSection {
+    flex-direction: column-reverse; /* Puts actionBox on top of tagline */
+    align-items: flex-start;
+    gap: 30px;
+    border-bottom: none; /* Move border below the tagline */
+  }
+
+  .taglineBox {
+    width: 100%;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #e8261c;
+  }
+
+  .tagline {
+    font-size: 22px;
+    line-height: 1.3;
+  }
+
+  /* Reverse button and date order for Mobile */
+  .actionBox {
+    flex-direction: column-reverse; 
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .dateText {
+    font-size: 20px;
+  }
+
+  .notifyBtn {
+    font-size: 20px;
+    padding: 10px 24px;
+  }
+
+  /* Adjust Huge Text for Mobile wrapping */
+  .hugeText {
+    font-size: 22vw;
+    white-space: normal;
+  }
+
+  .mobileBreak {
+    display: block;
+  }
+
+  .hugeTextContainer {
+    top: 10%;
+  }
+
+  /* Move footer text below the image and change color to red */
+  .footerText {
+    position: relative;
+    bottom: auto;
+    margin-top: -10px;
+    color: #e8261c;
+    font-size: 14px;
+    padding-bottom: 20px;
+  }
+}

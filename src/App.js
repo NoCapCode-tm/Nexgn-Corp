@@ -7,6 +7,7 @@ import TrustSecurity from "./sub-pages/TrustSecurity";
 import TermsServices from "./sub-pages/TermsServices";  
 import Contact from "./pages/Contact";  
 import HelpCenter from "./sub-pages/HelpCenter";
+import ComingSoon from "./sub-pages/ComingSoon";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<Landing />} />
+          <Route path="/soon" element={<ComingSoon />} />
 
           {/* Support & Contact Routes */}
           <Route path="/contact" element={<Contact />} />
