@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.cd69f912.css",
-    "main.js": "/static/js/main.3e930817.js",
+    "main.css": "/static/css/main.69a4efe6.css",
+    "main.js": "/static/js/main.da0ae75d.js",
     "static/js/453.aa9f2141.chunk.js": "/static/js/453.aa9f2141.chunk.js",
     "static/media/benefits-dashboard.png": "/static/media/benefits-dashboard.f5d859c127e32fda298f.png",
     "static/media/footer-brand.png": "/static/media/footer-brand.78145f0673a711dc266f.png",
@@ -10,15 +10,16 @@
     "static/media/terms-hero-bg.png": "/static/media/terms-hero-bg.09eae578ef4cab14b776.png",
     "static/media/trust-hero-bg.png": "/static/media/trust-hero-bg.e71b27ede491e4afced4.png",
     "static/media/privacy-hero-bg.png": "/static/media/privacy-hero-bg.f54bacec5ed82a50fd66.png",
+    "static/media/coming-soon-hero.png": "/static/media/coming-soon-hero.50f1095d6b85c5c8c540.png",
     "static/media/contact-hero.png": "/static/media/contact-hero.13e22e6c4b502f00869e.png",
     "static/media/faqimage.png": "/static/media/faqimage.c6f84ead2c01b4376755.png",
     "index.html": "/index.html",
-    "main.cd69f912.css.map": "/static/css/main.cd69f912.css.map",
-    "main.3e930817.js.map": "/static/js/main.3e930817.js.map",
+    "main.69a4efe6.css.map": "/static/css/main.69a4efe6.css.map",
+    "main.da0ae75d.js.map": "/static/js/main.da0ae75d.js.map",
     "453.aa9f2141.chunk.js.map": "/static/js/453.aa9f2141.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cd69f912.css",
-    "static/js/main.3e930817.js"
+    "static/css/main.69a4efe6.css",
+    "static/js/main.da0ae75d.js"
   ]
 }
