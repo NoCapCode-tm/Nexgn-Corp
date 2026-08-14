@@ -8,11 +8,13 @@ import TermsServices from "./sub-pages/TermsServices";
 import Contact from "./pages/Contact";  
 import HelpCenter from "./sub-pages/HelpCenter";
 import ComingSoon from "./sub-pages/ComingSoon";
+import Navbar from "./component/Navbar";
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
+        <Navbar/>
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/soon" element={<ComingSoon />} />
