@@ -869,7 +869,7 @@
 /* ===== CARDS ===== */
 .featureCard {
   border: 1px solid #ff8080;
-  border-radius: 4px;
+  border-radius: 12px;
   padding: 24px 22px;
   display: flex;
   flex-direction: column;
@@ -1393,7 +1393,7 @@
 
 .featureList {
   list-style: none;
-  border-top: 1px solid #eeeeee;
+  /* border-top: 1px solid #eeeeee; */
   padding-top: 20px;
   display: flex;
   flex-direction: column;
@@ -1556,13 +1556,14 @@
 }
 
 .faqAnswerOpen {
-  max-height: 200px;
+  max-height: 300px;
   padding: 0 24px 22px;
 }
 
 .faqAnswer p {
   font-size: 14px;
   line-height: 1.6;
+  letter-spacing: 1px;
   color: #555555;
 }
 
@@ -1783,7 +1784,8 @@
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none; /* Firefox */
-    gap: 0;
+    gap: 40px;
+    background-color: none;
     padding: 0 0px;
   }
 .pricing{
@@ -2205,7 +2207,7 @@
 
   .benefitRow:nth-child(3) {
     order: 4;
-    border: 2px solid #2b8ce6;
+    /* border: 2px solid #2b8ce6; */
   }
 
   /* Re-layout each card: heading spans full width on top,

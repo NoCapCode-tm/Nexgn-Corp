@@ -35,9 +35,6 @@
   width: 100%;
   min-height: clamp(280px, 22vw, 480px);
   background-color: #f8f9fa;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   border-radius: clamp(16px, 2vw, 32px);
   border: 1px solid #eef0f2;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
@@ -48,27 +45,52 @@
   box-sizing: border-box;
 }
 
+/* image absolute, full width/height, resizes responsively */
+.ctaBgImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+/* transparent overlay on top of image */
+.ctaOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(250, 250, 250, 0.35); /* adjust opacity/color as needed */
+  z-index: 1;
+}
+
 .ctaContent {
   padding: clamp(32px, 4vw, 70px) clamp(24px, 4vw, 60px);
-  max-width: clamp(380px, 38vw, 650px);
+  /* max-width: clamp(380px, 38vw, 650px); */
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
   z-index: 2;
 }
 
 .ctaHeading {
   font-size: clamp(24px, 2.4vw, 44px);
   font-weight: 600;
-  color: #111111;
+  color: #4B4B4B;
   line-height: 1.25;
   margin-bottom: clamp(10px, 1vw, 16px);
   letter-spacing: -0.5px;
 }
 
 .ctaSubheading {
-  font-size: clamp(13.5px, 1vw, 18px);
-  color: #666666;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #414040;
   line-height: 1.5;
   margin-bottom: clamp(24px, 2.5vw, 40px);
 }
@@ -94,7 +116,6 @@
   background-color: #cb1d14;
   transform: translateY(-2px);
 }
-
 /* =========================================
    2. FOOTER MAIN CONTENT & GRID
 ========================================= */
@@ -310,8 +331,8 @@
   .ctaContent {
     max-width: 100%;
     padding: 24px 20px;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.65) 45%, rgba(255, 255, 255, 0.4) 100%);
-    border-radius: 16px;
+    /* background: linear-gradient(90deg, rgba(255, 255, 255, 0.65) 45%, rgba(255, 255, 255, 0.4) 100%);
+    border-radius: 16px; */
   }
 
   .ctaHeading {

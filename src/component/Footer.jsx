@@ -12,26 +12,30 @@ const Footer = () => {
     <footer className={styles.footerWrapper}>
       
       {/* ================= 1. INTEGRATED CTA CARD ================= */}
-      <div className={styles.ctaContainer}>
-        <div 
-          className={styles.ctaCard} 
-          style={{ backgroundImage: `url(${ctaBgImage})` }}
-        >
-          <div className={styles.ctaContent}>
-            <h2 className={styles.ctaHeading}>
-              Start signing documents the simpler way
-            </h2>
-            <p className={styles.ctaSubheading}>
-              Join modern businesses sending and signing documents securely with Nexgn.
-            </p>
-            <div className={styles.ctaButtonWrapper}>
-              <Link to="/register" className={styles.ctaButton}>
-                Create your free account
-              </Link>
-            </div>
-          </div>
-        </div>
+    <div className={styles.ctaContainer}>
+  <div className={styles.ctaCard}>
+    <img
+      src={ctaBgImage}
+      alt=""
+      className={styles.ctaBgImage}
+    />
+    <div className={styles.ctaOverlay}></div>
+
+    <div className={styles.ctaContent}>
+      <h2 className={styles.ctaHeading}>
+        Start signing documents the simpler way
+      </h2>
+      <p className={styles.ctaSubheading}>
+        Join modern businesses sending and signing documents securely with Nexgn.
+      </p>
+      <div className={styles.ctaButtonWrapper}>
+        <Link to="/register" className={styles.ctaButton}>
+          Create your free account
+        </Link>
       </div>
+    </div>
+  </div>
+</div>
 
       {/* ================= 2. FOOTER CONTENT GRID ================= */}
       <div className={styles.footerInner}>
