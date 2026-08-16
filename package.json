@@ -1,7 +1,7 @@
 {
   "name": "Nexgn",
   "homepage": "https://prod.nexgn.cloud",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
@@ -18,13 +18,13 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "postbuild": "react-snap",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+      "start": "react-scripts start",
+      "build": "react-scripts build",
+      "postbuild": "node -e \"const fs=require('fs'); if(fs.existsSync('build/404.html')) fs.renameSync('build/404.html', 'build/temp-404.html')\" && react-snap && node -e \"const fs=require('fs'); if(fs.existsSync('build/temp-404.html')) fs.renameSync('build/temp-404.html', 'build/404.html')\"",
+      "test": "react-scripts test",
+      "eject": "react-scripts eject",
+      "predeploy": "npm run build",
+      "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -49,7 +49,21 @@
     "react-snap": "^1.23.0"
   },
   "reactSnap": {
-    "inlineCss": true,
-    "puppeteerExecutablePath": "C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe"
+    "inlineCss": false,
+    "puppeteerExecutablePath": "C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe",
+    "include": [
+      "/",
+      "/trust",
+      "/privacy",
+      "/terms",
+      "/security",
+      "/help"
+    ],
+    "skipThirdPartyRequests": true,
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--disable-web-security"
+    ]
   }
 }
