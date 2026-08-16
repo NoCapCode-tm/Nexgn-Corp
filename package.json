@@ -58,8 +58,8 @@
       "/terms",
       "/security",
       "/help",
-      "/Login",
-      "/Sign-up"
+      "/login",
+      "/signup"
     ],
     "skipThirdPartyRequests": true,
     "puppeteerArgs": [

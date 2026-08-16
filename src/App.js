@@ -30,8 +30,8 @@ function App() {
           <Route path="/trust" element={<TrustSecurity />} />  {/* Trust Page Route */}
           <Route path="/terms" element={<TermsServices />} />  {/* Terms Page Route */}
 
-           <Route path="/Sign-up" element={<SignUp/>} />
-            <Route path="/Login" element={<Login/>} />
+           <Route path="/signup" element={<SignUp/>} />
+            <Route path="/login" element={<Login/>} />
 
           {/* Optional: Add a 404 Catch-All Route here if you build a NotFound page */}
           {/* <Route path="*" element={<NotFound />} /> */}
