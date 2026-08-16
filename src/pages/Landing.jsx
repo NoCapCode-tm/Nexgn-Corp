@@ -13,9 +13,94 @@ import benefitsDashboard from '../assets/benefits-dashboard.png'
 const Landing = () => {
 
 const [activeIndex, setActiveIndex] = useState(null)
+const [currentSlide, setCurrentSlide] = useState(0)
 
   const toggleFaq = (index) => {
     setActiveIndex(activeIndex === index ? null : index)
+  }
+
+  const pricingCards = [
+    {
+      price: '$0',
+      period: '/month',
+      plan: 'Free',
+      description: 'Perfect for individuals and early exploration.',
+      headerBg: '#FFCACA',
+      headerColor: '#000000',
+      features: [
+        '25 documents per month',
+        'Basic signing workflow',
+        'Limited templates',
+        'No credit card required'
+      ]
+    },
+    {
+      price: '$9',
+      period: '/month',
+      plan: 'Starter',
+      isPopular: true,
+      description: 'Built for freelancers and small businesses.',
+      headerBg: 'linear-gradient(116.65deg, #FFFFFF 7.01%, #FF0915 32.03%, #100000 66.82%),linear-gradient(225.1deg, rgba(249, 0, 0, 0.2) 35.5%, rgba(0, 0, 0, 0.2) 98.07%)',
+      headerColor: '#fff',
+      features: [
+        '100 documents per month',
+        'Professional signing tools',
+        'Templates and reminders',
+        'SETU integration',
+        'Basic automation support'
+      ]
+    },
+    {
+      price: '$19',
+      period: '/month',
+      plan: 'Business',
+      description: 'Designed for growing teams.',
+      headerBg: '#FE7474',
+      headerColor: '#fff',
+      features: [
+        'Unlimited documents',
+        'Bulk sending',
+        'Team collaboration',
+        'API access',
+        'Aadhaar verification credits',
+        'Custom branding',
+        'Priority support'
+      ]
+    },
+    {
+      price: 'Custom',
+      period: '',
+      plan: 'Enterprise',
+      description: 'Tailored according to you.',
+      headerBg: '#FF1F1F',
+      headerColor: '#fff',
+      features: [
+        'Everything in Business',
+        'Unlimited users',
+        'Full API ecosystem',
+        'Dedicated onboarding',
+        'SLA and enterprise support',
+        'Advanced security and compliance',
+        'Custom infrastructure support'
+      ]
+    }
+  ]
+
+  const handleDotClick = (index) => {
+    setCurrentSlide(index)
+    const carousel = document.querySelector(`.${styles.pricingCarousel}`)
+    if (carousel) {
+      carousel.scrollTo({
+        left: carousel.offsetWidth * index,
+        behavior: 'smooth'
+      })
+    }
+  }
+
+  const handleScroll = (e) => {
+    const carousel = e.target
+    const slideIndex = Math.round(carousel.scrollLeft / carousel.offsetWidth)
+    setCurrentSlide(slideIndex)
   }
 
 const faqData = [
@@ -433,7 +518,7 @@ const faqData = [
         <div className={styles.marqueeItem} key={i}>
           <span>Pricing</span>
           
-<svg width="162" height="162" viewBox="0 0 162 162" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg className={styles.marqueeIcon} width="162" height="162" viewBox="0 0 162 162" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M81 0C125.735 0 162 36.2649 162 81C162 97.9279 156.805 113.641 147.926 126.638L122.16 101.434C118.212 97.5718 111.846 97.6066 107.94 101.512L94.1045 115.348C90.1995 119.253 90.2339 125.55 94.1816 129.412L118.241 152.947C107.091 158.73 94.4278 162 81 162C67.1906 162 54.189 158.543 42.8115 152.449L135.555 61.7275C139.502 57.8655 139.537 51.5692 135.632 47.6641L121.796 33.8281C117.891 29.9231 111.524 29.8881 107.576 33.75L13.4941 125.78C4.96811 112.953 0 97.5568 0 81C0 67.3762 3.36379 54.5381 9.30566 43.2705L41.3086 74.5752C45.2565 78.437 51.6231 78.4011 55.5283 74.4961L69.3652 60.6602C73.2702 56.7549 73.235 50.4586 69.2871 46.5967L35.7607 13.8018C48.679 5.08783 64.2452 0 81 0Z" fill="#FF0915" fillOpacity="0.4"/>
 </svg>
         </div>
@@ -441,81 +526,47 @@ const faqData = [
     </div>
   </div>
 
-  <div className={styles.pricingGrid}>
-    {/* FREE */}
-    <div className={styles.pricingCard}>
-      <div className={styles.cardHeader} style={{ backgroundColor: "#FFCACA" }}>
-        <h3 className={styles.price}>$0<span>/month</span></h3>
-        <span className={styles.planTag}>Free</span>
-      </div>
-      <p className={styles.cardDesc1}>Perfect for individuals and early exploration.</p>
-      <button className={styles.chooseBtn}>Choose Free</button>
-      <ul className={styles.featureList}>
-        <li><span className={styles.check}>✓</span>25 documents per month</li>
-        <li><span className={styles.check}>✓</span>Basic signing workflow</li>
-        <li><span className={styles.check}>✓</span>Limited templates</li>
-        <li><span className={styles.check}>✓</span>No credit card required</li>
-      </ul>
-    </div>
-
-    {/* STARTER - POPULAR */}
-    <div className={`${styles.pricingCard} ${styles.popularCard}`}>
-      <div className={styles.cardHeader} style={{ background: "linear-gradient(116.65deg, #FFFFFF 7.01%, #FF0915 32.03%, #100000 66.82%),linear-gradient(225.1deg, rgba(249, 0, 0, 0.2) 35.5%, rgba(0, 0, 0, 0.2) 98.07%)"
-}}>
-        <h3 className={styles.price} style={{ color: "#fff" }}>$9<span>/month</span></h3>
-        <div className={styles.tagRow}>
-          <span className={styles.planTag}>Starter</span>
-          <span className={styles.popularBadge}>Popular</span>
+  <div className={styles.pricingCarousel} onScroll={handleScroll}>
+    {pricingCards.map((card, index) => (
+      <div key={index} className={`${styles.pricingCard} ${card.isPopular ? styles.popularCard : ''}`}>
+        <div className={styles.shadow}>
+          <div className={styles.cardHeader} style={{ 
+            background: card.headerBg,
+            backgroundColor: card.headerBg.startsWith('#') ? card.headerBg : undefined
+          }}>
+            <h3 className={styles.price} style={{ color: card.headerColor }}>
+              {card.price}<span>{card.period}</span>
+            </h3>
+            {card.isPopular ? (
+              <div className={styles.tagRow}>
+                <span className={styles.planTag}>{card.plan}</span>
+                <span className={styles.popularBadge}>Popular</span>
+              </div>
+            ) : (
+              <span className={styles.planTag}>{card.plan}</span>
+            )}
+          </div>
+          <p className={styles.cardDesc1}>{card.description}</p>
+          <button className={styles.chooseBtn}>Choose {card.plan}</button>
         </div>
+        <ul className={styles.featureList}>
+          {card.features.map((feature, idx) => (
+            <li key={idx}><span className={styles.check}>✓</span>{feature}</li>
+          ))}
+        </ul>
       </div>
-      <p className={styles.cardDesc1}>Built for freelancers and small businesses.</p>
-      <button className={styles.chooseBtn}>Choose Starter</button>
-      <ul className={styles.featureList}>
-        <li><span className={styles.check}>✓</span>100 documents per month</li>
-        <li><span className={styles.check}>✓</span>Professional signing tools</li>
-        <li><span className={styles.check}>✓</span>Templates and reminders</li>
-        <li><span className={styles.check}>✓</span>SETU integration</li>
-        <li><span className={styles.check}>✓</span>Basic automation support</li>
-      </ul>
-    </div>
+    ))}
+  </div>
 
-    {/* BUSINESS */}
-    <div className={styles.pricingCard}>
-      <div className={styles.cardHeader} style={{ backgroundColor: "#FE7474" }}>
-        <h3 className={styles.price} style={{ color: "#fff" }}>$19<span>/month</span></h3>
-        <span className={styles.planTag}>Business</span>
-      </div>
-      <p className={styles.cardDesc1}>Designed for growing teams.</p>
-      <button className={styles.chooseBtn}>Choose Business</button>
-      <ul className={styles.featureList}>
-        <li><span className={styles.check}>✓</span>Unlimited documents</li>
-        <li><span className={styles.check}>✓</span>Bulk sending</li>
-        <li><span className={styles.check}>✓</span>Team collaboration</li>
-        <li><span className={styles.check}>✓</span>API access</li>
-        <li><span className={styles.check}>✓</span>Aadhaar verification credits</li>
-        <li><span className={styles.check}>✓</span>Custom branding</li>
-        <li><span className={styles.check}>✓</span>Priority support</li>
-      </ul>
-    </div>
-
-    {/* ENTERPRISE */}
-    <div className={styles.pricingCard}>
-      <div className={styles.cardHeader} style={{ backgroundColor: "#FF1F1F" }}>
-        <h3 className={styles.price} style={{ color: "#fff" }}>Custom</h3>
-        <span className={styles.planTag}>Enterprise</span>
-      </div>
-      <p className={styles.cardDesc1}>Tailored according to you.</p>
-      <button className={styles.chooseBtn}>Choose Enterprise</button>
-      <ul className={styles.featureList}>
-        <li><span className={styles.check}>✓</span>Everything in Business</li>
-        <li><span className={styles.check}>✓</span>Unlimited users</li>
-        <li><span className={styles.check}>✓</span>Full API ecosystem</li>
-        <li><span className={styles.check}>✓</span>Dedicated onboarding</li>
-        <li><span className={styles.check}>✓</span>SLA and enterprise support</li>
-        <li><span className={styles.check}>✓</span>Advanced security and compliance</li>
-        <li><span className={styles.check}>✓</span>Custom infrastructure support</li>
-      </ul>
-    </div>
+  <div className={styles.carouselDots}>
+    {pricingCards.map((_, index) => (
+      <button
+        key={index}
+        className={`${styles.dot} ${currentSlide === index ? styles.dotActive : ''}`}
+        onClick={() => handleDotClick(index)}
+        aria-label={`Go to slide ${index + 1}`}
+      />
+    ))}
   </div>
 </section>
 
