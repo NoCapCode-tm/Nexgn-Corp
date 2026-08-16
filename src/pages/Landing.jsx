@@ -1,19 +1,21 @@
 import React, { useState } from 'react'
 import styles from '../pages/css/Landing.module.css'
-import { ArrowRight, ChevronDown } from 'lucide-react'
+import {  ChevronDown } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
-import Navbar from '../component/Navbar'
+
 import Footer from '../component/Footer'
 
 
 // 1. IMPORT THE IMAGE HERE
 import benefitsDashboard from '../assets/benefits-dashboard.png'
+import { useNavigate } from 'react-router'
 
 
 const Landing = () => {
 
 const [activeIndex, setActiveIndex] = useState(null)
 const [currentSlide, setCurrentSlide] = useState(0)
+const navigate = useNavigate()
 
   const toggleFaq = (index) => {
     setActiveIndex(activeIndex === index ? null : index)
@@ -160,7 +162,7 @@ const faqData = [
         Engineered for the <span className={styles.red}>World.</span>
       </h1>
 
-      <button className={styles.ctaBtn}>Start Signing for Free</button>
+      <button className={styles.ctaBtn} onClick={()=>{navigate("/Login")}}>Start Signing for Free</button>
 
       <p className={styles.heroSubtext}>
         Replace manual paperwork with borderless, lightning-fast workflows. Nexgn delivers

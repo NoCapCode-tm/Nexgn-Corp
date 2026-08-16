@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import styles from '../pages/css/Landing.module.css'
 import { Menu, X } from 'lucide-react'
+import { useNavigate } from 'react-router'
 
 const Navbar = () => {
+  const navigate = useNavigate()
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
@@ -21,8 +23,8 @@ const Navbar = () => {
       </ul>
 
       <div className={styles.navActions}>
-        <a href="#login" className={styles.loginLink}>Log in</a>
-        <button className={styles.getStartedBtn}>Get Started</button>
+        <a href="/Login" className={styles.loginLink}>Log in</a>
+        <button className={styles.getStartedBtn} onClick={()=>{navigate("/Sign-up")}} >Get Started</button>
       </div>
 
       {/* Hamburger toggle — only visible at 768px and below */}

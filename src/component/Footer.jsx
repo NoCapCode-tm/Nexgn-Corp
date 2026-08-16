@@ -29,7 +29,7 @@ const Footer = () => {
         Join modern businesses sending and signing documents securely with Nexgn.
       </p>
       <div className={styles.ctaButtonWrapper}>
-        <Link to="/register" className={styles.ctaButton}>
+        <Link to="/Sign-up" className={styles.ctaButton}>
           Create your free account
         </Link>
       </div>

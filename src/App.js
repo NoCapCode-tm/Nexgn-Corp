@@ -9,6 +9,8 @@ import Contact from "./pages/Contact";
 import HelpCenter from "./sub-pages/HelpCenter";
 import ComingSoon from "./sub-pages/ComingSoon";
 import Navbar from "./component/Navbar";
+import SignUp from "./login-signup/pages/SignUp";
+import Login from "./login-signup/pages/Login";
 
 function App() {
   return (
@@ -27,6 +29,9 @@ function App() {
           <Route path="/privacy" element={<PrivacyPolicy />} />  {/* Privacy Page Route */}
           <Route path="/trust" element={<TrustSecurity />} />  {/* Trust Page Route */}
           <Route path="/terms" element={<TermsServices />} />  {/* Terms Page Route */}
+
+           <Route path="/Sign-up" element={<SignUp/>} />
+            <Route path="/Login" element={<Login/>} />
 
           {/* Optional: Add a 404 Catch-All Route here if you build a NotFound page */}
           {/* <Route path="*" element={<NotFound />} /> */}
