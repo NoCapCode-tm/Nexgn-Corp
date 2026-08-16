@@ -1,34 +1,34 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import {  Link } from "react-router-dom";
 import LeftPanel from "../components/LeftPanel";
 import RightPanelCard from "../components/RightPanelCard";
 import useSystemTheme from "../hooks/useSystemTheme";
 import "../css/LoginSignup.css";
-import axios from "axios";
+// import axios from "axios";
 
 export default function Login() {
   useSystemTheme();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post(
-        "http://localhost:5000/api/v1/admin/login",
-        {
-          email,
-          password,
-        },
-        { withCredentials: true }
-      );
-      console.log(response.data.message);
-      navigate("/admin");
-    } catch (error) {
-      console.log("Something went wrong", error.message);
-    }
-  };
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const response = await axios.post(
+  //       "http://localhost:5000/api/v1/admin/login",
+  //       {
+  //         email,
+  //         password,
+  //       },
+  //       { withCredentials: true }
+  //     );
+  //     console.log(response.data.message);
+  //     navigate("/admin");
+  //   } catch (error) {
+  //     console.log("Something went wrong", error.message);
+  //   }
+  // };
 
   return (
     <div className="login-signup-container">
@@ -38,7 +38,7 @@ export default function Login() {
         title="Welcome Back"
         subtitle="Log in to continue to Nexgn"
       >
-        <form onSubmit={handleSubmit}>
+        <form >
           <div className="form-group">
             <div className="form-label-row">
               <label htmlFor="email" className="form-label">

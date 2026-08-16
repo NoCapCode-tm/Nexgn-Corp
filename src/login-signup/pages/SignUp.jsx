@@ -5,7 +5,7 @@ import RightPanelCard from "../components/RightPanelCard";
 import { UserPlus, Building2, ArrowDown, PartyPopper } from "lucide-react";
 import useSystemTheme from "../hooks/useSystemTheme";
 import "../css/LoginSignup.css";
-import axios from "axios";
+// import axios from "axios";
 
 export default function SignUp() {
   useSystemTheme();
@@ -26,23 +26,23 @@ export default function SignUp() {
     setStep(2);
   };
 
-  const handleStep2Submit = async(e) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post("http://localhost:5000/api/v1/admin/signup",{
-        name,
-        email,
-        password,
-        companyname:companyName,
-        industry,
-        team_size:teamSize
-      },{withCredentials:true})
-      console.log(response.data.message)
-      setStep(3);
-    } catch (error) {
-      console.log("Something went wrong",error.message)
-    }
-  };
+  // const handleStep2Submit = async(e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const response = await axios.post("http://localhost:5000/api/v1/admin/signup",{
+  //       name,
+  //       email,
+  //       password,
+  //       companyname:companyName,
+  //       industry,
+  //       team_size:teamSize
+  //     },{withCredentials:true})
+  //     console.log(response.data.message)
+  //     setStep(3);
+  //   } catch (error) {
+  //     console.log("Something went wrong",error.message)
+  //   }
+  // };
 
   const handleStep3Submit = (e) => {
     e.preventDefault();
@@ -131,7 +131,7 @@ export default function SignUp() {
           title="Tell us about your company"
           icon={<Building2 size={28} className="form-card__icon" />}
         >
-          <form onSubmit={handleStep2Submit}>
+          <form >
             <div className="form-group">
               <div className="form-label-row">
                 <label htmlFor="companyName" className="form-label">

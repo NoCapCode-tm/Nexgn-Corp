@@ -59,7 +59,7 @@
       "/security",
       "/help",
       "/Login",
-      "Sign-up"
+      "/Sign-up"
     ],
     "skipThirdPartyRequests": true,
     "puppeteerArgs": [
