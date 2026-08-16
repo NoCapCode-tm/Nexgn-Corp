@@ -57,7 +57,9 @@
       "/privacy",
       "/terms",
       "/security",
-      "/help"
+      "/help",
+      "/Login",
+      "Sign-up"
     ],
     "skipThirdPartyRequests": true,
     "puppeteerArgs": [
