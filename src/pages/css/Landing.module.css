@@ -288,7 +288,7 @@
   }
   .heroSubtext {
     font-size: 14px;
-    margin-top: 130px;
+    margin-top: 160px;
     max-width: 172px;
   }
 }
@@ -498,7 +498,7 @@
     align-items: flex-start;
     border-radius:36px 36px 0 0;
     /* margin-bottom: 50px; */
-    margin-top: -20px;
+    margin-top: -40px;
     padding:20px;
 }
 .about span{
