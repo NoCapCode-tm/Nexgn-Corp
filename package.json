@@ -1,7 +1,7 @@
 {
   "name": "Nexgn",
   "homepage": "https://prod.nexgn.cloud",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
@@ -50,6 +50,20 @@
   },
   "reactSnap": {
     "inlineCss": true,
-    "puppeteerExecutablePath": "C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe"
+    "puppeteerExecutablePath": "C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe",
+    "include": [
+      "/",
+      "/trust",
+      "/privacy",
+      "/terms",
+      "/security",
+      "/help"
+    ],
+    "skipThirdPartyRequests": true,
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--disable-web-security"
+    ]
   }
 }
