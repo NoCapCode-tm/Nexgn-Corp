@@ -23,9 +23,9 @@ const Contact = () => {
       <div className={styles.contactPage}>
         
         {/* ================= NAVBAR WRAPPER ================= */}
-        <div className={styles.navContainer}>
+        {/* <div className={styles.navContainer}>
           <PrivacyNavbar />
-        </div>
+        </div> */}
 
         {/* ================= MAIN SPLIT SECTION ================= */}
         <main className={styles.mainContainer}>
