@@ -6,7 +6,6 @@ import TrustSecurity from "./sub-pages/TrustSecurity";
 import TermsServices from "./sub-pages/TermsServices";
 import Contact from "./pages/Contact";
 import HelpCenter from "./sub-pages/HelpCenter";
-import ComingSoon from "./sub-pages/ComingSoon";
 import Navbar from "./component/Navbar";
 // import SignUp from "./login-signup/pages/SignUp";
 // import Login from "./login-signup/pages/Login";
@@ -29,7 +28,6 @@ function App() {
         <ConditionalNavbar />
         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="/soon" element={<ComingSoon />} />
 
           {/* Support & Contact Routes */}
           <Route path="/contact" element={<Contact />} />

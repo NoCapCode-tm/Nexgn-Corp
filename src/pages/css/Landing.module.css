@@ -1235,11 +1235,7 @@
 .pricing:hover .marqueeTrack {
   animation-play-state: running;
 }
-.marqueeIcon {
-  width: 162px;
-  height: 162px;
-  animation: rotateIcon 35s linear infinite;
-}
+
 
 @media (max-width: 500px) {
   .marqueeIcon {
@@ -1248,14 +1244,6 @@
   }
 }
 
-@keyframes rotateIcon {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(-360deg);
-  }
-}
 
 /* ===== PRICING GRID ===== */
 .pricingGrid {
