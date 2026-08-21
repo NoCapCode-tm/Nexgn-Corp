@@ -7,6 +7,7 @@ import TermsServices from "./sub-pages/TermsServices";
 import Contact from "./pages/Contact";
 import HelpCenter from "./sub-pages/HelpCenter";
 import Navbar from "./component/Navbar";
+import NotFound from "./pages/NotFound";
 // import SignUp from "./login-signup/pages/SignUp";
 // import Login from "./login-signup/pages/Login";
 
@@ -27,7 +28,9 @@ function App() {
       <div className="App">
         <ConditionalNavbar />
         <Routes>
+            {/* Main Landing Page Route */}
           <Route path="/" element={<Landing />} />
+          <Route path="/not-found" element={<NotFound />} />
 
           {/* Support & Contact Routes */}
           <Route path="/contact" element={<Contact />} />

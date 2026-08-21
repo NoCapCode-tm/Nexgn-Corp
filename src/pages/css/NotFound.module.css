@@ -1,0 +1,136 @@
+/* Base Container Styles (Mobile First) */
+.container {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  overflow: hidden; /* Prevents scrolling if the image overflows */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #ff0000;
+}
+
+/* Header & Logo */
+.header {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+  z-index: 10;
+}
+
+.logo {
+  width: 48px;
+  height: 48px;
+}
+
+/* Main Content Wrapper */
+.contentWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 25vh; /* Leaves room for the absolute positioned image on mobile */
+  z-index: 10;
+}
+
+/* Text & Typography */
+.textContainer {
+  text-align: center;
+  z-index: 10;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0 0 0.5rem 0;
+}
+
+.title {
+  font-size: 8rem;
+  font-weight: 800;
+  margin: 0;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+}
+
+.actionText {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 1rem 0 0.5rem 0;
+}
+
+/* Home Button */
+.homeButton {
+  background-color: #ff0000;
+  color: #ffffff;
+  border: none;
+  padding: 0.2rem 0.8rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.homeButton:hover {
+  opacity: 0.85;
+}
+
+/* Image Container - Mobile positioning (Bottom Left) */
+.imageContainer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 65%; /* Adjust based on your exact image transparent padding */
+  height: 45vh;
+  z-index: 1;
+}
+
+.personImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom left; /* Anchors the image to the bottom left edge */
+}
+
+/* Footer Element */
+.footer {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  z-index: 10;
+}
+
+/* =========================================
+   Desktop Responsiveness 
+   ========================================= */
+@media (min-width: 768px) {
+  .contentWrapper {
+    flex-direction: row;
+    padding-bottom: 0;
+  }
+
+  .textContainer {
+    /* Shifts the text right slightly to balance the large image on the left */
+    margin-left: 15%; 
+  }
+
+  .title {
+    font-size: 12rem; /* Much larger on desktop as seen in 404-desktop.jpg */
+  }
+
+  .subtitle, 
+  .actionText {
+    font-size: 1.5rem;
+  }
+
+  .imageContainer {
+    width: 45%;
+    max-width: 600px;
+    height: 85vh; /* Takes up most of the vertical space on desktop */
+    top: auto;
+    bottom: 0;
+  }
+}
