@@ -1,7 +1,7 @@
 {
   "name": "Nexgn",
   "homepage": "https://prod.nexgn.cloud",
-  "version": "0.1.2",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
@@ -56,6 +56,7 @@
       "/trust",
       "/privacy",
       "/terms",
+      "/contact",
       "/security",
       "/help",
       "/login"

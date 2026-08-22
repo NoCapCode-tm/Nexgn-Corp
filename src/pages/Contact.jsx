@@ -1,7 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Headphones, ShieldCheck, Building2, Mail, ExternalLink, MapPin, User } from 'lucide-react';
-import PrivacyNavbar from '../component/Navbar';
 import Footer from '../component/Footer';
 import styles from './css/Contact.module.css';
 
