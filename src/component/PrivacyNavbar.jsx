@@ -28,10 +28,15 @@ const PrivacyNavbar = () => {
         <li><Link to="/#pricing">Pricing</Link></li>
       </ul>
 
-      {/* DESKTOP ACTIONS */}
+      {/* --- DESKTOP ACTIONS UPDATED --- */}
       <div className={styles.navActions}>
-        <Link to="/login" className={styles.loginLink}>Log in</Link>
-        <button className={styles.getStartedBtn}>Get Started</button>
+        <a href="https://sign.nexgn.cloud" className={styles.loginLink}>Log in</a>
+        <button 
+          className={styles.getStartedBtn} 
+          onClick={() => window.location.href = "https://sign.nexgn.cloud/signup"}
+        >
+          Get Started
+        </button>
       </div>
 
       {/* MOBILE HAMBURGER TOGGLE */}
@@ -39,13 +44,19 @@ const PrivacyNavbar = () => {
         {isMobileMenuOpen ? <X size={28} color="#FFFFFF" /> : <Menu size={28} color="#FFFFFF" />}
       </button>
 
-      {/* MOBILE DROP DOWN MENU */}
+      {/* --- MOBILE DROP DOWN MENU UPDATED --- */}
       <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuOpen : ''}`}>
         <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
         <Link to="/#product" onClick={() => setIsMobileMenuOpen(false)}>Product</Link>
         <Link to="/#pricing" onClick={() => setIsMobileMenuOpen(false)}>Pricing</Link>
-        <Link to="/login" onClick={() => setIsMobileMenuOpen(false)}>Log in</Link>
-        <button className={styles.mobileGetStartedBtn}>Get Started</button>
+        
+        <a href="https://sign.nexgn.cloud" onClick={() => setIsMobileMenuOpen(false)}>Log in</a>
+        <button 
+          className={styles.mobileGetStartedBtn}
+          onClick={() => window.location.href = "https://sign.nexgn.cloud/signup"}
+        >
+          Get Started
+        </button>
       </div>
     </nav>
   );

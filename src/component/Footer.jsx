@@ -101,9 +101,9 @@ const Footer = () => {
           {/* Links 1: Company */}
           <div className={styles.linkColCompany}>
             <h4>COMPANY</h4>
-            <Link to="/about">About Us</Link>
-            <Link to="/contact">Contact Us</Link>
-            <Link to="/blog">Blog</Link>
+            <Link to="/about" onClick={() => window.scrollTo(0, 0)}>About Us</Link>
+            <Link to="/contact" onClick={() => window.scrollTo(0, 0)}>Contact Us</Link>
+            <Link to="/blog" onClick={() => window.scrollTo(0, 0)}>Blog</Link>
           </div>
 
           {/* Links 2: Resources */}

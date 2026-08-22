@@ -11,14 +11,35 @@ import NotFound from "./pages/NotFound";
 // import SignUp from "./login-signup/pages/SignUp";
 // import Login from "./login-signup/pages/Login";
 
-// Routes where navbar should be HIDDEN
-const HIDE_NAVBAR_ROUTES = ["/signup", "/login","/help","/privacy","/terms","/trust"];
+// 1. List ALL valid routes in your app
+const VALID_ROUTES = [
+  "/",
+  "/contact",
+  "/help",
+  "/privacy",
+  "/trust",
+  "/terms",
+  "/signup",
+  "/login"
+];
+
+// 2. Routes where navbar should be explicitly HIDDEN
+const HIDE_NAVBAR_ROUTES = ["/signup", "/login", "/help", "/privacy", "/terms", "/trust"];
 
 function ConditionalNavbar() {
   const location = useLocation();
-  const shouldHide = HIDE_NAVBAR_ROUTES.includes(location.pathname);
+  
+  // Check if the current URL doesn't exist in our app (meaning it's a 404)
+  const isNotFoundPage = !VALID_ROUTES.includes(location.pathname);
+  
+  // Check if the current URL is in our explicit hide list
+  const isHiddenRoute = HIDE_NAVBAR_ROUTES.includes(location.pathname);
 
-  if (shouldHide) return null;
+  // If it is a 404 OR a hidden route, do not render the Navbar
+  if (isNotFoundPage || isHiddenRoute) {
+    return null;
+  }
+
   return <Navbar />;
 }
 
@@ -28,9 +49,8 @@ function App() {
       <div className="App">
         <ConditionalNavbar />
         <Routes>
-            {/* Main Landing Page Route */}
+          {/* Main Landing Page Route */}
           <Route path="/" element={<Landing />} />
-          <Route path="/not-found" element={<NotFound />} />
 
           {/* Support & Contact Routes */}
           <Route path="/contact" element={<Contact />} />
@@ -44,6 +64,8 @@ function App() {
           {/* <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} /> */}
 
+          {/* 404 Not Found Catch-All (Must be at the bottom) */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </BrowserRouter>
