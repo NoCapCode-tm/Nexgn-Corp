@@ -8,8 +8,7 @@ import Contact from "./pages/Contact";
 import HelpCenter from "./sub-pages/HelpCenter";
 import Navbar from "./component/Navbar";
 import NotFound from "./pages/NotFound";
-// import SignUp from "./login-signup/pages/SignUp";
-// import Login from "./login-signup/pages/Login";
+import AboutUs from './pages/AboutUs';
 
 // 1. List ALL valid routes in your app
 const VALID_ROUTES = [
@@ -18,13 +17,11 @@ const VALID_ROUTES = [
   "/help",
   "/privacy",
   "/trust",
-  "/terms",
-  "/signup",
-  "/login"
+  "/terms"
 ];
 
 // 2. Routes where navbar should be explicitly HIDDEN
-const HIDE_NAVBAR_ROUTES = ["/signup", "/login", "/help", "/privacy", "/terms", "/trust"];
+const HIDE_NAVBAR_ROUTES = ["/help", "/privacy", "/terms", "/trust", "/about"];
 
 function ConditionalNavbar() {
   const location = useLocation();
@@ -55,6 +52,9 @@ function App() {
           {/* Support & Contact Routes */}
           <Route path="/contact" element={<Contact />} />
           <Route path="/help" element={<HelpCenter />} />
+
+          {/* Add the new About Us route here */}
+          <Route path="/about" element={<AboutUs />} />
 
           {/* Legal & Compliance Routes */}
           <Route path="/privacy" element={<PrivacyPolicy />} />
