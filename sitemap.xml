@@ -123,14 +123,14 @@
 
   <!-- Auth Portal -->
   <url>
-    <loc>https://nexgn.cloud/login</loc>
+    <loc>https://sign.nexgn.cloud/login</loc>
     <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <url>
-    <loc>https://nexgn.cloud/signup</loc>
+    <loc>https://sign.nexgn.cloud/signup</loc>
     <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
