@@ -18,16 +18,21 @@
   overflow: hidden;
 }
 .imgland {
-  width: 50%;
+  flex: 0 0 55%;
+  width: 760px;
   height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
 
 .imgland img {
   width: 100%;
   height: 100%;
+  max-height: none;
   object-fit: contain;
   display: block;
 }
@@ -193,7 +198,7 @@
 
   .heroSubtext {
     /* max-width: 100%; */
-    margin-top: 100px;
+    margin-top: 60px;
   }
 
   .imgland {
@@ -249,7 +254,7 @@
   }
   .heroSubtext {
     font-size: 18px;
-    margin-top: 100px;
+    margin-top: 60px;
     max-width: 215px;
   }
    .ctaBtn {
@@ -288,7 +293,7 @@
   }
   .heroSubtext {
     font-size: 16px;
-        margin-top: 161px;
+        margin-top: 61px;
         max-width: 190px;
   }
 }
@@ -312,7 +317,7 @@
   align-items: center;
   justify-content: space-between;
   background-color: #ffffff;
-  padding: 10px 10px 10px 0px;
+  padding: 10px 20px 10px 10px;
   /* box-shadow: 0px 16px 31.4px 0px #00000085; */
   /* border-radius: 0 0 36px 36px; */
   margin: 0 auto;
@@ -377,7 +382,7 @@
 
 .mobileMenu.mobileMenuOpen {
   max-height: 300px;
-  
+  letter-spacing: 1px;
   opacity: 1;
   padding: 24px;
 }
@@ -415,6 +420,40 @@
 
 }
 
+.introScene {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.introScene .landing {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  z-index: 2;
+}
+
+.introScene .about {
+  position: absolute;
+  top: 100vh;
+  left: 0;
+
+  width: 100%;
+  height: 100vh;
+  min-height: 115vh;
+
+  z-index: 3;
+
+  background-color: white;
+
+  border-radius: 36px 36px 0 0;
+
+  box-shadow: 0px -15px 105px 0px #0000006E;
+
+  overflow: hidden;
+}
 .logo {
   display: flex;
   align-items: center;
@@ -428,6 +467,7 @@
   display: flex;
   list-style: none;
   gap: 40px;
+  letter-spacing: 1px;
 }
 
 .navLinks a {
@@ -435,10 +475,12 @@
   color: #111;
   font-size: 16px;
   font-weight: 400;
+  
 }
 
 .navLinks a:hover {
   opacity: 0.7;
+  
 }
 
 
@@ -487,19 +529,20 @@
 
 
 /* about sextion */
-.about{
-    width:100%;
-    height:auto;
-   box-shadow: 0px -15px 105px 0px #0000006E;
-   z-index: 54815864184685;
+.about {
+    width: 100%;
+    height: 100vh;
+
+    box-shadow: 0px -15px 105px 0px #0000006E;
 
     background-color: white;
-    display:flex;
+
+    display: flex;
     align-items: flex-start;
-    border-radius:36px 36px 0 0;
-    /* margin-bottom: 50px; */
-    margin-top: -40px;
-    padding:20px;
+
+    border-radius: 36px 36px 0 0;
+
+    padding: 20px;
 }
 @media (max-width: 900px){
   .about{

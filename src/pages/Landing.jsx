@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, {useLayoutEffect, useRef, useState } from 'react'
 import styles from '../pages/css/Landing.module.css'
 import {  ChevronDown } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
-
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Footer from '../component/Footer'
 
 
@@ -16,6 +17,8 @@ const Landing = () => {
 const [activeIndex, setActiveIndex] = useState(null)
 const [currentSlide, setCurrentSlide] = useState(0)
 const navigate = useNavigate()
+const introRef = useRef(null)
+const aboutRef = useRef(null)
 
   const toggleFaq = (index) => {
     setActiveIndex(activeIndex === index ? null : index)
@@ -138,6 +141,53 @@ const faqData = [
   }
 ];
 
+
+
+//gsap animations
+
+useLayoutEffect(() => {
+  gsap.registerPlugin(ScrollTrigger)
+
+  const ctx = gsap.context(() => {
+    const intro = introRef.current
+    const about = aboutRef.current
+
+    if (!intro || !about) return
+
+    gsap.fromTo(
+      about,
+      {
+        y: 0,
+      },
+      {
+        y: () => -window.innerHeight,
+
+        ease: "none",
+
+        scrollTrigger: {
+          trigger: intro,
+
+          start: "top top",
+
+          end: () => `+=${window.innerHeight}`,
+
+          scrub: 1,
+
+          pin: true,
+
+          pinSpacing: true,
+
+          anticipatePin: 1,
+
+          invalidateOnRefresh: true,
+        },
+      }
+    )
+  }, introRef)
+
+  return () => ctx.revert()
+}, [])
+
   return (
     <>
     <Helmet>
@@ -153,7 +203,7 @@ const faqData = [
         })}
       </script>
     </Helmet>
-
+    <div ref={introRef} className={styles.introScene}>
     <div className={styles.landing}>
   <section className={styles.hero}>
     <div className={styles.heroText}>
@@ -177,10 +227,10 @@ const faqData = [
   </section>
 </div>
 
-    <section className={styles.about}>
+    <section ref={aboutRef} className={styles.about}>
         <span>Nexgn is a secure, India-first digital signature platform built to simplify and scale modern document workflows.</span>
       </section>
-
+ </div>
      <section className={styles.working}>
   <div className={styles.workingLeft}>
     <div className={styles.heading}>
@@ -633,6 +683,7 @@ const faqData = [
 
 
     <Footer/>
+   
 
     </>
   )
