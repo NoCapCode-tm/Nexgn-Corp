@@ -10,6 +10,7 @@ import Footer from '../component/Footer'
 // 1. IMPORT THE IMAGE HERE
 import benefitsDashboard from '../assets/benefits-dashboard.png'
 import { useNavigate } from 'react-router'
+import useWindowWidth from '../component/usewindowwidth'
 
 
 const Landing = () => {
@@ -19,7 +20,8 @@ const [currentSlide, setCurrentSlide] = useState(0)
 const navigate = useNavigate()
 const introRef = useRef(null)
 const aboutRef = useRef(null)
-
+const aboutTextRef = useRef(null)
+const width = useWindowWidth()
   const toggleFaq = (index) => {
     setActiveIndex(activeIndex === index ? null : index)
   }
@@ -151,37 +153,49 @@ useLayoutEffect(() => {
   const ctx = gsap.context(() => {
     const intro = introRef.current
     const about = aboutRef.current
+    const aboutText = aboutTextRef.current
 
-    if (!intro || !about) return
+    if (!intro || !about || !aboutText) return
 
-    gsap.fromTo(
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: intro,
+        start: "top top",
+        end: () => `+=${window.innerHeight}`,
+        scrub: 1,
+        pin: true,
+        pinSpacing: true,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+      },
+    })
+
+    tl.fromTo(
       about,
       {
         y: 0,
+        borderTopLeftRadius: 36,
+        borderTopRightRadius: 36,
       },
       {
         y: () => -window.innerHeight,
-
+        borderTopLeftRadius: 0,
+        borderTopRightRadius: 0,
         ease: "none",
+      },
+      0
+    )
 
-        scrollTrigger: {
-          trigger: intro,
-
-          start: "top top",
-
-          end: () => `+=${window.innerHeight}`,
-
-          scrub: 1,
-
-          pin: true,
-
-          pinSpacing: true,
-
-          anticipatePin: 1,
-
-          invalidateOnRefresh: true,
-        },
-      }
+    tl.fromTo(
+      aboutText,
+      {
+        fontSize: width > 1200 ?"48px": width<1200 && width > 900?"48px":width>900 && width > 768 ? "48px":"30px",
+      },
+      {
+       fontSize: width > 1200 ?"90px": width<1200 && width > 900?"85px":width<900 && width > 768 ? "80px":width<768 && width > 640 ? "70px":width<500 && width > 400 ?"55px":width<400 && width > 360?"50px":"45px",
+        ease: "none",
+      },
+      0
     )
   }, introRef)
 
@@ -228,7 +242,7 @@ useLayoutEffect(() => {
 </div>
 
     <section ref={aboutRef} className={styles.about}>
-        <span>Nexgn is a secure, India-first digital signature platform built to simplify and scale modern document workflows.</span>
+        <span ref={aboutTextRef}>Nexgn is a secure, India-first digital signature platform built to simplify and scale modern document workflows.</span>
       </section>
  </div>
      <section className={styles.working}>
