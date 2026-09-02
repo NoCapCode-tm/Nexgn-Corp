@@ -623,57 +623,178 @@
 
 /* ===== RIGHT SIDE (CARDS) ===== */
 .workingRight {
-  
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 40px;
-  z-index: 2;
+  position: relative;
+
+  overflow: visible;
+  width: 650px;
   height: 480px;
+
+  z-index: 2;
 }
 
+/* Every card starts from a fixed slot */
 .card {
-  position: relative;
+  position: absolute;
+  top: 0;
+
   width: 105px;
   height: 100%;
+
   border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(2px);
+
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+
   padding: 20px 14px;
+
+  overflow: hidden;
+  box-sizing: border-box;
+
+  transition:
+    width 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.workingRight .card:nth-child(2) {
-  height: 100%;
-  align-self: flex-end;
+/* Initial positions */
+.card:nth-child(1) {
+  left: 0;
 }
 
-.workingRight .card:nth-child(3) {
+.card:nth-child(2) {
+  left: 121px;
+}
+
+.card:nth-child(3) {
+  left: 242px;
+}
+.card.active {
+  width: 300px;
+}
+
+/* Card 1 active */
+.card:nth-child(1).active {
+  left: 0;
+}
+
+/* Cards behind it get pushed right */
+.workingRight:has(.card:nth-child(1).active) .card:nth-child(2) {
+  transform: translateX(195px);
+}
+
+.workingRight:has(.card:nth-child(1).active) .card:nth-child(3) {
+  transform: translateX(195px);
+}
+
+/* Card 2 expands from its center */
+.card:nth-child(2).active {
+  transform: translateX(-97.5px);
+}
+
+/* Card 1 pushed left */
+.workingRight:has(.card:nth-child(2).active) .card:nth-child(1) {
+  transform: translateX(-97.5px);
+}
+
+/* Card 3 pushed right */
+.workingRight:has(.card:nth-child(2).active) .card:nth-child(3) {
+  transform: translateX(97.5px);
+}
+
+.card:nth-child(3).active {
+  transform: translateX(-195px);
+}
+
+/* Cards 1 and 2 get pushed left */
+.workingRight:has(.card:nth-child(3).active) .card:nth-child(1),
+.workingRight:has(.card:nth-child(3).active) .card:nth-child(2) {
+  transform: translateX(-195px);
+}
+/* EXPAND HOVERED CARD */
+/* .card:hover {
+  flex: 4 1 0;
+  background: #111111;
+  border-radius: 18px;
+} */
+
+/* collapsed content */
+.cardCollapsed {
+  display: flex;
+  align-items: flex-end;
   height: 100%;
-  align-self: flex-end;
+  transition: opacity 0.3s ease;
+}
+
+/* expanded content */
+.cardExpanded {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.08);
+  padding: 18px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  opacity: 0;
+  transform: translateX(25px);
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card:hover .cardCollapsed {
+  opacity: 0;
+}
+
+.card:hover .cardExpanded {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.cardExpanded h3 {
+  color: white;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.1;
+  margin-bottom: 14px;
+}
+
+.cardExpanded p {
+  color: white;
+  font-size: 15px;
+  line-height: 1.35;
+  font-weight: 400;
+  max-width: 330px;
 }
 
 .cardNumber {
   position: absolute;
   top: 18px;
   left: 16px;
-  color: #ffffff;
+
+  color: white;
   font-size: 15px;
   font-weight: 600;
+
+  z-index: 3;
 }
 
 .cardLabel {
-  color: #ffffff;
+  color: white;
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 1px;
+
   writing-mode: vertical-rl;
   transform: rotate(180deg);
+
   white-space: nowrap;
-}
+} 
 
 .benefits {
   width: 100%;
@@ -684,6 +805,18 @@
 @media (max-width: 1060px) {
   .benefits{
     padding:60px 20px 80px;
+  }
+}
+@media (max-width: 900px) {
+  .workingRight {
+    width: 100%;
+    max-width: 650px;
+    height: 340px;
+  }
+}
+@media (max-width: 400px) {
+  .card{
+    width:70px;
   }
 }
 
@@ -922,6 +1055,17 @@
 .featureCard:nth-child(2) {
   grid-column: 2 / 3;
   grid-row: 1 / 2;
+}
+.featureCard:hover {
+  background-color: red;
+}
+
+.featureCard:hover h3,
+.featureCard:hover p {
+  color: white;
+}
+.featureCard:hover .iconWrap svg{
+  color:white;
 }
 
 .featureCard:nth-child(3) {
@@ -2328,6 +2472,7 @@
 
   .imageCard {
     min-height: 340px;
+    display:none;
   }
 
   .statPercent {
@@ -2368,11 +2513,11 @@
     height: auto;
   }
 
-  .workingRight {
+  /* .workingRight {
     width: 100%;
     justify-content: flex-start;
     height: 340px;
-  }
+  } */
 
   .heading h2 {
     font-size: 22px;
@@ -2396,6 +2541,181 @@
 @media (max-width: 425px){
   .about span{
     font-size: 24px;
+  }
+}
+
+/* =========================
+   SMALL MOBILE CARD SYSTEM
+   ========================= */
+
+@media (max-width: 400px) {
+
+  .workingRight {
+    --card-gap: 10px;
+
+    width: 100%;
+    max-width: 100%;
+    height: 340px;
+
+    position: relative;
+    overflow: visible;
+  }
+
+  /* 3 cards + 2 gaps always fit the container */
+  .workingRight {
+    --card-width: calc(
+      (100% - (2 * var(--card-gap))) / 3
+    );
+  }
+
+  .card {
+    width: var(--card-width);
+    height: 100%;
+
+    transition:
+      width 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* -------------------------
+     COLLAPSED POSITIONS
+     ------------------------- */
+
+  .card:nth-child(1) {
+    left: 0;
+  }
+
+  .card:nth-child(2) {
+    left: calc(var(--card-width) + var(--card-gap));
+  }
+
+  .card:nth-child(3) {
+    left: calc(
+      (2 * var(--card-width)) +
+      (2 * var(--card-gap))
+    );
+  }
+
+  /* -------------------------
+     EXPANDED CARD
+     ------------------------- */
+
+  .card.active {
+    width: 300px;
+    min-width: 300px;
+  }
+
+  /* =========================
+     CARD 1
+     Expands → RIGHT
+     ========================= */
+
+  .card:nth-child(1).active {
+    transform: translateX(0);
+  }
+
+  .workingRight:has(.card:nth-child(1).active)
+  .card:nth-child(2) {
+
+    transform: translateX(
+      calc(300px - var(--card-width))
+    );
+  }
+
+  .workingRight:has(.card:nth-child(1).active)
+  .card:nth-child(3) {
+
+    transform: translateX(
+      calc(300px - var(--card-width))
+    );
+  }
+
+
+  /* =========================
+     CARD 2
+     Expands ← BOTH →
+     ========================= */
+
+  .card:nth-child(2).active {
+    transform: translateX(
+      calc(
+        (var(--card-width) - 300px) / 2
+      )
+    );
+  }
+
+  .workingRight:has(.card:nth-child(2).active)
+  .card:nth-child(1) {
+
+    transform: translateX(
+      calc(
+        (var(--card-width) - 300px) / 2
+      )
+    );
+  }
+
+  .workingRight:has(.card:nth-child(2).active)
+  .card:nth-child(3) {
+
+    transform: translateX(
+      calc(
+        (300px - var(--card-width)) / 2
+      )
+    );
+  }
+
+
+  /* =========================
+     CARD 3
+     Expands → LEFT
+     ========================= */
+
+  .card:nth-child(3).active {
+    transform: translateX(
+      calc(var(--card-width) - 300px)
+    );
+  }
+
+  .workingRight:has(.card:nth-child(3).active)
+  .card:nth-child(1),
+  .workingRight:has(.card:nth-child(3).active)
+  .card:nth-child(2) {
+
+    transform: translateX(
+      calc(var(--card-width) - 300px)
+    );
+  }
+
+
+  /* -------------------------
+     TEXT
+     ------------------------- */
+
+  .cardNumber {
+    top: 14px;
+    left: 12px;
+    font-size: 13px;
+  }
+
+  .cardLabel {
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+
+  .cardExpanded {
+    padding: 16px;
+  }
+
+  .cardExpanded h3 {
+    font-size: 22px;
+  }
+
+  .cardExpanded p {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  .working{
+    padding:60px 10px;
   }
 }
 

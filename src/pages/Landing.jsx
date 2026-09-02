@@ -17,6 +17,7 @@ const Landing = () => {
 
 const [activeIndex, setActiveIndex] = useState(null)
 const [currentSlide, setCurrentSlide] = useState(0)
+const [hoveredCard, setHoveredCard] = useState(null)
 const navigate = useNavigate()
 const introRef = useRef(null)
 const aboutRef = useRef(null)
@@ -264,19 +265,68 @@ useLayoutEffect(() => {
   </div>
 
   <div className={styles.workingRight}>
-    <div className={styles.card}>
-      <span className={styles.cardNumber}>01</span>
+
+  <div
+    className={`${styles.card} ${hoveredCard === 0 ? styles.active : ""}`}
+    onMouseEnter={() => setHoveredCard(0)}
+    onMouseLeave={() => setHoveredCard(null)}
+  >
+    <span className={styles.cardNumber}>01</span>
+
+    <div className={styles.cardCollapsed}>
       <span className={styles.cardLabel}>Upload document</span>
     </div>
-    <div className={styles.card}>
-      <span className={styles.cardNumber}>02</span>
-      <span className={styles.cardLabel}>Add signers</span>
-    </div>
-    <div className={styles.card}>
-      <span className={styles.cardNumber}>03</span>
-      <span className={styles.cardLabel}>Sign &amp; Complete</span>
+
+    <div className={styles.cardExpanded}>
+      <h3>Upload document</h3>
+      <p>
+        Upload your document securely and prepare it for the signing workflow.
+      </p>
     </div>
   </div>
+
+
+  <div
+    className={`${styles.card} ${hoveredCard === 1 ? styles.active : ""}`}
+    onMouseEnter={() => setHoveredCard(1)}
+    onMouseLeave={() => setHoveredCard(null)}
+  >
+    <span className={styles.cardNumber}>02</span>
+
+    <div className={styles.cardCollapsed}>
+      <span className={styles.cardLabel}>Add signers</span>
+    </div>
+
+    <div className={styles.cardExpanded}>
+      <h3>Add signers</h3>
+      <p>
+        Add the people who need to review, approve, or sign the document.
+      </p>
+    </div>
+  </div>
+
+
+  <div
+    className={`${styles.card} ${hoveredCard === 2 ? styles.active : ""}`}
+    onMouseEnter={() => setHoveredCard(2)}
+    onMouseLeave={() => setHoveredCard(null)}
+  >
+    <span className={styles.cardNumber}>03</span>
+
+    <div className={styles.cardCollapsed}>
+      <span className={styles.cardLabel}>Sign &amp; Complete</span>
+    </div>
+
+    <div className={styles.cardExpanded}>
+      <h3>Sign &amp; Complete</h3>
+      <p>
+        Signers receive a link, sign digitally and the sealed document is
+        delivered instantly.
+      </p>
+    </div>
+  </div>
+
+</div>
 </section>
 
 <section className={styles.benefits}>
