@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@200;300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -626,7 +627,7 @@
   position: relative;
 
   overflow: visible;
-  width: 650px;
+  width: 350px;
   height: 480px;
 
   z-index: 2;
@@ -1049,7 +1050,7 @@
   padding: 24px 22px;
   display: flex;
   flex-direction: column;
-  min-height: 300px;
+  min-height:430px;
 }
 
 .featureCard:nth-child(2) {
@@ -1267,13 +1268,24 @@
 .brandMark {
   position: relative;
   flex: 1;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  overflow: hidden;
-  margin-bottom: 36px;
-}
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  margin-bottom: 0;
+}
+.securityBrandSvg {
+  width: 485px;
+  height: auto;
+
+  transform-origin: center center;
+
+  will-change: transform;
+  display: block;
+}
 .brandText {
   font-size: 260px;
   font-weight: 800;
@@ -1431,7 +1443,49 @@
   }
 }
 
+.newpricing{
+  width:100%;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height:auto;
+}
+.above{
+  width:100%;
+  height:auto;
+  padding:0px 20px;
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom:-30px;
+}
+.above1{
+  width:100%;
+  height:auto;
+  padding:0px 20px;
+  display:flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top:-50px;
+}
+.above h1,.above1 h1{
+  text-align: left;
+  font-size:80px;
+  color:rgba(255, 9, 21, 1);
+   font-family: "Plus Jakarta Sans", sans-serif;
+   font-weight: 500;
+   letter-spacing: 1px;
 
+}
+.abovesub{
+    font-family: "Plus Jakarta Sans", sans-serif;
+   font-weight: 400;
+   /* text-align: right; */
+   color:rgba(74, 74, 74, 1);
+   letter-spacing: 1px;
+   font-size:18px;
+}
 /* ===== PRICING GRID ===== */
 .pricingGrid {
   display: grid;
@@ -1445,7 +1499,7 @@
 /* ===== PRICING CAROUSEL (for mobile) ===== */
 .pricingCarousel {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin: 0 auto;
   padding: 0 24px;
@@ -1486,24 +1540,32 @@
   box-shadow: 0px 4px 36.6px 0px #00000040;
   padding: 16px;
   border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(3px);
 }
 
 
 .pricingCard {
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.2);
   border: 1px solid #e5e5e5;
   border-radius: 14px;
-  
+  backdrop-filter: blur(3px);
   display: flex;
   flex-direction: column;
 }
 .pricingCard:hover {
-  background-color: #FFE4E4;
+  background-color: rgba(255, 83, 83, 0.2);
+  backdrop-filter: blur(3px);
 }
 
 .pricingCard:hover .shadow {
   box-shadow: 0px 4px 36.6px 0px #FF0915;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(3px);
+}
+.pricingCard:hover .pricingCard {
+  background-color: rgba(255, 83, 83, 0.2);
+  backdrop-filter: blur(3px);
 }
 
 /* .popularCard {
@@ -1595,6 +1657,8 @@
   flex-direction: column;
   gap: 12px;
   padding: 16px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(3px);
 }
 
 .featureList li {
@@ -1971,43 +2035,109 @@
   }
 }
 
-@media (max-width: 550px) {
+@media (max-width: 768px) {
+
+  .pricing {
+    padding: 0 0 80px;
+    overflow: hidden;
+  }
+  .above h1 ,.above1 h1{
+    font-size: 60px;
+  }
+  .above{
+    margin-bottom: -20px;
+  }
+  .above1{
+    margin-top: -30px;
+  }
+
   .pricingCarousel {
     display: flex;
-    border-radius: 12px;
-    grid-template-columns: none;
+    width: 100%;
+    gap: 0;
+    justify-content: flex-start;
     overflow-x: auto;
+    overflow-y: hidden;
+
     scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* Firefox */
-    gap: 40px;
-    background-color: none;
-    padding: 0 0px;
+
+    scrollbar-width: none;
+
+    /* Important: no side padding */
+    padding: 0;
   }
-.pricing{
-  padding: 0px 20px 80px;
-}
+
   .pricingCarousel::-webkit-scrollbar {
     display: none;
   }
 
+  /*
+    Exactly ONE card takes the entire carousel width.
+  */
   .pricingCard {
-    flex: 0 0 100%;
+     flex: 0 0 50%;
+    margin-left: 0%;
+    margin-right: 4%;
+    /* width: 100%;
+    min-width: 100%; */
+
     scroll-snap-align: start;
+    scroll-snap-stop: always;
+
+    box-sizing: border-box;
     /* padding: 0 20px; */
   }
 
   .carouselDots {
     display: flex;
+    align-self:center;
   }
 
-  .marqueeItem span {
-    font-size: 48px;
+}
+@media (max-width: 570px) {
+  .above h1 ,.above1 h1{
+    font-size: 40px;
   }
-   .marqueeIcon {
-    width: 120px;
-    height: 120px;
+  .abovesub{
+     font-size: 16px;
   }
+  /* .above{
+    margin-bottom: -20px;
+  }
+  .above1{
+    margin-top: -30px;
+  } */
+}
+@media (max-width: 500px) {
+    .pricingCard{
+        flex: 0 0 70%;
+        margin-left: 9%;
+        margin-right: 9%;
+        
+    }
+}
+@media (max-width: 420px) {
+     .above h1 ,.above1 h1{
+    font-size: 30px;
+  }
+  .abovesub{
+     font-size: 12px;
+  }
+  .above{
+    margin-bottom: -10px;
+  }
+  .above1{
+    margin-top: -20px;
+  }
+  .pricingCard{
+        flex: 0 0 100%;
+        margin-left: 0%;
+        margin-right: 0%;
+        padding:0px 0px;
+        
+    }
 }
 /* ===== RESPONSIVE ===== */
 /* ===== RESPONSIVE: 1024px down to 320px ===== */
@@ -2300,7 +2430,6 @@
   }
 }
 
-/* ===== FURTHER SCALE DOWN: 480px to 320px ===== */
 @media (max-width: 480px) {
   .features {
     padding: 20px 16px 48px;
@@ -2359,8 +2488,6 @@
   }
 }
 
-/* ===== RESPONSIVE ===== */
-/* ===== RESPONSIVE: 900px down to 320px ===== */
 @media (max-width: 900px) {
   .benefits {
     padding: 40px 24px 60px;
@@ -2374,14 +2501,12 @@
     font-size: 14px;
   }
 
-  /* Stack everything into one column and reorder items */
   .benefitsContent {
     flex-direction: column;
     gap: 20px;
   }
 
-  /* Break benefitsList open so its children become direct flex items
-     of benefitsContent — lets us interleave imageCard between them */
+
   .benefitsList {
     display: contents;
   }
@@ -2406,8 +2531,6 @@
     /* border: 2px solid #2b8ce6; */
   }
 
-  /* Re-layout each card: heading spans full width on top,
-     number sits bottom-left, paragraph sits to its right */
   .benefitRow {
     display: grid;
     grid-template-columns: max-content 1fr;
@@ -2455,7 +2578,6 @@
   }
 }
 
-/* ===== FURTHER SCALE DOWN: 480px to 320px ===== */
 @media (max-width: 480px) {
   .benefits {
     padding: 32px 16px 48px;
@@ -2544,9 +2666,7 @@
   }
 }
 
-/* =========================
-   SMALL MOBILE CARD SYSTEM
-   ========================= */
+
 
 @media (max-width: 400px) {
 
@@ -2561,7 +2681,7 @@
     overflow: visible;
   }
 
-  /* 3 cards + 2 gaps always fit the container */
+  
   .workingRight {
     --card-width: calc(
       (100% - (2 * var(--card-gap))) / 3
@@ -2577,9 +2697,6 @@
       transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  /* -------------------------
-     COLLAPSED POSITIONS
-     ------------------------- */
 
   .card:nth-child(1) {
     left: 0;
@@ -2596,19 +2713,12 @@
     );
   }
 
-  /* -------------------------
-     EXPANDED CARD
-     ------------------------- */
 
   .card.active {
     width: 300px;
     min-width: 300px;
   }
 
-  /* =========================
-     CARD 1
-     Expands → RIGHT
-     ========================= */
 
   .card:nth-child(1).active {
     transform: translateX(0);
@@ -2630,11 +2740,6 @@
     );
   }
 
-
-  /* =========================
-     CARD 2
-     Expands ← BOTH →
-     ========================= */
 
   .card:nth-child(2).active {
     transform: translateX(
@@ -2665,11 +2770,6 @@
   }
 
 
-  /* =========================
-     CARD 3
-     Expands → LEFT
-     ========================= */
-
   .card:nth-child(3).active {
     transform: translateX(
       calc(var(--card-width) - 300px)
@@ -2685,11 +2785,6 @@
       calc(var(--card-width) - 300px)
     );
   }
-
-
-  /* -------------------------
-     TEXT
-     ------------------------- */
 
   .cardNumber {
     top: 14px;

@@ -17,7 +17,9 @@ const Landing = () => {
 
 const [activeIndex, setActiveIndex] = useState(null)
 const [currentSlide, setCurrentSlide] = useState(0)
+const pricingCarouselRef = useRef(null)
 const [hoveredCard, setHoveredCard] = useState(null)
+const securityRef = useRef(null)
 const navigate = useNavigate()
 const introRef = useRef(null)
 const aboutRef = useRef(null)
@@ -75,41 +77,77 @@ const width = useWindowWidth()
         'Priority support'
       ]
     },
-    {
-      price: 'Custom',
-      period: '',
-      plan: 'Enterprise',
-      description: 'Tailored according to you.',
-      headerBg: '#FF1F1F',
-      headerColor: '#fff',
-      features: [
-        'Everything in Business',
-        'Unlimited users',
-        'Full API ecosystem',
-        'Dedicated onboarding',
-        'SLA and enterprise support',
-        'Advanced security and compliance',
-        'Custom infrastructure support'
-      ]
-    }
+    // {
+    //   price: 'Custom',
+    //   period: '',
+    //   plan: 'Enterprise',
+    //   description: 'Tailored according to you.',
+    //   headerBg: '#FF1F1F',
+    //   headerColor: '#fff',
+    //   features: [
+    //     'Everything in Business',
+    //     'Unlimited users',
+    //     'Full API ecosystem',
+    //     'Dedicated onboarding',
+    //     'SLA and enterprise support',
+    //     'Advanced security and compliance',
+    //     'Custom infrastructure support'
+    //   ]
+    // }
   ]
 
-  const handleDotClick = (index) => {
-    setCurrentSlide(index)
-    const carousel = document.querySelector(`.${styles.pricingCarousel}`)
-    if (carousel) {
-      carousel.scrollTo({
-        left: carousel.offsetWidth * index,
-        behavior: 'smooth'
-      })
-    }
-  }
+const handleDotClick = (index) => {
+  const carousel = pricingCarouselRef.current
 
-  const handleScroll = (e) => {
-    const carousel = e.target
-    const slideIndex = Math.round(carousel.scrollLeft / carousel.offsetWidth)
-    setCurrentSlide(slideIndex)
-  }
+  if (!carousel) return
+
+  const cards = carousel.querySelectorAll(`.${styles.pricingCard}`)
+  const card = cards[index]
+
+  if (!card) return
+
+  setCurrentSlide(index)
+
+  const targetLeft =
+    card.offsetLeft -
+    (carousel.clientWidth - card.offsetWidth) / 2
+
+  carousel.scrollTo({
+    left: targetLeft,
+    behavior: 'smooth'
+  })
+}
+
+
+const handleScroll = (e) => {
+  const carousel = e.currentTarget
+
+  const cards = carousel.querySelectorAll(`.${styles.pricingCard}`)
+
+  if (!cards.length) return
+
+  const carouselCenter =
+    carousel.scrollLeft + carousel.clientWidth / 2
+
+  let closestIndex = 0
+  let closestDistance = Infinity
+
+  cards.forEach((card, index) => {
+    const cardCenter =
+      card.offsetLeft + card.offsetWidth / 2
+
+    const distance = Math.abs(
+      carouselCenter - cardCenter
+    )
+
+    if (distance < closestDistance) {
+      closestDistance = distance
+      closestIndex = index
+    }
+  })
+
+  setCurrentSlide(closestIndex)
+}
 
 const faqData = [
   {
@@ -199,6 +237,40 @@ useLayoutEffect(() => {
       0
     )
   }, introRef)
+
+  return () => ctx.revert()
+}, [])
+
+useLayoutEffect(() => {
+  gsap.registerPlugin(ScrollTrigger)
+
+  const ctx = gsap.context(() => {
+    const security = securityRef.current
+    const svg = security?.querySelector(
+      `.${styles.securityBrandSvg}`
+    )
+
+    if (!security || !svg) return
+
+    gsap.fromTo(
+      svg,
+      {
+        scale: 0.03,
+      },
+      {
+        scale: 1.2,
+        ease: "expo.in",
+
+        scrollTrigger: {
+          trigger: security,
+          start: "top bottom",
+          end: "bottom bottom",
+          scrub: 1,
+          invalidateOnRefresh: true,
+        },
+      }
+    )
+  }, securityRef)
 
   return () => ctx.revert()
 }, [])
@@ -542,7 +614,7 @@ useLayoutEffect(() => {
   </div>
 </section>
 
-<section className={styles.security}>
+<section ref={securityRef} className={styles.security}>
   <div className={styles.securityHeader}>
     <h2 className={styles.securityTitle}>TRUST &amp; SECURITY</h2>
     <p className={styles.securitySubtitle}>Your documents are in safe hands</p>
@@ -580,7 +652,7 @@ useLayoutEffect(() => {
 
       <div className={styles.brandMark}>
         
-<svg width="485" height="290" viewBox="0 0 345 290" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg   className={styles.securityBrandSvg} width="485" height="290" viewBox="0 0 345 290" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M131.6 289.597C114.8 289.597 99.7333 285.997 86.4 278.797C73.0667 271.33 62.5333 261.064 54.8 247.997C47.0667 234.93 43.2 220.13 43.2 203.597V81.1969C43.2 76.9302 42.1333 73.0635 40 69.5969C37.8667 66.1302 35.0667 63.3302 31.6 61.1969C28.1333 59.0635 24.2667 57.9969 20 57.9969C15.7333 57.9969 11.8667 59.0635 8.4 61.1969C4.93334 63.3302 2.13334 66.1302 3.57628e-06 69.5969C-1.86666 73.0635 -2.8 76.9302 -2.8 81.1969V284.797H-68.4V85.9969C-68.4 69.1969 -64.6667 54.3969 -57.2 41.5969C-49.4667 28.7969 -38.9333 18.6635 -25.6 11.1969C-12 3.7302 3.2 -0.00312996 20 -0.00312996C37.0667 -0.00312996 52.2667 3.7302 65.6 11.1969C78.9333 18.6635 89.4667 28.7969 97.2 41.5969C104.933 54.3969 108.8 69.1969 108.8 85.9969V208.397C108.8 212.664 109.867 216.664 112 220.397C114.133 223.864 116.8 226.664 120 228.797C123.467 230.664 127.2 231.597 131.2 231.597C135.467 231.597 139.333 230.664 142.8 228.797C146.533 226.664 149.467 223.864 151.6 220.397C153.733 216.664 154.8 212.664 154.8 208.397V4.79686H220V203.597C220 220.13 216.133 234.93 208.4 247.997C200.667 261.064 190.133 271.33 176.8 278.797C163.467 285.997 148.4 289.597 131.6 289.597ZM346.431 284.797C323.231 284.797 302.831 280.53 285.231 271.997C267.631 263.197 253.898 251.197 244.031 235.997C234.431 220.53 229.631 202.664 229.631 182.397C229.631 159.997 234.298 140.797 243.631 124.797C252.965 108.797 265.365 96.5302 280.831 87.9969C296.565 79.1969 313.898 74.7969 332.831 74.7969C354.431 74.7969 372.431 79.3302 386.831 88.3969C401.498 97.4635 412.565 109.864 420.031 125.597C427.498 141.064 431.231 158.797 431.231 178.797C431.231 182.264 430.965 186.397 430.431 191.197C430.165 195.73 429.765 199.33 429.231 201.997H294.831C296.431 208.93 299.498 214.797 304.031 219.597C308.565 224.397 314.298 227.997 321.231 230.397C328.165 232.53 335.898 233.597 344.431 233.597H407.231V284.797H346.431ZM293.231 163.197H371.231C370.698 158.93 369.898 154.797 368.831 150.797C367.765 146.797 366.031 143.33 363.631 140.397C361.498 137.197 358.965 134.53 356.031 132.397C353.098 129.997 349.631 128.13 345.631 126.797C341.898 125.464 337.631 124.797 332.831 124.797C326.698 124.797 321.231 125.864 316.431 127.997C311.631 130.13 307.631 133.064 304.431 136.797C301.231 140.264 298.698 144.397 296.831 149.197C295.231 153.73 294.031 158.397 293.231 163.197Z" fill="#FFAF9A"/>
 <mask id="mask0_3344_37577" style={{maskType:"alpha"}} maskUnits="userSpaceOnUse" x="120" y="134" width="137" height="138">
 <path d="M250.053 134.797C253.89 134.797 257 137.907 257 141.744V251.739L217.688 213.284C216.317 211.943 214.105 211.955 212.749 213.312L195.13 230.931C193.774 232.287 193.786 234.475 195.157 235.816L231.939 271.797H142.529L235.058 181.283C236.429 179.942 236.441 177.755 235.085 176.398L217.466 158.779C216.109 157.423 213.898 157.41 212.526 158.752L120 249.263V159.702L159.146 197.996C160.517 199.337 162.728 199.325 164.085 197.969L181.705 180.35C183.062 178.993 183.049 176.805 181.678 175.464L140.105 134.797H250.053Z" fill="black"/>
@@ -641,8 +713,12 @@ useLayoutEffect(() => {
       ))}
     </div>
   </div>
-
-  <div className={styles.pricingCarousel} onScroll={handleScroll}>
+<div className={styles.newpricing}>
+  <div className={styles.above} >
+    <span className={styles.abovesub}>Choose the plan that fits your document workflow and scale your business with Nexgn.</span>
+    <h1>Simple Pricing .</h1>
+  </div>
+  <div className={styles.pricingCarousel} ref={pricingCarouselRef} onScroll={handleScroll}>
     {pricingCards.map((card, index) => (
       <div key={index} className={`${styles.pricingCard} ${card.isPopular ? styles.popularCard : ''}`}>
         <div className={styles.shadow}>
@@ -673,8 +749,9 @@ useLayoutEffect(() => {
       </div>
     ))}
   </div>
-
-  <div className={styles.carouselDots}>
+  <div className={styles.above1} >
+    <h1>Powerful Signing.</h1>
+    <div className={styles.carouselDots}>
     {pricingCards.map((_, index) => (
       <button
         key={index}
@@ -683,6 +760,9 @@ useLayoutEffect(() => {
         aria-label={`Go to slide ${index + 1}`}
       />
     ))}
+    </div>
+    <span className={styles.abovesub} style={{maxWidth:"750px"}}>We’re excited to share that very soon you’ll be able to build your own plan, choose the features you need, and get a custom price tailored just for you.</span>
+  </div>
   </div>
 </section>
 
