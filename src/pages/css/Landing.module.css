@@ -1682,7 +1682,7 @@
   border-top: none;
 } */
 
-.faq {
+/* .faq {
   width: 100%;
   height: auto;
   margin-bottom: -30px;
@@ -1692,10 +1692,10 @@
   border: 1px solid #d6e4f0;
   border-radius: 0 0 40px 40px;
   padding: 40px 60px 100px;
-}
+} */
 
 /* ===== HEADER ===== */
-.faqHeader {
+/* .faqHeader {
   margin-bottom: 36px;
 }
 
@@ -1712,30 +1712,30 @@
   letter-spacing: 1px;
   font-weight: 400;
   margin-top: 6px;
-}
+} */
 
 /* ===== GRID ===== */
-.faqGrid {
+/* .faqGrid {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
   gap: 30px;
   /* max-width: 1180px; */
-}
+
 
 /* ===== LEFT BANNER ===== */
-.faqBanner {
+/* .faqBanner {
   position: relative;
   background-image:url(../../assets/faqimage.png);
-  background-size: 100% 100%;
+  background-size: 100% 100%; */
   /* background-color: #e8261c; */
-  border-radius: 8px;
+  /* border-radius: 8px;
   overflow: hidden;
-  padding:  0px 24px ;
+  padding:  0px 24px ; */
  
   /* min-height: 440px; */
-}
 
-.bannerText {
+
+/* .bannerText {
   display: flex;
   flex-direction: column;
   color: #ffb3a3;
@@ -1754,7 +1754,7 @@
 
 .indent2 {
   margin-left: 100px;
-}
+} */
 
 .bannerBrand {
   margin-bottom:-20px;
@@ -1768,7 +1768,7 @@
 }
 
 /* ===== RIGHT LIST ===== */
-.faqList {
+/* .faqList {
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -1825,7 +1825,7 @@
   line-height: 1.6;
   letter-spacing: 1px;
   color: #555555;
-}
+} */
 
 
 .log{
@@ -2003,13 +2003,13 @@
 }
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
-  .faqGrid {
+  /* .faqGrid {
     grid-template-columns: 1fr;
   }
 
   .faqBanner {
     min-height: 300px;
-  }
+  } */
 
   .bannerText {
     font-size: 32px;
@@ -2321,11 +2321,11 @@
     min-height: 150px;
   }
 }
-@media (max-width: 760px){
+/* @media (max-width: 760px){
   .faq{
     padding:40px 10px 100px;
   }
-}
+} */
 
 /* ===== RESPONSIVE ===== */
 /* ===== RESPONSIVE: 900px down to 320px ===== */
@@ -2479,14 +2479,14 @@
     display: contents;
   }
 }
-@media (max-width: 768px){
+/* @media (max-width: 768px){
   .faqTitle{
     font-size: 24px;
   }
   .faqSubtitle{
     font-size: 12px;
   }
-}
+} */
 
 @media (max-width: 900px) {
   .benefits {

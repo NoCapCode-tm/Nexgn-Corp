@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-import styles from './FaqSection.module.css';
+import styles from './css/FaqSection.module.css';
 
 // Replace this with your actual image import if needed
 import faqImageSrc from '../assets/faqimage.png';
