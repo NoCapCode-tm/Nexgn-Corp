@@ -2030,9 +2030,9 @@
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
-  .pricingCarousel {
-    grid-template-columns: 1fr 1fr;
-  }
+    /* .pricingCarousel {
+      grid-template-columns: 1fr 1fr;
+    } */
 }
 
 @media (max-width: 768px) {
@@ -2814,3 +2814,32 @@
   }
 }
 
+/* =====================================================
+   FAQ → FOOTER TRANSITION
+   Same architecture as the Landing → About transition
+===================================================== */
+
+.faqFooterScene {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* FAQ is the layer that gets pinned */
+.faqLayer {
+  position: relative;
+  width: 100%;
+  z-index: 2;
+}
+
+/* Footer starts one full FAQ height below the
+   scene and is brought upward over the FAQ */
+.footerLayer {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  will-change: transform;
+}

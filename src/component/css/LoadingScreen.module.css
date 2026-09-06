@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+.loadingScreen {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100dvh;
+
+  background: #ff0915;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 999999;
+
+  overflow: hidden;
+
+  animation: screenFadeIn 0.5s ease forwards;
+}
+
+
+.logoWrapper {
+    height:105;
+    width:105;
+  display: flex;
+  flex-direction: row;
+  gap:10px;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+
+  overflow: visible;
+}
+
+
+
+.logoIcon {
+  width: 55px;
+  height: 55px;
+
+  display: block;
+
+  margin-bottom: 4px;
+
+  animation: iconAppear 0.7s cubic-bezier(0.22, 1, 0.36, 1)
+    0.1s both;
+}
+
+
+
+.logoText {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  overflow: visible;
+}
+
+.logoLetter {
+  display: inline-block;
+
+   color: #ffffff;
+
+  font-family: "MuseoModerno", sans-serif;
+
+  font-size: 44px;
+  font-weight: 400;
+
+  letter-spacing: 1px;
+  line-height: 1;
+
+  will-change: transform;
+
+  /* VERY IMPORTANT */
+  opacity: 1;
+}
+
+
+@keyframes screenFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+@keyframes logoAppear {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+@keyframes iconAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.65) rotate(-8deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+
+@keyframes textAppear {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+    letter-spacing: 2px;
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    letter-spacing: -1.2px;
+  }
+}
+
+
+@keyframes logoFloat {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-3px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+@media (max-width: 600px) {
+  .logoIcon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logoText {
+    font-size: 26px;
+  }
+}
+
+
+
+
+@media (prefers-reduced-motion: reduce) {
+  .loadingScreen,
+  .logoWrapper,
+  .logoIcon,
+  .logoText {
+    animation: none;
+  }
+}
