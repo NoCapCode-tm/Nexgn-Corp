@@ -221,12 +221,11 @@
 
 .heroImage {
   position: absolute;
-  top: 0;
+  top: 50px;
   left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover; /* Crops image cleanly if aspect ratios change */
-  object-position: center left; /* Keeps the character in frame */
 }
 
 
@@ -275,7 +274,7 @@
 }
 
 /* Small Mobile */
-@media (max-width: 768px) {
+@media (max-width: 425px) {
   .cardsGrid {
     grid-template-columns: 1fr; /* Switch to single column for cards */
   }

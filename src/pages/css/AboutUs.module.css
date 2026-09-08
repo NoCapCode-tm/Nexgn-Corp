@@ -199,6 +199,12 @@
 }
 
 
+@media (max-width: 425px) {
+   .storySection, 
+  .valuesSection {
+    grid-template-columns: 1fr;
+  }
+}
 @media (max-width: 768px) {
   .heroWrapper {
     padding: 10px; 
@@ -219,9 +225,8 @@
     gap: 60px;
   }
 
-  .storySection, 
+ 
   .valuesSection {
-    grid-template-columns: 1fr;
     gap: 24px;
   }
 

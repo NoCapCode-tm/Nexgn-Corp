@@ -61,7 +61,9 @@
       "/contact",
       "/security",
       "/help",
-      "/about"
+      "/about",
+      "/pricing",
+      "/product"
     ],
     "skipThirdPartyRequests": true,
     "puppeteerArgs": [

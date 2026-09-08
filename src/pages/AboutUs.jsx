@@ -47,7 +47,7 @@ const AboutUs = () => {
           <section className={styles.storySection}>
             <div className={styles.leftCol}>
               <h2 className={styles.sectionHeading}>
-                Designed for Trust<br />Engineered for the World
+                Designed for Trust <br />Engineered for the World
               </h2>
             </div>
             <div className={styles.rightCol}>
@@ -81,7 +81,7 @@ const AboutUs = () => {
           <section className={styles.valuesSection}>
             <div className={styles.leftCol}>
               <h2 className={styles.sectionHeading}>
-                Built on Principles.<br />Driven by Purpose.
+                Built on Principles. <br />Driven by Purpose.
               </h2>
               <span className={styles.subLabel}>OUR CORE VALUES</span>
             </div>
