@@ -1443,7 +1443,7 @@
     position: absolute;
     bottom: -20px;
     left: -5px;
-    font-size: 120px;
+    font-size: 106px;
     line-height: 0.8;
     margin: 0;
   }
@@ -1451,7 +1451,7 @@
   .benefitRow:nth-child(1) .bigNumber {
     bottom: -15px;
     left: 20px;
-    font-size: 130px;
+    font-size: 106px;
   }
   
   .statTop { top: 16px; left: 16px; }
@@ -1469,7 +1469,7 @@
   } 
 
   .benefitRow:nth-child(1) { padding: 20px 16px 20px 60px; }
-  .benefitRow:nth-child(1) .bigNumber { left: 10px; font-size: 110px; }
+  .benefitRow:nth-child(1) .bigNumber { left: 10px; font-size: 106px; }
 
   .benefitRow:nth-child(2),
   .benefitRow:nth-child(3) {
