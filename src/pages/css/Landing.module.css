@@ -1225,7 +1225,7 @@
 
 .redCard {
   position: relative;
-  background-color: #E90000;
+  background-color: #F8F8F8;
   border-radius: 8px;
   padding: 24px 0px 40px;
   min-height: 540px;
@@ -1367,6 +1367,7 @@
 .darkCardTop p,
 .darkCardBottom p {
   margin-bottom: 4px;
+  font-weight: 250;
 }
 
 .bold {

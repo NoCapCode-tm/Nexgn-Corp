@@ -23,11 +23,8 @@ const [hoveredCard, setHoveredCard] = useState(null)
 const securityRef = useRef(null)
 const navigate = useNavigate()
 const introRef = useRef(null)
-const faqTransitionRef = useRef(null)
 const aboutRef = useRef(null)
 const aboutTextRef = useRef(null)
-const footerSceneRef = useRef(null)
-
 const width = useWindowWidth()
   // const toggleFaq = (index) => {
   //   setActiveIndex(activeIndex === index ? null : index)
@@ -275,75 +272,6 @@ useLayoutEffect(() => {
       }
     )
   }, securityRef)
-
-  return () => ctx.revert()
-}, [])
-
-useLayoutEffect(() => {
-  gsap.registerPlugin(ScrollTrigger)
-
-  const scene = faqTransitionRef.current
-  const faqLayer = scene?.querySelector(
-    `.${styles.faqLayer}`
-  )
-  const footer = footerSceneRef.current
-
-  if (!scene || !faqLayer || !footer) return
-
-  const ctx = gsap.context(() => {
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: scene,
-
-        /*
-         * FAQ scrolls normally first.
-         * When the bottom of FAQ reaches the
-         * bottom of the viewport, freeze it.
-         */
-        start: "bottom bottom",
-
-        /*
-         * Keep FAQ frozen for one viewport of
-         * scrolling — exactly like About.
-         */
-        end: () => `+=${window.innerHeight}`,
-
-        pin: true,
-        pinSpacing: true,
-
-        scrub: 1,
-
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-
-        // markers: true,
-      }
-    })
-
-    /*
-     * Footer starts at top:100% of the FAQ scene.
-     *
-     * At the beginning of the pin it is sitting
-     * immediately below the viewport.
-     *
-     * During the pinned scroll it travels upward
-     * by exactly one viewport.
-     */
-    tl.fromTo(
-      footer,
-      {
-        y: 0,
-      },
-      {
-        y: () => -window.innerHeight,
-        duration: 1,
-        ease: "none",
-      },
-      0
-    )
-
-  }, faqTransitionRef)
 
   return () => ctx.revert()
 }, [])
@@ -874,21 +802,32 @@ useLayoutEffect(() => {
       </div>
     </section> */}
 
-  <div
-  ref={faqTransitionRef}
-  className={styles.faqFooterScene}
->
-  <div className={styles.faqLayer}>
-    <FaqSection />
-  </div>
+    <FaqSection/>
 
-  <div
-    ref={footerSceneRef}
-    className={styles.footerLayer}
-  >
-    <Footer />
+    <section className={styles.log}>
+        <video
+    className={styles.bgVideo}
+    autoPlay
+    loop
+    muted
+    playsInline
+    src="/hero-bg-ascii.mp4"
+  />
+  <div className={styles.overlay1}> 
+  <svg width="70" height="70" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M29.0205 0C34.5433 0 39.0205 4.47717 39.0205 10V29.0205C39.0205 30.304 38.7755 31.5298 38.335 32.6572L30.3623 24.8584C28.5708 23.1059 25.6823 23.1214 23.9102 24.8936C22.1383 26.6657 22.1539 29.523 23.9453 31.2754L31.5352 38.7002C30.7316 38.9083 29.8891 39.0205 29.0205 39.0205H10C8.93076 39.0205 7.90149 38.8498 6.93555 38.5391L30.2363 15.7471C32.0279 13.9946 32.0436 11.1374 30.2715 9.36523C28.4993 7.59324 25.6108 7.57761 23.8193 9.33008L0.5 32.1406C0.177637 31.1586 3.84748e-05 30.1104 0 29.0205V10C2.47359e-06 9.11162 0.117554 8.25064 0.334961 7.43066L8.61133 15.5264C10.4027 17.2787 13.2913 17.2629 15.0635 15.4912C16.8356 13.7191 16.8199 10.8619 15.0283 9.10938L6.40039 0.669922C7.51751 0.238592 8.73076 5.31673e-05 10 0H29.0205Z" fill="#FF0915"/>
+  </svg>
   </div>
-</div>
+  
+  
+    </section>
+
+
+
+    <Footer/>
+
+   
+
     </>
   )
 }
