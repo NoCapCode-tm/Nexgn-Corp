@@ -1923,5 +1923,5 @@
   .featuresTitle { font-size: 28px; }
   .featuresMainText { font-size: 22px; }
   .featureNumber { font-size: 48px; }
-  .featureItemNew::before { top: 24px; }
+  .featureItemNew::before { top: 30px; }
 }
