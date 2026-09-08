@@ -10,6 +10,10 @@ import FaqSection from '../component/FaqSection'
 
 // 1. IMPORT THE IMAGE HERE
 import benefitsDashboard from '../assets/benefits-dashboard.png'
+import collage1 from '../assets/collageBox-1.png';
+import collage2 from '../assets/collageBox-2.png';
+import collage3 from '../assets/collageBox-3.png';
+import collageWide from '../assets/collageBoxWide.png';
 import { useNavigate } from 'react-router'
 import useWindowWidth from '../component/usewindowwidth'
 
@@ -481,7 +485,7 @@ useLayoutEffect(() => {
   </div>
 </section>
 
-<section className={styles.features}>
+{/* <section className={styles.features}>
   <div className={styles.featuresHeader}>
     <h2 className={styles.featuresTitle}>FEATURES</h2>
     <p className={styles.featuresSubtitle}>Everything you need to go paperless</p>
@@ -613,7 +617,97 @@ useLayoutEffect(() => {
     </div>
     </div>
   </div>
-</section>
+</section> */}
+
+{/* ===================== NEW FEATURES SECTION ===================== */}
+      <section className={styles.featuresNew}>
+        <div className={styles.featuresContainer}>
+          
+          {/* Left Column */}
+          <div className={styles.featuresLeft}>
+            <div className={styles.featuresHeader}>
+              <h2 className={styles.featuresTitle}>FEATURES</h2>
+              <p className={styles.featuresSubtitle}>Everything you need to go paperless</p>
+            </div>
+            
+            <div className={styles.featuresTextContent}>
+              <h3 className={styles.featuresMainText}>A masterpiece of<br />engineering innovation.</h3>
+              <p className={styles.featuresSubText}>
+                Nexgn replaces paperwork<br />with secure digital workflows,<br />helping businesses run<br />smarter.
+              </p>
+            </div>
+
+            <div className={styles.featuresFooterText}>
+              Paperless. Fast. Compliant. Sustainable.
+            </div>
+          </div>
+
+          {/* Right Column */}
+          <div className={styles.featuresRight}>
+            
+            {/* Number Grid */}
+            <div className={styles.featuresGridNew}>
+              {/* Item 1 */}
+              <div className={styles.featureItemNew}>
+                <div className={styles.featureNumber}>01</div>
+                <div className={styles.featureDivider}></div>
+                <div className={styles.featureContent}>
+                  <h4 className={styles.featureItemTitle}>Document Upload<br />&amp; Management</h4>
+                  <p className={styles.featureItemDesc}>Users can seamlessly add, organize, and track all their files in one secure platform.</p>
+                </div>
+              </div>
+
+              {/* Item 2 */}
+              <div className={styles.featureItemNew}>
+                <div className={styles.featureNumber}>02</div>
+                <div className={styles.featureDivider}></div>
+                <div className={styles.featureContent}>
+                  <h4 className={styles.featureItemTitle}>Multi-Signer<br />Workflows</h4>
+                  <p className={styles.featureItemDesc}>Nexgn allow multiple stakeholders to review and sign documents in sequence or simultaneously.</p>
+                </div>
+              </div>
+
+              {/* Item 3 */}
+              <div className={styles.featureItemNew}>
+                <div className={styles.featureNumber}>03</div>
+                <div className={styles.featureDivider}></div>
+                <div className={styles.featureContent}>
+                  <h4 className={styles.featureItemTitle}>Digital Signatures</h4>
+                  <p className={styles.featureItemDesc}>Nexgn provide legally valid, tamper-proof authentication for documents, ensuring security, compliance, and trust.</p>
+                </div>
+              </div>
+
+              {/* Item 4 */}
+              <div className={styles.featureItemNew}>
+                <div className={styles.featureNumber}>04</div>
+                <div className={styles.featureDivider}></div>
+                <div className={styles.featureContent}>
+                  <h4 className={styles.featureItemTitle}>Audit Trail &amp; PDF<br />Download</h4>
+                  <p className={styles.featureItemDesc}>Nexgn ensures complete transparency and accessibility.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Collage Placeholder Grid */}
+            <div className={styles.featureImagesCollage}>
+              <div className={styles.collageBox}>
+                <img src={collage1} alt="Upload and manage" className={styles.collageImg} />
+              </div>
+              <div className={styles.collageBox}>
+                <img src={collage2} alt="Multi-signer" className={styles.collageImg} />
+              </div>
+              <div className={styles.collageBox}>
+                <img src={collage3} alt="Signatures" className={styles.collageImg} />
+              </div>
+              <div className={styles.collageBoxWide}>
+                <img src={collageWide} alt="Audit trail" className={styles.collageImg} />
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
 
 <section ref={securityRef} className={styles.security}>
   <div className={styles.securityHeader}>
