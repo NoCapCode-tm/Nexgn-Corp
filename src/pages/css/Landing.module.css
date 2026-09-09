@@ -1804,7 +1804,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 140px 180px;
   gap: 12px;
-  width: 75%;
+  /* width: 75%; */
   align-self: flex-end;
 }
 
@@ -1814,20 +1814,30 @@
   border-radius: 4px;
   width: 100%;
   height: 100%;
+  justify-self: end;
 }
 
 .collageBoxWide {
-  background-color: #1c1c1c; 
+  /* background-color: #1c1c1c;  */
   border-radius: 4px;
   grid-column: 1 / -1;
-  width: 66%;
+  /* width: 66%; */
   justify-self: end;
   height: 100%;
 }
 
 .collageImg {
-  width: 100%;
-  height: 100%;
+  width: 169px;
+  height: 136px;
+  object-position: center;
+  display: block;
+  justify-self: end;
+}
+
+
+.collageImgWide {
+  width: 344px;
+  height: 136px;
   object-position: center;
   display: block;
 }

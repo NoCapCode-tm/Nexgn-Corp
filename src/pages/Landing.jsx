@@ -700,7 +700,7 @@ useLayoutEffect(() => {
                 <img src={collage3} alt="Signatures" className={styles.collageImg} />
               </div>
               <div className={styles.collageBoxWide}>
-                <img src={collageWide} alt="Audit trail" className={styles.collageImg} />
+                <img src={collageWide} alt="Audit trail" className={styles.collageImgWide} />
               </div>
             </div>
 
