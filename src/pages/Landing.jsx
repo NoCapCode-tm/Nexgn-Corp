@@ -10,6 +10,7 @@ import FaqSection from '../component/FaqSection'
 
 // 1. IMPORT THE IMAGE HERE
 import benefitsDashboard from '../assets/benefits-dashboard.png'
+import workflowBg from '../assets/workflow-bg.png'; // <--- ADD THIS
 import collage1 from '../assets/collageBox-1.png';
 import collage2 from '../assets/collageBox-2.png';
 import collage3 from '../assets/collageBox-3.png';
@@ -325,106 +326,61 @@ useLayoutEffect(() => {
 
  {/* </div> */}
  
-     <section className={styles.working}>
-  <div className={styles.workingLeft}>
-    <div className={styles.heading}>
-      <span className={styles.headingLine}></span>
-      <h2>HOW IT WORKS</h2>
-    </div>
+{/* ===================== HOW IT WORKS SECTION ===================== */}
+      <section className={styles.howItWorks}>
+        <div className={styles.hwContent}>
+          
+          <div className={styles.hwHeader}>
+            <div className={styles.hwTitleRow}>
+              <h2 className={styles.hwTitle}>HOW IT WORKS</h2>
+              <div className={styles.hwLine}></div>
+            </div>
+            <p className={styles.hwSubtitle}>
+              Nexgn delivers secure, compliant digital signature solutions, empowering businesses with trust.
+            </p>
+          </div>
 
-    <p className={styles.mainText}>
-      Nexgn delivers professional-grade digital signature solutions with
-      strong security, compliance, and trust at its core.
-    </p>
+          <div className={styles.hwGrid}>
+            {/* Labels Row */}
+            <div className={styles.hwLabel}>Collaboration-ready<br/>tool</div>
+            <div className={styles.hwLabel}>Enterprise-grade<br/>security</div>
+            <div className={styles.hwLabel}>Efficiency-driven<br/>design</div>
 
-    <p className={styles.subText}>
-      It empowers businesses with scalable, India-first workflows designed
-      for efficiency and modern team collaboration.
-    </p>
-  </div>
+            {/* Steps Row */}
+            <div className={styles.hwStep}>
+              <div className={styles.hwStepNum}>01</div>
+              <h3 className={styles.hwStepTitle}>Upload document</h3>
+              <p className={styles.hwStepDesc}>Drag and drop your PDF or document into Nexgn- ready in seconds</p>
+            </div>
+            
+            <div className={styles.hwStep}>
+              <div className={styles.hwStepNum}>02</div>
+              <h3 className={styles.hwStepTitle}>Add signers</h3>
+              <p className={styles.hwStepDesc}>Invite one or multiple signers by email with custom signing order</p>
+            </div>
+            
+            <div className={styles.hwStep}>
+              <div className={styles.hwStepNum}>03</div>
+              <h3 className={styles.hwStepTitle}>Sign &amp; Complete</h3>
+              <p className={styles.hwStepDesc}>Signers receive a link, sign digitally and the sealed document is delivered instantly</p>
+            </div>
+          </div>
+          
+        </div>
+        
+        {/* Right-aligned Graphic */}
+        <div className={styles.hwImageWrapper}>
+          <img src={workflowBg} alt="Workflow Stairs" className={styles.hwImage} />
+        </div>
+      </section>
 
-  <div className={styles.workingRight}>
-
-  <div
-    className={`${styles.card} ${hoveredCard === 0 ? styles.active : ""}`}
-    onMouseEnter={() => setHoveredCard(0)}
-    onMouseLeave={() => setHoveredCard(null)}
-  >
-    <span className={styles.cardNumber}>01</span>
-
-    <div className={styles.cardCollapsed}>
-      <span className={styles.cardLabel}>Upload document</span>
-    </div>
-
-    <div className={styles.cardExpanded}>
-      <h3>Upload document</h3>
-      <p>
-        Upload your document securely and prepare it for the signing workflow.
-      </p>
-    </div>
-  </div>
-
-
-  <div
-    className={`${styles.card} ${hoveredCard === 1 ? styles.active : ""}`}
-    onMouseEnter={() => setHoveredCard(1)}
-    onMouseLeave={() => setHoveredCard(null)}
-  >
-    <span className={styles.cardNumber}>02</span>
-
-    <div className={styles.cardCollapsed}>
-      <span className={styles.cardLabel}>Add signers</span>
-    </div>
-
-    <div className={styles.cardExpanded}>
-      <h3>Add signers</h3>
-      <p>
-        Add the people who need to review, approve, or sign the document.
-      </p>
-    </div>
-  </div>
-
-
-  <div
-    className={`${styles.card} ${hoveredCard === 2 ? styles.active : ""}`}
-    onMouseEnter={() => setHoveredCard(2)}
-    onMouseLeave={() => setHoveredCard(null)}
-  >
-    <span className={styles.cardNumber}>03</span>
-
-    <div className={styles.cardCollapsed}>
-      <span className={styles.cardLabel}>Sign &amp; Complete</span>
-    </div>
-
-    <div className={styles.cardExpanded}>
-      <h3>Sign &amp; Complete</h3>
-      <p>
-        Signers receive a link, sign digitally and the sealed document is
-        delivered instantly.
-      </p>
-    </div>
-  </div>
-
-</div>
-</section>
+      
 
 <section className={styles.benefits}>
   <div className={styles.benefitsHeader}>
     <h2 className={styles.benefitsTitle}>KEY BENEFITS</h2>
     <p className={styles.benefitsSubtitle}>Unlock speed, security, and simplicity</p>
   </div>
-  {/* <div className={styles.benefitRow}>
-        <span className={styles.bigNumber}>1</span>
-        <div className={styles.benefitText}>
-          <h3>
-            <span className={styles.red}>Paperless</span> Workflow
-          </h3>
-          <p>
-            enables seamless digital document handling, eliminating manual
-            paperwork for faster, eco-friendly processes.
-          </p>
-        </div>
-      </div> */}
   <div className={styles.benefitsContent}>
     <div className={styles.imageCard}>
       <img

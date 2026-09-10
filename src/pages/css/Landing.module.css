@@ -420,7 +420,7 @@
    font-size: 48px;
    color: rgb(0, 0, 0);
 }
-.working {
+/* .working {
   width: 100%;
   min-height: 100vh;
   height: 70vh;
@@ -443,7 +443,7 @@
   flex-direction: column;
   gap: 36px;
   z-index: 2;
-}
+} */
 
 .heading {
   display: flex;
@@ -482,16 +482,16 @@
 }
 
 /* ===== RIGHT SIDE (CARDS) ===== */
-.workingRight {
+/* .workingRight {
   position: relative;
   overflow: visible;
   width: 350px;
   height: 480px;
   z-index: 2;
-}
+} */
 
 /* Every card starts from a fixed slot */
-.card {
+/* .card {
   position: absolute;
   top: 0;
   width: 105px;
@@ -515,24 +515,24 @@
 .card:nth-child(2) { left: 121px; }
 .card:nth-child(3) { left: 242px; }
 
-.card.active { width: 300px; }
+.card.active { width: 300px; } */
 
 /* Card 1 active */
-.card:nth-child(1).active { left: 0; }
+/* .card:nth-child(1).active { left: 0; }
 .workingRight:has(.card:nth-child(1).active) .card:nth-child(2) { transform: translateX(195px); }
-.workingRight:has(.card:nth-child(1).active) .card:nth-child(3) { transform: translateX(195px); }
+.workingRight:has(.card:nth-child(1).active) .card:nth-child(3) { transform: translateX(195px); } */
 
 /* Card 2 active */
-.card:nth-child(2).active { transform: translateX(-97.5px); }
+/* .card:nth-child(2).active { transform: translateX(-97.5px); }
 .workingRight:has(.card:nth-child(2).active) .card:nth-child(1) { transform: translateX(-97.5px); }
-.workingRight:has(.card:nth-child(2).active) .card:nth-child(3) { transform: translateX(97.5px); }
+.workingRight:has(.card:nth-child(2).active) .card:nth-child(3) { transform: translateX(97.5px); } */
 
 /* Card 3 active */
-.card:nth-child(3).active { transform: translateX(-195px); }
+/* .card:nth-child(3).active { transform: translateX(-195px); }
 .workingRight:has(.card:nth-child(3).active) .card:nth-child(1),
-.workingRight:has(.card:nth-child(3).active) .card:nth-child(2) { transform: translateX(-195px); }
+.workingRight:has(.card:nth-child(3).active) .card:nth-child(2) { transform: translateX(-195px); } */
 
-.cardCollapsed {
+/* .cardCollapsed {
   display: flex;
   align-items: flex-end;
   height: 100%;
@@ -594,7 +594,7 @@
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   white-space: nowrap;
-} 
+}  */
 
 /* ====================================================
    BENEFITS SECTION (DESKTOP)
@@ -728,116 +728,6 @@
   max-width: 560px;
 }
 
-
-/* ====================================================
-   FEATURES SECTION
-   ==================================================== */
-/* .features {
-  width: 100%;
-  height: auto;
-  background-color: #ffffff;
-  border: 1px solid #d6e4f0;
-  padding: 40px 60px 80px;
-}
-
-.featuresHeader { margin-bottom: 40px; }
-
-.featuresTitle {
-  color: #ff2d2d;
-  font-size: 36px;
-  font-weight: 600;
-  letter-spacing: 2px;
-}
-
-.featuresSubtitle {
-  color: #111111;
-  font-size: 20px;
-  font-weight: 600;
-  margin-top: 4px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #ff2d2d;
-  display: inline-block;
-}
-
-.featuresGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto auto;
-  gap: 30px;
-}
-
-.featuresText {
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
-  padding-left:40px;
-  margin-top: 100px;
-  color: #666666;
-  font-size: 15px;
-  line-height: 1.7;
-}
-
-.featuresText p {
-  margin-bottom: 20px;
-  font-size: 18px;
-  letter-spacing: 1px;
-  font-weight: 400;
-}
-
-.boldText {
-  color: #111111;
-  font-weight: 600;
-}
-
-.featureCard {
-  border: 1px solid #ff8080;
-  border-radius: 12px;
-  padding: 24px 22px;
-  display: flex;
-  flex-direction: column;
-  min-height:430px;
-}
-
-.featureCard:nth-child(2) { grid-column: 2 / 3; grid-row: 1 / 2; }
-.featureCard:hover { background-color: red; }
-.featureCard:hover h3, .featureCard:hover p { color: white; }
-.featureCard:hover .iconWrap svg{ color:white; }
-.featureCard:nth-child(3) { grid-column: 3 / 4; grid-row: 1 / 2; }
-.featureCard:nth-child(4) { grid-column: 1 / 2; grid-row: 2 / 3; }
-.featureCard:nth-child(5) { grid-column: 2 / 3; grid-row: 2 / 3; }
-
-.iconWrap {
-  height: 70px;
-  display: flex;
-  gap:20px;
-  align-items: center;
-  margin-bottom: 30px;
-  margin-top: 20px;
-}
-
-.featureCard h3 {
-  font-size: 22px;
-  font-weight: 500;
-  color: #111111;
-  margin-bottom: auto;
-}
-
-.cardDesc {
-  color: #434242;
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 1.6;
-  letter-spacing: 1px;
-  margin-top: 40px;
-}
-
-.single { z-index:1000; }
-.single2 { z-index:500; margin-left:-90px; }
-.single3 { z-index:10; margin-left:-120px; }
-.double { z-index: 1000; }
-.double1 { z-index:500; margin-left:-90px; margin-bottom:20px; }
-.three { z-index:1000; }
-.three1 { z-index:500; margin-left:-60px; }
-.three2 { z-index:10; margin-left:-60px; } */
 
 
 /* ====================================================
@@ -1593,46 +1483,21 @@
 }
 
 @media (max-width: 900px) {
-  /* .features { padding: 24px 20px 60px; border: none; }
-  .featuresHeader { margin-bottom: 24px; }
-  .featuresTitle { font-size: 32px; letter-spacing: 1px; }
-  .featuresSubtitle { font-size: 17px; padding-bottom: 8px; }
-  .featuresGrid { display: flex; flex-direction: column; gap: 20px; max-width: 100%; }
-  .featuresText { padding-left: 0; margin-top: 20px; display: flex; flex-direction: column; gap: 16px; }
-  .featuresText p { font-size: 16px; letter-spacing: 0.3px; margin-bottom: 0; }
-  .featuresText p:first-child { text-align: left; color: #666666; }
-  .featuresText p:last-child { text-align: right; color: #111111; font-weight: 500; padding-left: 15%; }
-  .cardsGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
-  .featureCard { grid-column: unset !important; grid-row: unset !important; width: 100%; min-height: 340px; padding: 20px 16px; }
-  .featureCard h3 { font-size: 17px; } */
   .cardDesc { font-size: 13px; letter-spacing: 0.2px; margin-top: 20px; }
   .iconWrap { margin-top: 8px; margin-bottom: 16px; transform: scale(0.75); transform-origin: left center; }
-  /* .featuresText { margin-top: 0px; padding-left: 0px; } */
 }
 
 @media (max-width : 553px){
   .cardsGrid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; }
 }
 
-/* @media (max-width: 480px) {
-  .features { padding: 20px 16px 48px; }
-  .featuresTitle { font-size: 26px; }
-  .featuresSubtitle { font-size: 15px; }
-  .featuresText p { font-size: 14px; }
-  .featuresText p:last-child { padding-left: 8%; }
-  .cardsGrid { gap: 10px; }
-  .featureCard { padding: 16px 12px; min-height: 300px; }
-  .featureCard h3 { font-size: 15px; }
-  .cardDesc { font-size: 12px; margin-top: 16px; }
-  .iconWrap { transform: scale(0.65); }
-} */
 
 @media (min-width: 901px) {
   .cardsGrid { display: contents; }
 }
 
 @media (max-width: 900px) {
-  .working { flex-direction: column; align-items: flex-start; padding: 60px 40px; height: auto; }
+  /* .working { flex-direction: column; align-items: flex-start; padding: 60px 40px; height: auto; } */
   .heading h2 { font-size: 22px; }
   .mainText { font-size: 18px; }
 }
@@ -1644,7 +1509,7 @@
   .about span { font-size: 24px; }
 }
 
-@media (max-width: 400px) {
+/* @media (max-width: 400px) {
   .workingRight {
     --card-gap: 10px;
     width: 100%;
@@ -1678,7 +1543,7 @@
   .cardExpanded h3 { font-size: 22px; }
   .cardExpanded p { font-size: 13px; line-height: 1.4; }
   .working { padding: 60px 10px; }
-}
+} */
 
 
 
@@ -1934,4 +1799,199 @@
   .featuresMainText { font-size: 22px; }
   .featureNumber { font-size: 48px; }
   .featureItemNew::before { top: 30px; }
+}
+
+
+/* ====================================================
+   HOW IT WORKS SECTION 
+   ==================================================== */
+.howItWorks {
+  position: relative;
+  width: 100%;
+  background-color: #f7f7f7; /* Very light grey matching design */
+  padding: 100px 60px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.hwContent {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  padding-right: 140px;
+}
+
+.hwHeader {
+  margin-bottom: 80px;
+}
+
+.hwTitleRow {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.hwTitle {
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  color: #111111;
+}
+
+.hwLine {
+  height: 1px;
+  background-color: #111111;
+  width: 100px; /* Matches the short line in design */
+}
+
+.hwSubtitle {
+  font-size: 22px;
+  font-weight: 300;
+  color: #333333;
+  line-height: 1.5;
+  max-width: 480px;
+}
+
+.hwGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 60px;
+  column-gap: 40px;
+}
+
+.hwLabel {
+  font-size: 15px;
+  color: #555555;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+.hwStep {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hwStepNum {
+  font-size: 36px;
+  font-weight: 400;
+  color: #111111;
+  margin-bottom: 16px;
+}
+
+.hwStepTitle {
+  font-size: 18px;
+  font-weight: 500;
+  color: #111111;
+  margin-bottom: 12px;
+}
+
+.hwStepDesc {
+  font-size: 14px;
+  color: #666666;
+  line-height: 1.6;
+  font-weight: 400;
+  max-width: 250px;
+}
+
+.hwImageWrapper {
+  position: absolute;
+  right: -180px;
+  top: 0;
+  width: 390px; /* Fixed width for stairs on desktop */
+  z-index: 1;
+}
+
+.hwImage {
+  width: 54%;
+  height: 100%;
+  /* object-fit: cover;
+  object-position: left center; */
+}
+
+/* ====================================================
+   HOW IT WORKS: MOBILE RESPONSIVE
+   ==================================================== */
+@media (max-width: 1024px) {
+  .hwContent {
+    padding-right: 280px;
+  }
+  /* .hwImageWrapper {
+    width: 280px;
+  } */
+  .hwGrid {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .howItWorks {
+    padding: 60px 24px;
+  }
+  .hwContent {
+    padding-right: 35%; /* Prevents text from overlapping stairs on mobile */
+  }
+  /* .hwImageWrapper {
+    width: 40%;
+  } */
+  
+  .hwTitleRow {
+    margin-bottom: 12px;
+  }
+  .hwTitle {
+    font-size: 18px;
+    letter-spacing: 2px;
+  }
+  .hwLine {
+    width: 50px;
+  }
+  .hwSubtitle {
+    font-size: 17px;
+  }
+  .hwHeader {
+    margin-bottom: 40px;
+  }
+
+  /* Transform to vertical stack */
+  .hwGrid {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+
+  .hwLabel {
+    margin-bottom: 0px; 
+    font-size: 14px;
+  }
+
+  .hwStep {
+    margin-top: 16px;
+  }
+  .hwStepNum {
+    font-size: 26px;
+    margin-bottom: 8px;
+  }
+  .hwStepTitle {
+    font-size: 17px;
+    margin-bottom: 8px;
+  }
+  .hwStepDesc {
+    font-size: 13.5px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hwContent {
+    padding-right: 25%; /* Tighten space on very small screens */
+  }
+  .hwImageWrapper {
+    width:100%;
+    margin-right: -28%;
+  }
+  .hwSubtitle {
+    font-size: 15px;
+  }
 }
