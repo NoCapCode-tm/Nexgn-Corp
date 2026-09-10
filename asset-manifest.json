@@ -1,9 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.6afcbfbf.css",
-    "main.js": "/static/js/main.9e8ed065.js",
+    "main.css": "/static/css/main.311b1847.css",
+    "main.js": "/static/js/main.3bac747a.js",
     "static/js/453.aa9f2141.chunk.js": "/static/js/453.aa9f2141.chunk.js",
-    "static/media/download.png": "/static/media/download.84f3dbf5b86df11762da.png",
     "static/media/footer-brand.png": "/static/media/footer-brand.78145f0673a711dc266f.png",
     "static/media/terms-hero-bg.png": "/static/media/terms-hero-bg.09eae578ef4cab14b776.png",
     "static/media/trust-hero-bg.png": "/static/media/trust-hero-bg.e71b27ede491e4afced4.png",
@@ -13,18 +12,19 @@
     "static/media/Not-Found.png": "/static/media/Not-Found.4b208b66a11fe8de5d8b.png",
     "static/media/contact-hero.png": "/static/media/contact-hero.13e22e6c4b502f00869e.png",
     "static/media/faqimage.png": "/static/media/faqimage.7e66109269081003159c.png",
+    "static/media/workflow-bg.png": "/static/media/workflow-bg.7b1f99bf70db29d9bf29.png",
     "static/media/collageBoxWide.png": "/static/media/collageBoxWide.de8d23acfd5beab1b2e4.png",
     "static/media/collageBox-1.png": "/static/media/collageBox-1.f1adb1b562d9f145241e.png",
     "static/media/collageBox-3.png": "/static/media/collageBox-3.9b291251703e4ff58dd4.png",
     "static/media/benefits-dashboard.png": "/static/media/benefits-dashboard.5bf7593cb8b15ed8caa5.png",
     "static/media/collageBox-2.png": "/static/media/collageBox-2.b685fcb611942a479dfd.png",
     "index.html": "/index.html",
-    "main.6afcbfbf.css.map": "/static/css/main.6afcbfbf.css.map",
-    "main.9e8ed065.js.map": "/static/js/main.9e8ed065.js.map",
+    "main.311b1847.css.map": "/static/css/main.311b1847.css.map",
+    "main.3bac747a.js.map": "/static/js/main.3bac747a.js.map",
     "453.aa9f2141.chunk.js.map": "/static/js/453.aa9f2141.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6afcbfbf.css",
-    "static/js/main.9e8ed065.js"
+    "static/css/main.311b1847.css",
+    "static/js/main.3bac747a.js"
   ]
 }
