@@ -13,203 +13,203 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Footer = () => {
   const footerRef = useRef(null);
-useGSAP(() => {
+// useGSAP(() => {
 
-  const footer = footerRef.current;
+//   const footer = footerRef.current;
 
-  if (!footer) return;
+//   if (!footer) return;
 
-  const ctaBox = footer.querySelector(
-    `.${styles.ctaCard}`
-  );
+//   const ctaBox = footer.querySelector(
+//     `.${styles.ctaCard}`
+//   );
 
-  const ctaHeading = footer.querySelector(
-    `.${styles.ctaHeading}`
-  );
+//   const ctaHeading = footer.querySelector(
+//     `.${styles.ctaHeading}`
+//   );
 
-  const ctaSubheading = footer.querySelector(
-    `.${styles.ctaSubheading}`
-  );
+//   const ctaSubheading = footer.querySelector(
+//     `.${styles.ctaSubheading}`
+//   );
 
-  const ctaButton = footer.querySelector(
-    `.${styles.ctaButtonWrapper}`
-  );
+//   const ctaButton = footer.querySelector(
+//     `.${styles.ctaButtonWrapper}`
+//   );
 
-  const brandContent = footer.querySelector(
-    `.${styles.brandTitleCol}`
-  );
+//   const brandContent = footer.querySelector(
+//     `.${styles.brandTitleCol}`
+//   );
 
-  const proudly = footer.querySelector(
-    `.${styles.proudlyCol}`
-  );
+//   const proudly = footer.querySelector(
+//     `.${styles.proudlyCol}`
+//   );
 
-  const company = footer.querySelector(
-    `.${styles.linkColCompany}`
-  );
+//   const company = footer.querySelector(
+//     `.${styles.linkColCompany}`
+//   );
 
-  const resources = footer.querySelector(
-    `.${styles.linkColResources}`
-  );
+//   const resources = footer.querySelector(
+//     `.${styles.linkColResources}`
+//   );
 
-  const legal = footer.querySelector(
-    `.${styles.linkColLegal}`
-  );
+//   const legal = footer.querySelector(
+//     `.${styles.linkColLegal}`
+//   );
 
-  const bigLogo = footer.querySelector(
-    `.${styles.footerBrand}`
-  );
-
-
-
-  const companyItems =
-    company?.querySelectorAll("h4, a") || [];
-
-  const resourceItems =
-    resources?.querySelectorAll("h4, a") || [];
-
-  const legalItems =
-    legal?.querySelectorAll("h4, a") || [];
-
-
-  const tl = gsap.timeline({
-    scrollTrigger: {
-  trigger: footer,
-  start: "top 0%",
-  end: "bottom 80%",
-  scrub: 2,
-  invalidateOnRefresh: true,
-  markers: true,
-}
-  });
-
-
-  tl.from(
-    ctaBox,
-    {
-      opacity: 0,
-      y: 60,
-      scale: 0.98,
-      duration: 2,
-      ease: "power3.out",
-    }
-  );
-
-
-  tl.from(
-    ctaHeading,
-    {
-      opacity: 0,
-      y: 40,
-      duration: 1,
-      ease: "power3.out",
-    },
-    "+=0.08"
-  );
-
-
-  tl.from(
-    ctaSubheading,
-    {
-      opacity: 0,
-      y: 30,
-      duration: 2,
-      ease: "power3.out",
-    },
-    "+=0.08"
-  );
+//   const bigLogo = footer.querySelector(
+//     `.${styles.footerBrand}`
+//   );
 
 
 
+//   const companyItems =
+//     company?.querySelectorAll("h4, a") || [];
 
-  tl.from(
-    ctaButton,
-    {
-      opacity: 0,
-      y: 25,
-      scale: 0.96,
-      duration: 0.5,
-      ease: "power3.out",
-    },
-    "+=0.08"
-  );
+//   const resourceItems =
+//     resources?.querySelectorAll("h4, a") || [];
 
-  tl.from(
-    brandContent,
-    {
-      opacity: 0,
-      y: 35,
-      duration: 0.65,
-      ease: "power3.out",
-    },
-    "+=0.15"
-  );
+//   const legalItems =
+//     legal?.querySelectorAll("h4, a") || [];
 
 
-  tl.from(
-    proudly,
-    {
-      opacity: 0,
-      y: 30,
-      duration: 0.55,
-      ease: "power3.out",
-    },
-    "+=0.08"
-  );
+//   const tl = gsap.timeline({
+//     scrollTrigger: {
+//   trigger: footer,
+//   start: "top 75%",
+//   end: "bottom %",
+//   scrub: 2,
+//   invalidateOnRefresh: true,
+//   markers: false,
+// }
+//   });
 
 
-  tl.from(
-    companyItems,
-    {
-      opacity: 0,
-      y: 24,
-      duration: 0.4,
-      stagger: 0.12,
-      ease: "power3.out",
-    },
-    "+=0.08"
-  );
+//   tl.from(
+//     ctaBox,
+//     {
+//       opacity: 0,
+//       y: 60,
+//       scale: 0.98,
+//       duration: 2,
+//       ease: "power3.out",
+//     }
+//   );
 
 
-  tl.from(
-    resourceItems,
-    {
-      opacity: 0,
-      y: 24,
-      duration: 0.4,
-      stagger: 0.12,
-      ease: "power3.out",
-    },
-    "+=0.08"
-  );
-
-  tl.from(
-    legalItems,
-    {
-      opacity: 0,
-      y: 24,
-      duration: 0.4,
-      stagger: 0.12,
-      ease: "power3.out",
-    },
-    "+=0.08"
-  );
+//   tl.from(
+//     ctaHeading,
+//     {
+//       opacity: 0,
+//       y: 40,
+//       duration: 1,
+//       ease: "power3.out",
+//     },
+//     "+=0.08"
+//   );
 
 
-  tl.from(
-    bigLogo,
-    {
-      opacity: 0,
-      y: 120,
-      duration: 1,
-      ease: "power3.out",
-    },
-    "+=0.2"
-  );
+//   tl.from(
+//     ctaSubheading,
+//     {
+//       opacity: 0,
+//       y: 30,
+//       duration: 2,
+//       ease: "power3.out",
+//     },
+//     "+=0.08"
+//   );
 
 
-}, {
-  scope: footerRef,
-});
+
+
+//   tl.from(
+//     ctaButton,
+//     {
+//       opacity: 0,
+//       y: 25,
+//       scale: 0.96,
+//       duration: 0.5,
+//       ease: "power3.out",
+//     },
+//     "+=0.08"
+//   );
+
+//   tl.from(
+//     brandContent,
+//     {
+//       opacity: 0,
+//       y: 35,
+//       duration: 0.65,
+//       ease: "power3.out",
+//     },
+//     "+=0.15"
+//   );
+
+
+//   tl.from(
+//     proudly,
+//     {
+//       opacity: 0,
+//       y: 30,
+//       duration: 0.55,
+//       ease: "power3.out",
+//     },
+//     "+=0.08"
+//   );
+
+
+//   tl.from(
+//     companyItems,
+//     {
+//       opacity: 0,
+//       y: 24,
+//       duration: 0.4,
+//       stagger: 0.12,
+//       ease: "power3.out",
+//     },
+//     "+=0.08"
+//   );
+
+
+//   tl.from(
+//     resourceItems,
+//     {
+//       opacity: 0,
+//       y: 24,
+//       duration: 0.4,
+//       stagger: 0.12,
+//       ease: "power3.out",
+//     },
+//     "+=0.08"
+//   );
+
+//   tl.from(
+//     legalItems,
+//     {
+//       opacity: 0,
+//       y: 24,
+//       duration: 0.4,
+//       stagger: 0.12,
+//       ease: "power3.out",
+//     },
+//     "+=0.08"
+//   );
+
+
+//   tl.from(
+//     bigLogo,
+//     {
+//       opacity: 0,
+//       y: 120,
+//       duration: 1,
+//       ease: "power3.out",
+//     },
+//     "+=0.2"
+//   );
+
+
+// }, {
+//   scope: footerRef,
+// });
 
   return (
     <footer

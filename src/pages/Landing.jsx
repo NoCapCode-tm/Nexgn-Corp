@@ -191,60 +191,60 @@ const handleScroll = (e) => {
 
 //gsap animations
 
-useLayoutEffect(() => {
-  gsap.registerPlugin(ScrollTrigger)
+// useLayoutEffect(() => {
+//   gsap.registerPlugin(ScrollTrigger)
 
-  const ctx = gsap.context(() => {
-    const intro = introRef.current
-    const about = aboutRef.current
-    const aboutText = aboutTextRef.current
+//   const ctx = gsap.context(() => {
+//     const intro = introRef.current
+//     const about = aboutRef.current
+//     const aboutText = aboutTextRef.current
 
-    if (!intro || !about || !aboutText) return
+//     if (!intro || !about || !aboutText) return
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: intro,
-        start: "top top",
-        end: () => `+=${window.innerHeight}`,
-        scrub: 1,
-        pin: true,
-        pinSpacing: true,
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-      },
-    })
+//     const tl = gsap.timeline({
+//       scrollTrigger: {
+//         trigger: intro,
+//         start: "top top",
+//         end: () => `+=${window.innerHeight}`,
+//         scrub: 1,
+//         pin: true,
+//         pinSpacing: true,
+//         anticipatePin: 1,
+//         invalidateOnRefresh: true,
+//       },
+//     })
 
-    tl.fromTo(
-      about,
-      {
-        y: 0,
-        borderTopLeftRadius: 36,
-        borderTopRightRadius: 36,
-      },
-      {
-        y: () => -window.innerHeight,
-        borderTopLeftRadius: 0,
-        borderTopRightRadius: 0,
-        ease: "none",
-      },
-      0
-    )
+//     tl.fromTo(
+//       about,
+//       {
+//         y: 0,
+//         borderTopLeftRadius: 36,
+//         borderTopRightRadius: 36,
+//       },
+//       {
+//         y: () => -window.innerHeight,
+//         borderTopLeftRadius: 0,
+//         borderTopRightRadius: 0,
+//         ease: "none",
+//       },
+//       0
+//     )
 
-    tl.fromTo(
-      aboutText,
-      {
-        fontSize: width > 1200 ?"48px": width<1200 && width > 900?"48px":width>900 && width > 768 ? "48px":"30px",
-      },
-      {
-       fontSize: width > 1200 ?"90px": width<1200 && width > 900?"85px":width<900 && width > 768 ? "80px":width<768 && width > 640 ? "70px":width<500 && width > 400 ?"55px":width<400 && width > 360?"50px":"45px",
-        ease: "none",
-      },
-      0
-    )
-  }, introRef)
+//     tl.fromTo(
+//       aboutText,
+//       {
+//         fontSize: width > 1200 ?"48px": width<1200 && width > 900?"48px":width>900 && width > 768 ? "48px":"30px",
+//       },
+//       {
+//        fontSize: width > 1200 ?"90px": width<1200 && width > 900?"85px":width<900 && width > 768 ? "80px":width<768 && width > 640 ? "70px":width<500 && width > 400 ?"55px":width<400 && width > 360?"50px":"45px",
+//         ease: "none",
+//       },
+//       0
+//     )
+//   }, introRef)
 
-  return () => ctx.revert()
-}, [])
+//   return () => ctx.revert()
+// }, [])
 
 useLayoutEffect(() => {
   gsap.registerPlugin(ScrollTrigger)
@@ -295,7 +295,7 @@ useLayoutEffect(() => {
         })}
       </script>
     </Helmet>
-    <div ref={introRef} className={styles.introScene}>
+    {/* <div ref={introRef} className={styles.introScene}> */}
     <div className={styles.landing}>
   <section className={styles.hero}>
     <div className={styles.heroText}>
@@ -322,7 +322,9 @@ useLayoutEffect(() => {
     <section ref={aboutRef} className={styles.about}>
         <span ref={aboutTextRef}>Nexgn is a secure, India-first digital signature platform built to simplify and scale modern document workflows.</span>
       </section>
- </div>
+
+ {/* </div> */}
+ 
      <section className={styles.working}>
   <div className={styles.workingLeft}>
     <div className={styles.heading}>
