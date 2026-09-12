@@ -39,7 +39,7 @@
 }
 
 .navbar,
-.hero {
+/* .hero {
   position: relative;
   z-index: 2;
 }
@@ -119,20 +119,20 @@
   max-height: 100vh;
   object-fit: contain;
   display: block;
-}
+} */
 
 /* ===== LARGE TABLET / SMALL LAPTOP ===== */
-@media (max-width: 1200px) {
+/* @media (max-width: 1200px) {
   .hero {
     padding: 50px 40px;
   }
   .heroTitle {
     font-size: 40px;
   }
-}
+} */
 
 /* ===== TABLET ===== */
-@media (max-width: 1024px) {
+/* @media (max-width: 1024px) {
   .hero {
     padding: 50px 32px;
     gap: 24px;
@@ -149,10 +149,10 @@
   width:600px;
   top:40px;
  }
-}
+} */
 
 /* ===== SMALL TABLET / LARGE MOBILE ===== */
-@media (max-width: 860px) {
+/* @media (max-width: 860px) {
   .hero {
     flex-direction: column;
     align-items: flex-start;
@@ -180,10 +180,10 @@
     right:-140px;
     top:80px;
   }
-}
+} */
 
 /* ===== MOBILE ===== */
-@media (max-width: 560px) {
+/* @media (max-width: 560px) {
    .heroTitle {
     font-size: 30px;
   }
@@ -202,10 +202,10 @@
   .hero{
     padding:50px 10px;
   }
-}
+} */
 
 /* ===== SMALL MOBILE ===== */
-@media (max-width: 400px) {
+/* @media (max-width: 400px) {
     .imgland{
     width:400px;
     right:-115px;
@@ -216,8 +216,242 @@
         margin-top: 120px;
         max-width: 190px;
   }
+} */
+
+
+/* ====================================================
+   HERO SECTION (NEW EDITORIAL DESIGN)
+   ==================================================== */
+.heroNew {
+  position: relative;
+  width: 100%;
+  height: auto;
+  background-color: #ffffff;
+  overflow: hidden;
+  display: flex;
 }
 
+/* Vertical 3-Column Grid Lines */
+.heroLines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  display: flex;
+}
+
+.heroLineLeft {
+  position: absolute;
+  left: 33.33%;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  /* This exactly replicates the line turning RED under the title */
+  background: linear-gradient(to bottom, #eaeaea 58%, #e8261c 58%);
+}
+
+.heroLineRight {
+  position: absolute;
+  left: 66.66%;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background-color: #eaeaea;
+}
+
+/* Floating Gray Labels */
+.heroLabelsContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.heroLabel {
+  position: absolute;
+  font-size: 14px;
+  color: #888888;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+/* Positioning based on the 3 columns */
+.labelTop1 { top: 25%; left: 5%; }
+.labelTop2 { top: 25%; left: 38%; }
+.labelTop3 { top: 25%; left: 71%; }
+
+.labelBottom1 { bottom: 6%; left: 5%; }
+.labelBottom2 { bottom: 6%; left: 38%; }
+.labelBottom3 { 
+  bottom: 6%; 
+  left: 71%; 
+  color: #ffffff; /* White text because it sits over the dark image */
+  z-index: 10; 
+} 
+
+/* Main Typographic Title */
+.heroTitleContainer {
+  position: absolute;
+  top: 65%;
+  left: 5%;
+  transform: translateY(-50%);
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.heroTitle {
+  font-size: clamp(40px, 5vw, 68px);
+  font-weight: 300;
+  color: #555555;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+}
+
+.heroTitle .red {
+  color: #e8261c;
+  font-weight: 400;
+}
+
+/* Button Hidden on Desktop to match UI, Visible on Mobile */
+.heroCtaBtn {
+  background-color: #e8261c;
+  color: #ffffff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 30px;
+  transition: background-color 0.2s ease;
+  display: none; 
+}
+
+.heroCtaBtn:hover {
+  background-color: #c91e15;
+}
+
+/* Giant Right-Aligned Image */
+.heroImageContainer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  height: auto;
+  z-index: 0; 
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  pointer-events: none;
+}
+
+.heroImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left top; 
+  /* Fades the hard left edge of the image smoothly into the white background */
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%);
+  mask-image: linear-gradient(to right, transparent, black 15%);
+}
+
+/* ====================================================
+   HERO: MOBILE RESPONSIVE
+   ==================================================== */
+@media (max-width: 1024px) {
+  .labelTop1 { left: 4%; }
+  .labelTop2 { left: 36%; }
+  .labelTop3 { left: 69%; }
+  .labelBottom1 { left: 4%; }
+  .labelBottom2 { left: 36%; }
+  .labelBottom3 { left: 69%; }
+  .heroTitle { font-size: 48px; }
+  .heroImageContainer { width: 65%; }
+}
+
+@media (max-width: 768px) {
+  .heroNew {
+    height: auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 60px;
+  }
+
+  .heroLines {
+    display: none; /* Hide vertical grid lines on mobile */
+  }
+
+  .heroTitleContainer {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    padding: 0 24px;
+    margin-bottom: 40px;
+    z-index: 10;
+  }
+
+  .heroTitle {
+    font-size: 42px;
+    letter-spacing: -0.5px;
+  }
+
+  .heroCtaBtn {
+    display: inline-block; /* Show CTA on mobile for usability */
+  }
+
+  /* Reformat Floating Labels into a clean Mobile Grid */
+  .heroLabelsContainer {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 0 24px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 40px;
+    z-index: 10;
+  }
+
+  .heroLabel {
+    position: relative;
+    top: auto !important;
+    left: auto !important;
+    bottom: auto !important;
+    font-size: 13px;
+    color: #777777 !important; /* Revert white text */
+  }
+
+  .heroImageContainer {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    margin-top: auto;
+    justify-content: center;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .heroImg {
+    object-fit: contain;
+    object-position: bottom;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle { font-size: 36px; }
+  .heroLabelsContainer { grid-template-columns: 1fr; gap: 12px; }
+  .heroImageContainer { height: 40vh; }
+}
 
 /* ===== NAVBAR ===== */
 .navbar {

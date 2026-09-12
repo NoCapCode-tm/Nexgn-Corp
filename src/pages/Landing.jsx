@@ -9,6 +9,7 @@ import FaqSection from '../component/FaqSection'
 
 
 // 1. IMPORT THE IMAGE HERE
+import hero from '../assets/hero-section.png'
 import benefitsDashboard from '../assets/benefits-dashboard.png'
 import workflowBg from '../assets/workflow-bg.png'; // <--- ADD THIS
 import collage1 from '../assets/collageBox-1.png';
@@ -298,27 +299,44 @@ useLayoutEffect(() => {
     </Helmet>
     {/* <div ref={introRef} className={styles.introScene}> */}
     <div className={styles.landing}>
-  <section className={styles.hero}>
-    <div className={styles.heroText}>
-      <h1 className={styles.heroTitle}>
-        Designed for <span className={styles.red}>Trust</span><br />
-        Engineered for the <span className={styles.red}>World.</span>
-      </h1>
+      <section className={styles.heroNew}>
+          {/* Background Grid Lines */}
+          <div className={styles.heroLines}>
+            <div className={styles.heroLineLeft}></div>
+            <div className={styles.heroLineRight}></div>
+          </div>
 
-      <button className={styles.ctaBtn} onClick={()=>{navigate("/Login")}}>Start Signing for Free</button>
+          {/* Floating Labels */}
+          <div className={styles.heroLabelsContainer}>
+            <div className={`${styles.heroLabel} ${styles.labelTop1}`}>Military-grade<br/>AES-256 encryption</div>
+            <div className={`${styles.heroLabel} ${styles.labelTop2}`}>Multi-signer capabilities</div>
+            <div className={`${styles.heroLabel} ${styles.labelTop3}`}>Secure<br/>collaboration</div>
+            
+            <div className={`${styles.heroLabel} ${styles.labelBottom1}`}>Data security</div>
+            <div className={`${styles.heroLabel} ${styles.labelBottom2}`}>Digital transformation</div>
+            <div className={`${styles.heroLabel} ${styles.labelBottom3}`}>Lightning-fast<br/>workflow</div>
+          </div>
 
-      <p className={styles.heroSubtext}>
-        Replace manual paperwork with borderless, lightning-fast workflows. Nexgn delivers
-        military-grade AES-256 encryption and multi-signer capabilities on a highly scalable
-        freemium infrastructure.
-      </p>
+          {/* Main Title */}
+          <div className={styles.heroTitleContainer}>
+            <h1 className={styles.heroTitle}>
+              Built on <span className={styles.red}>Trust</span>,<br />
+              Engineered for <span className={styles.red}>Tomorrow.</span>
+            </h1>
+            
+            {/* Kept CTA for mobile usability, hidden on desktop to match your visual */}
+            <button className={styles.heroCtaBtn} onClick={()=>{navigate("/Login")}}>
+              Start Signing for Free
+            </button>
+          </div>
+
+          {/* Hero Image (Red Visor Silhouette) */}
+          <div className={styles.heroImageContainer}>
+            {/* Ensure you have this image in your assets or public folder */}
+            <img src={hero} alt="Nexgn Interface" className={styles.heroImg} />
+          </div>
+      </section>
     </div>
-
-    <div className={styles.imgland}>
-      <img src="./download 3.png" alt="Nexgn" />
-    </div>
-  </section>
-</div>
 
     <section ref={aboutRef} className={styles.about}>
         <span ref={aboutTextRef}>Nexgn is a secure, India-first digital signature platform built to simplify and scale modern document workflows.</span>
@@ -381,6 +399,7 @@ useLayoutEffect(() => {
     <h2 className={styles.benefitsTitle}>KEY BENEFITS</h2>
     <p className={styles.benefitsSubtitle}>Unlock speed, security, and simplicity</p>
   </div>
+
   <div className={styles.benefitsContent}>
     <div className={styles.imageCard}>
       <img
