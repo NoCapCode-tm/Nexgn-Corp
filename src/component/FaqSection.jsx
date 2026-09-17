@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import styles from './css/FaqSection.module.css';
 
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 // Replace this with your actual image import if needed
 import faqImageSrc from '../assets/faqimage.png';
-
 const faqData = [
   {
     question: "How do I use Nexgn to execute a document?",
@@ -35,21 +37,145 @@ const faqData = [
 export default function FaqSection() {
   const [activeIndex, setActiveIndex] = useState(null);
 
+  const faqSectionRef = useRef(null);
+  const faqHeaderRef = useRef(null);
+  const faqTitleRef = useRef(null);
+  const faqSubtitleRef = useRef(null);
+  const faqImageRef = useRef(null);
+  const faqListRef = useRef(null);
+
+   
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+
+      const section = faqSectionRef.current;
+      const header = faqHeaderRef.current;
+      const title = faqTitleRef.current;
+      const subtitle = faqSubtitleRef.current;
+      const image = faqImageRef.current;
+      const list = faqListRef.current;
+
+      if (
+        !section ||
+        !header ||
+        !title ||
+        !subtitle ||
+        !image ||
+        !list
+      ) {
+        return;
+      }
+
+      const faqCards = list.querySelectorAll(
+        `.${styles.faqItem}`
+      );
+
+      if (!faqCards.length) return;
+
+
+      
+      gsap.set(title, {
+        opacity: 0,
+        y: 35,
+      });
+
+      
+      gsap.set(subtitle, {
+        opacity: 0,
+        y: 25,
+      });
+
+    
+      gsap.set(image, {
+        opacity: 0,
+        x: -100,
+      });
+
+     
+      gsap.set(faqCards, {
+        opacity: 0,
+        scale: 0.75,
+        y: 30,
+      });
+
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: "top 95%",
+          end: "bottom 40%",
+          scrub: 1,
+        },
+      });
+      tl.to(title, {
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+        ease: "power3.out",
+      })
+      .to(subtitle, {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: "power3.out",
+      })
+
+
+      .to(image, {
+        opacity: 1,
+        x: 0,
+        duration: 0.9,
+        ease: "power3.out",
+      })
+
+
+
+      .to(faqCards, {
+        opacity: 1,
+        scale: 1,
+        y: 0,
+        duration: 0.1,
+        stagger: 1,
+        ease: "back.out(1.4)",
+      });
+
+    }, faqSectionRef);
+
+    return () => ctx.revert();
+
+  }, []);
+
   const toggleFaq = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
   return (
-    <section className={styles.faqSection}>
-      <div className={styles.faqHeader}>
-        <h2 className={styles.faqTitle}>Frequently Annoying Questions</h2>
-        <p className={styles.faqSubtitle}>Because Clicking Here Is Faster Than Emailing Us</p>
-      </div>
+    <section className={styles.faqSection} ref={faqSectionRef}>
+      <div
+  className={styles.faqHeader}
+  ref={faqHeaderRef}
+>
+  <h2
+    className={styles.faqTitle}
+    ref={faqTitleRef}
+  >
+    Frequently Annoying Questions
+  </h2>
+
+  <p
+    className={styles.faqSubtitle}
+    ref={faqSubtitleRef}
+  >
+    Because Clicking Here Is Faster Than Emailing Us
+  </p>
+</div>
 
       <div className={styles.faqGrid}>
         
         {/* LEFT: Image Container */}
-        <div className={styles.faqImageWrapper}>
+        <div className={styles.faqImageWrapper}  ref={faqImageRef}>
           <img 
             src={faqImageSrc} 
             alt="FAQ Abstract Art" 
@@ -58,7 +184,7 @@ export default function FaqSection() {
         </div>
 
         {/* RIGHT: FAQ List */}
-        <div className={styles.faqList}>
+        <div className={styles.faqList}  ref={faqListRef}>
           {faqData.map((item, index) => {
             const isOpen = activeIndex === index;
             

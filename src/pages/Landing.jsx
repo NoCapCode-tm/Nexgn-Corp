@@ -19,7 +19,7 @@ import { useNavigate } from 'react-router'
 import useWindowWidth from '../component/usewindowwidth'
 
 
-const Landing = () => {
+const Landing = ({ startAnimation }) => {
 
 // const [activeIndex, setActiveIndex] = useState(null)
 const [currentSlide, setCurrentSlide] = useState(0)
@@ -30,6 +30,32 @@ const navigate = useNavigate()
 const introRef = useRef(null)
 const aboutRef = useRef(null)
 const aboutTextRef = useRef(null)
+const heroRef = useRef(null);
+const heroImageRef = useRef(null);
+const heroTitleRef = useRef(null);
+const heroSubtextRef = useRef(null);
+const heroCtaRef = useRef(null);
+const howItWorksRef = useRef(null);
+const hwImageRef = useRef(null);
+const hwHeaderRef = useRef(null);
+const hwSubtitleRef = useRef(null);
+const benefitsRef = useRef(null);
+const benefitsHeaderRef = useRef(null);
+const benefitsImageRef = useRef(null);
+const featuresNewRef = useRef(null);
+const featuresHeaderRef = useRef(null);
+const featuresTextContentRef = useRef(null);
+const featuresGridNewRef = useRef(null);
+const featureImagesCollageRef = useRef(null);
+const securityHeaderRef = useRef(null);
+const securityLeftRef = useRef(null);
+const securityOutlineRef = useRef(null);
+const securityCenterRef = useRef(null);
+const securityRightRef = useRef(null);
+const pricingRef = useRef(null)
+const pricingTopRef = useRef(null)
+const pricingCarouselAnimRef = useRef(null)
+const pricingBottomRef = useRef(null)
 const width = useWindowWidth()
   // const toggleFaq = (index) => {
   //   setActiveIndex(activeIndex === index ? null : index)
@@ -155,131 +181,926 @@ const handleScroll = (e) => {
   setCurrentSlide(closestIndex)
 }
 
-// const faqData = [
-//   {
-//     question: "How do I use Nexgn to execute a document?",
-//     answer:
-//       "Using Nexgn is frictionless and requires zero technical expertise from your signers. Simply upload your PDF or contract into our encrypted zero-trust vault, assign signers, define the workflow, and place signature fields using our drag-and-drop editor. Once dispatched, recipients receive a secure email link to sign instantly on any device without creating an account. After completion, all parties automatically receive the finalized document along with a cryptographically sealed, legally binding audit certificate."
-//   },
-//   {
-//     question: "Are Nexgn digital signatures legally binding internationally?",
-//     answer:
-//       "Yes. Nexgn complies with major global electronic signature frameworks. Our cryptographic signatures are legally binding under the U.S. ESIGN Act and UETA. In India, Section 5 of the Information Technology Act, 2000 recognizes electronic signatures as legally equivalent to handwritten signatures, while Section 10A validates electronically formed contracts. Nexgn also aligns with the European Union's eIDAS regulation, ensuring executed agreements are recognized across major international jurisdictions."
-//   },
-//   {
-//     question: "How does Nexgn protect my sensitive corporate data?",
-//     answer:
-//       "Nexgn operates on a zero-trust security architecture. Every document is protected using military-grade AES-256 encryption both at rest and in transit. Each completed agreement is secured with an immutable cryptographic audit trail containing timestamps, IP addresses, and signer activity, ensuring complete document integrity, traceability, and compliance."
-//   },
-//   {
-//     question: "Can I control where my enterprise data is stored?",
-//     answer:
-//       "Absolutely. Enterprise customers can choose where their encrypted documents are stored using either India-based or US-based secure server regions. This flexible data residency model helps organizations comply with international privacy regulations, the Digital Personal Data Protection (DPDP) Act, and corporate data sovereignty requirements."
-//   },
-//   {
-//     question: "Can I orchestrate workflows with multiple signers and approvals?",
-//     answer:
-//       "Yes. Nexgn supports advanced enterprise workflow automation with sequential signing, parallel approvals, and multi-level approval routing. Documents can be securely routed between legal teams, managers, partners, and clients within a single encrypted workflow, providing complete control over complex business processes."
-//   },
-//   {
-//     question: "How does the pricing structure work? Do I need a credit card to start?",
-//     answer:
-//       "No credit card is required to get started. Nexgn offers a free Starter plan with up to 9 signatures per month secured by AES-256 encryption. Professional plans support up to 99 signatures monthly with multi-signer workflows, while Business and Enterprise plans provide unlimited signatures, API access, advanced workflow automation, dedicated support, and configurable data residency options."
-//   }
-// ];
+//animation 1
+useLayoutEffect(() => {
+
+  if (!startAnimation) {
+    return;
+  }
+
+  const ctx = gsap.context(() => {
+
+    const image = heroImageRef.current;
+
+    const titleLines =
+      heroTitleRef.current?.querySelectorAll(
+        `.${styles.heroTitleLine}`
+      );
+
+    const subtextLines =
+      heroSubtextRef.current?.querySelectorAll(
+        `.${styles.heroSubtextLine}`
+      );
+      const button = heroCtaRef.current;
+
+    if (
+      !image ||
+      !titleLines?.length ||
+      !subtextLines?.length
+    ) {
+      return;
+    }
+
+    gsap.set(image, {
+      opacity: 0,
+      y: 100,
+    });
+
+    gsap.set(titleLines, {
+      opacity: 0,
+      y: 40,
+    });
+    gsap.set(button, {
+      opacity: 0,
+      y: 40,
+    });
+
+    gsap.set(subtextLines, {
+      opacity: 0,
+      y: 25,
+    });
+
+    const tl = gsap.timeline({
+      defaults: {
+        ease: "power3.out",
+      },
+    });
+
+   
+    tl.to(image, {
+      opacity: 1,
+      y: 0,
+      duration: 1.2,
+      ease: "power3.out",
+    })
+
+  
+    .to(
+      titleLines[0],
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.9,
+        ease: "power3.out",
+      },
+      "-=0.45"
+    )
+
+    
+    .to(
+      titleLines[1],
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.9,
+        ease: "power3.out",
+      },
+      "-=0.55"
+    )
+
+    .to(
+      button,
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.9,
+        ease: "power3.out",
+      },
+      "-=0.55"
+    )
+
+   
+    .to(
+      subtextLines[0],
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+        ease: "power3.out",
+      },
+      "-=0.25"
+    )
+
+  
+    .to(
+      subtextLines[1],
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+        ease: "power3.out",
+      },
+      "-=0.45"
+    )
+
+   
+    .to(
+      subtextLines[2],
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+        ease: "power3.out",
+      },
+      "-=0.45"
+    );
+
+  }, heroRef);
+
+  return () => ctx.revert();
+
+}, [startAnimation]);
+
+//aniamtion 2
+useLayoutEffect(() => {
+  const ctx = gsap.context(() => {
+
+    const about = aboutRef.current;
+
+    const words = aboutTextRef.current?.querySelectorAll(
+      `.${styles.aboutWord}`
+    );
+
+    if (!about || !words?.length) {
+      return;
+    }
+
+    gsap.set(words, {
+      opacity: 0,
+      y: 35,
+    });
+
+    gsap.to(words, {
+      opacity: 1,
+      y: 0,
+      ease: "none",
+      stagger: 0.12,
+
+      scrollTrigger: {
+        trigger: about,
+        start: "top 80%",
+        end: "bottom 40%",
+        scrub: 1,
+      },
+    });
+
+  }, aboutRef);
+
+  return () => ctx.revert();
+
+}, []);
+
+//animation 3
+useLayoutEffect(() => {
+  const ctx = gsap.context(() => {
+
+    const section = howItWorksRef.current;
+    const image = hwImageRef.current;
+    const header = hwHeaderRef.current;
+    const subtitle = hwSubtitleRef.current;
+
+    const groups = gsap.utils.toArray(
+      `.${styles.hwGroup}`
+    );
+
+    if (
+      !section ||
+      !image ||
+      !header ||
+      !subtitle ||
+      !groups.length
+    ) {
+      return;
+    }
 
 
+    gsap.set(image, {
+      opacity: 0,
+      x: 100,
+    });
 
-//gsap animations
+    gsap.set(header, {
+      opacity: 0,
+      y: 40,
+    });
 
+    gsap.set(subtitle, {
+      opacity: 0,
+      y: 30,
+    });
+
+    gsap.set(groups, {
+      opacity: 0,
+      y: 45,
+    });
+
+  
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: "top 75%",
+        end: "bottom 35%",
+        scrub: 1,
+      },
+    });
+
+    
+    tl.to(image, {
+      opacity: 1,
+      x: 0,
+      duration: 1,
+      ease: "power3.out",
+    })
+
+   
+    .to(header, {
+      opacity: 1,
+      y: 0,
+      duration: 0.7,
+      ease: "power3.out",
+    })
+
+   
+    .to(subtitle, {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      ease: "power3.out",
+    })
+
+   
+    .to(groups[0], {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: "power3.out",
+    })
+
+    
+    .to(groups[1], {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: "power3.out",
+    })
+
+   
+    .to(groups[2], {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: "power3.out",
+    });
+
+  }, howItWorksRef);
+
+  return () => ctx.revert();
+
+}, []);
+
+//animation 4
+
+useLayoutEffect(() => {
+  const ctx = gsap.context(() => {
+
+    const section = benefitsRef.current;
+    const header = benefitsHeaderRef.current;
+    const image = benefitsImageRef.current;
+
+    const cards = gsap.utils.toArray(
+      `.${styles.benefitRow}`
+    );
+
+    if (
+      !section ||
+      !header ||
+      !image ||
+      !cards.length
+    ) {
+      return;
+    }
+
+    gsap.set(header, {
+      opacity: 0,
+      y: 40,
+    });
+
+   
+    gsap.set(image, {
+      opacity: 0,
+      x: -100,
+    });
+
+   
+    gsap.set(cards, {
+      opacity: 0,
+      scale: 0.75,
+      y: 30,
+    });
+
+   
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: "top 75%",
+        end: "bottom 30%",
+        scrub: 1,
+      },
+    });
+
+
+    tl.to(header, {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: "power3.out",
+    })
+
+  
+
+    .to(image, {
+      opacity: 1,
+      x: 0,
+      duration: 1,
+      ease: "power3.out",
+    })
+
+   
+    .to(cards[0], {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      duration: 0.7,
+      ease: "back.out(1.7)",
+    })
+
+  
+    .to(cards[1], {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      duration: 0.7,
+      ease: "back.out(1.7)",
+    })
+
+   
+
+    .to(cards[2], {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      duration: 0.7,
+      ease: "back.out(1.7)",
+    });
+
+  }, benefitsRef);
+
+  return () => ctx.revert();
+
+}, []);
+
+// animation 5 
+useLayoutEffect(() => {
+  const ctx = gsap.context(() => {
+
+    const section = featuresNewRef.current;
+    const header = featuresHeaderRef.current;
+    const textContent = featuresTextContentRef.current;
+    const grid = featuresGridNewRef.current;
+    const collage = featureImagesCollageRef.current;
+
+    const items = gsap.utils.toArray(
+      `.${styles.featureItemNew}`
+    );
+
+    const collageBoxes = gsap.utils.toArray(
+      `.${styles.collageBox}`
+    );
+
+    const collageWide = collage?.querySelector(
+      `.${styles.collageBoxWide}`
+    );
+
+    if (
+      !section ||
+      !header ||
+      !textContent ||
+      !grid ||
+      !collage ||
+      !items.length
+    ) {
+      return;
+    }
+
+    
+    gsap.set(header, {
+      opacity: 0,
+      y: 40,
+    });
+
+    gsap.set(textContent.children, {
+      opacity: 0,
+      y: 30,
+    });
+
+   
+    items.forEach((item) => {
+
+      const number = item.querySelector(
+        `.${styles.featureNumber}`
+      );
+
+      const divider = item.querySelector(
+        `.${styles.featureDivider}`
+      );
+
+      const content = item.querySelector(
+        `.${styles.featureContent}`
+      );
+
+      const title = item.querySelector(
+        `.${styles.featureItemTitle}`
+      );
+
+      const desc = item.querySelector(
+        `.${styles.featureItemDesc}`
+      );
+
+      gsap.set(number, {
+        opacity: 0,
+        y: -40,
+      });
+
+      gsap.set(divider, {
+        scaleX: 0,
+        transformOrigin: "left center",
+      });
+
+      gsap.set(content, {
+        opacity: 0,
+        x: -25,
+      });
+
+      gsap.set(title, {
+        opacity: 0,
+        y: 20,
+      });
+
+      gsap.set(desc, {
+        opacity: 0,
+        y: 20,
+      });
+    });
+
+   
+    if (collageBoxes.length) {
+
+    
+      gsap.set(collageBoxes[0], {
+        opacity: 0,
+        x: -100,
+      });
+
+     
+      gsap.set(collageBoxes[1], {
+        opacity: 0,
+        y: 100,
+      });
+
+     
+      gsap.set(collageBoxes[2], {
+        opacity: 0,
+        x: 100,
+      });
+    }
+
+    
+    if (collageWide) {
+      gsap.set(collageWide, {
+        opacity: 0,
+        x: 100,
+      });
+    }
+
+   
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: "top 95%",
+        end: "bottom 55%",
+        scrub: 5,
+      },
+    });
+
+    tl.to(header, {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: "power3.out",
+    })
+
+  
+    .to(
+      textContent.children,
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+        stagger: 0.2,
+        ease: "power3.out",
+      }
+    );
+
+    
+
+    items.forEach((item, index) => {
+
+      const number = item.querySelector(
+        `.${styles.featureNumber}`
+      );
+
+      const divider = item.querySelector(
+        `.${styles.featureDivider}`
+      );
+
+      const content = item.querySelector(
+        `.${styles.featureContent}`
+      );
+
+      const title = item.querySelector(
+        `.${styles.featureItemTitle}`
+      );
+
+      const desc = item.querySelector(
+        `.${styles.featureItemDesc}`
+      );
+
+      
+
+      tl.to(number, {
+        opacity: 1,
+        y: 0,
+        duration: 0.1,
+        ease: "power3.out",
+      })
+
+      
+
+      .to(divider, {
+        scaleX: 1,
+        duration: 0.6,
+        ease: "power2.out",
+      })
+
+      .to(content, {
+        opacity: 1,
+        x: 0,
+        duration: 0.4,
+        ease: "power3.out",
+      })
+
+    
+      .to(title, {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: "power3.out",
+      })
+
+     
+
+      .to(desc, {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: "power3.out",
+      });
+    });
+
+   
+
+    if (collageBoxes[0]) {
+      tl.to(collageBoxes[0], {
+        opacity: 1,
+        x: 0,
+        duration: 0.8,
+        ease: "power3.out",
+      });
+    }
+
+   
+
+    if (collageBoxes[1]) {
+      tl.to(collageBoxes[1], {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power3.out",
+      });
+    }
+
+  
+
+    if (collageBoxes[2]) {
+      tl.to(collageBoxes[2], {
+        opacity: 1,
+        x: 0,
+        duration: 0.8,
+        ease: "power3.out",
+      });
+    }
+
+   
+    if (collageWide) {
+      tl.to(collageWide, {
+        opacity: 1,
+        x: 0,
+        duration: 0.8,
+        ease: "power3.out",
+      });
+    }
+
+  }, featuresNewRef);
+
+  return () => ctx.revert();
+
+}, []);
+
+// animation 6
+useLayoutEffect(() => {
+  const ctx = gsap.context(() => {
+
+    const section = securityRef.current;
+    const header = securityHeaderRef.current;
+    const left = securityLeftRef.current;
+    const outline = securityOutlineRef.current;
+    const center = securityCenterRef.current;
+    const right = securityRightRef.current;
+
+const rightTop = right.querySelector(`.${styles.infraCard}`);
+const rightBottom = right.querySelector(`.${styles.darkCard}`);
+
+    if (
+      !section ||
+      !header ||
+      !left ||
+      !outline ||
+      !center ||
+       !right ||
+  !rightTop ||
+  !rightBottom
+    ) {
+      return;
+    }
+
+    
+    gsap.set(header, {
+      opacity: 0,
+      y: 40,
+    });
+
+  
+    gsap.set(left, {
+      opacity: 0,
+      x: -100,
+    });
+
+   
+    gsap.set(outline, {
+      opacity: 0,
+      x: -100,
+    });
+
+  
+    gsap.set(center, {
+      opacity: 0,
+      scale: 0.65,
+    });
+
+   
+   gsap.set(rightTop, {
+  opacity: 0,
+  x: 100,
+});
+
+gsap.set(rightBottom, {
+  opacity: 0,
+  x: 100,
+});
+
+  
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: "top 95%",
+        end: "bottom 45%",
+        scrub: 1,
+      },
+    });
+
+   
+
+    tl.to(header, {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: "power3.out",
+    })
+
+   
+
+    .to(left, {
+      opacity: 1,
+      x: 0,
+      duration: 0.9,
+      ease: "power3.out",
+    })
+
+   
+    .to(outline, {
+      opacity: 1,
+      x: 0,
+      duration: 0.8,
+      ease: "power3.out",
+    })
+
+   
+    .to(center, {
+      opacity: 1,
+      scale: 1,
+      duration: 0.9,
+      ease: "back.out(1.3)",
+    })
+
+    
+.to(rightTop, {
+  opacity: 1,
+  x: 0,
+  duration: 0.8,
+  ease: "power3.out",
+})
+
+
+.to(rightBottom, {
+  opacity: 1,
+  x: 0,
+  duration: 0.8,
+  ease: "power3.out",
+});
+
+  }, securityRef);
+
+  return () => ctx.revert();
+
+}, []);
+
+// animation 7 
+useLayoutEffect(() => {
+  const ctx = gsap.context(() => {
+
+    const section = pricingRef.current
+    const top = pricingTopRef.current
+    const carousel = pricingCarouselAnimRef.current
+    const bottom = pricingBottomRef.current
+
+    if (!section || !top || !carousel || !bottom) return
+
+    const cards = carousel.querySelectorAll(`.${styles.pricingCard}`)
+
+    if (!cards.length) return
+
+   
+    gsap.set(top, {
+      opacity: 0,
+      x: -100,
+    })
+
+   
+    gsap.set(bottom, {
+      opacity: 0,
+      x: 100,
+    })
+
+   
+    gsap.set(cards[0], {
+      opacity: 0,
+      x: -120,
+    })
+
+   
+    gsap.set(cards[1], {
+      opacity: 0,
+      y: 120,
+    })
+
+   
+    gsap.set(cards[2], {
+      opacity: 0,
+      x: 120,
+    })
+
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: "top 95%",
+        end: "bottom 20%",
+        scrub: 1,
+      },
+    })
+
+
+    tl.to(top, {
+      opacity: 1,
+      x: 0,
+      duration: 0.8,
+      ease: "power3.out",
+    })
+
+
+    
+    
+    .to(cards[0], {
+      opacity: 1,
+      x: 0,
+      duration: 0.8,
+      ease: "power3.out",
+    })
+
+    
+    .to(cards[1], {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: "back.out(1.3)",
+    })
+
+    
+    .to(cards[2], {
+      opacity: 1,
+      x: 0,
+      duration: 0.8,
+      ease: "power3.out",
+    })
+
+    
+    .to(bottom, {
+      opacity: 1,
+      x: 0,
+      duration: 0.8,
+      ease: "power3.out",
+    })
+
+  }, pricingRef)
+
+  return () => ctx.revert()
+
+}, [])
 // useLayoutEffect(() => {
 //   gsap.registerPlugin(ScrollTrigger)
 
 //   const ctx = gsap.context(() => {
-//     const intro = introRef.current
-//     const about = aboutRef.current
-//     const aboutText = aboutTextRef.current
-
-//     if (!intro || !about || !aboutText) return
-
-//     const tl = gsap.timeline({
-//       scrollTrigger: {
-//         trigger: intro,
-//         start: "top top",
-//         end: () => `+=${window.innerHeight}`,
-//         scrub: 1,
-//         pin: true,
-//         pinSpacing: true,
-//         anticipatePin: 1,
-//         invalidateOnRefresh: true,
-//       },
-//     })
-
-//     tl.fromTo(
-//       about,
-//       {
-//         y: 0,
-//         borderTopLeftRadius: 36,
-//         borderTopRightRadius: 36,
-//       },
-//       {
-//         y: () => -window.innerHeight,
-//         borderTopLeftRadius: 0,
-//         borderTopRightRadius: 0,
-//         ease: "none",
-//       },
-//       0
+//     const security = securityRef.current
+//     const svg = security?.querySelector(
+//       `.${styles.securityBrandSvg}`
 //     )
 
-//     tl.fromTo(
-//       aboutText,
+//     if (!security || !svg) return
+
+//     gsap.fromTo(
+//       svg,
 //       {
-//         fontSize: width > 1200 ?"48px": width<1200 && width > 900?"48px":width>900 && width > 768 ? "48px":"30px",
+//         scale: 0.03,
 //       },
 //       {
-//        fontSize: width > 1200 ?"90px": width<1200 && width > 900?"85px":width<900 && width > 768 ? "80px":width<768 && width > 640 ? "70px":width<500 && width > 400 ?"55px":width<400 && width > 360?"50px":"45px",
-//         ease: "none",
-//       },
-//       0
+//         scale: 1.2,
+//         ease: "expo.in",
+
+//         scrollTrigger: {
+//           trigger: security,
+//           start: "top bottom",
+//           end: "bottom bottom",
+//           scrub: 1,
+//           invalidateOnRefresh: true,
+//         },
+//       }
 //     )
-//   }, introRef)
+//   }, securityRef)
 
 //   return () => ctx.revert()
 // }, [])
-
-useLayoutEffect(() => {
-  gsap.registerPlugin(ScrollTrigger)
-
-  const ctx = gsap.context(() => {
-    const security = securityRef.current
-    const svg = security?.querySelector(
-      `.${styles.securityBrandSvg}`
-    )
-
-    if (!security || !svg) return
-
-    gsap.fromTo(
-      svg,
-      {
-        scale: 0.03,
-      },
-      {
-        scale: 1.2,
-        ease: "expo.in",
-
-        scrollTrigger: {
-          trigger: security,
-          start: "top bottom",
-          end: "bottom bottom",
-          scrub: 1,
-          invalidateOnRefresh: true,
-        },
-      }
-    )
-  }, securityRef)
-
-  return () => ctx.revert()
-}, [])
 
   return (
     <>
@@ -298,91 +1119,150 @@ useLayoutEffect(() => {
     </Helmet>
     {/* <div ref={introRef} className={styles.introScene}> */}
     <div className={styles.landing}>
-  <section className={styles.hero}>
-    <div className={styles.heroText}>
-      <h1 className={styles.heroTitle}>
-        Designed for <span className={styles.red}>Trust</span><br />
+ <section ref={heroRef} className={styles.hero}>
+
+  <div className={styles.heroText}>
+
+    <h1 ref={heroTitleRef} className={styles.heroTitle}>
+      <span className={styles.heroTitleLine}>
+        Designed for <span className={styles.red}>Trust</span>
+      </span>
+
+      <span className={styles.heroTitleLine}>
         Engineered for the <span className={styles.red}>World.</span>
-      </h1>
+      </span>
+    </h1>
 
-      <button className={styles.ctaBtn} onClick={()=>{navigate("/Login")}}>Start Signing for Free</button>
+    <button
+  ref={heroCtaRef}
+  className={styles.ctaBtn}
+  onClick={() => {
+    navigate("/Login");
+  }}
+>
+  Start Signing for Free
+</button>
 
-      <p className={styles.heroSubtext}>
-        Replace manual paperwork with borderless, lightning-fast workflows. Nexgn delivers
-        military-grade AES-256 encryption and multi-signer capabilities on a highly scalable
-        freemium infrastructure.
-      </p>
-    </div>
+    <p ref={heroSubtextRef} className={styles.heroSubtext}>
+      <span className={styles.heroSubtextLine}>
+        Replace manual paperwork with borderless, lightning-fast workflows.
+      </span>
 
-    <div className={styles.imgland}>
-      <img src="./download 3.png" alt="Nexgn" />
-    </div>
-  </section>
+      <span className={styles.heroSubtextLine}>
+        Nexgn delivers military-grade AES-256 encryption and multi-signer
+        capabilities
+      </span>
+
+      <span className={styles.heroSubtextLine}>
+        on a highly scalable freemium infrastructure.
+      </span>
+    </p>
+
+  </div>
+
+  <div className={styles.imgland} ref={heroImageRef}>
+    <img src="./download 3.png" alt="Nexgn" />
+  </div>
+
+</section>
 </div>
 
     <section ref={aboutRef} className={styles.about}>
-        <span ref={aboutTextRef}>Nexgn is a secure, India-first digital signature platform built to simplify and scale modern document workflows.</span>
-      </section>
+  <span ref={aboutTextRef}>
+    <span className={styles.aboutWord}>Nexgn</span>{" "}
+    <span className={styles.aboutWord}>is</span>{" "}
+    <span className={styles.aboutWord}>a</span>{" "}
+    <span className={styles.aboutWord}>secure,</span>{" "}
+    <span className={styles.aboutWord}>India-first</span>{" "}
+    <span className={styles.aboutWord}>digital</span>{" "}
+    <span className={styles.aboutWord}>signature</span>{" "}
+    <span className={styles.aboutWord}>platform</span>{" "}
+    <span className={styles.aboutWord}>built</span>{" "}
+    <span className={styles.aboutWord}>to</span>{" "}
+    <span className={styles.aboutWord}>simplify</span>{" "}
+    <span className={styles.aboutWord}>and</span>{" "}
+    <span className={styles.aboutWord}>scale</span>{" "}
+    <span className={styles.aboutWord}>modern</span>{" "}
+    <span className={styles.aboutWord}>document</span>{" "}
+    <span className={styles.aboutWord}>workflows.</span>
+  </span>
+</section>
 
  {/* </div> */}
  
 {/* ===================== HOW IT WORKS SECTION ===================== */}
-      <section className={styles.howItWorks}>
+      <section ref={howItWorksRef}className={styles.howItWorks}>
         <div className={styles.hwContent}>
           
-          <div className={styles.hwHeader}>
+          <div className={styles.hwHeader} ref={hwHeaderRef}>
             <div className={styles.hwTitleRow}>
               <h2 className={styles.hwTitle}>HOW IT WORKS</h2>
               <div className={styles.hwLine}></div>
             </div>
-            <p className={styles.hwSubtitle}>
+            <p className={styles.hwSubtitle} ref={hwSubtitleRef}>
               Nexgn delivers secure, compliant digital signature solutions, empowering businesses with trust.
             </p>
           </div>
 
           <div className={styles.hwGrid}>
-            {/* Labels Row */}
-            <div className={styles.hwLabel}>Collaboration-ready<br/>tool</div>
-            <div className={styles.hwLabel}>Enterprise-grade<br/>security</div>
-            <div className={styles.hwLabel}>Efficiency-driven<br/>design</div>
 
-            {/* Steps Row */}
-            <div className={styles.hwStep}>
+  {/* GROUP 1 */}
+  <div className={styles.hwGroup}>
+    <div className={styles.hwLabel}>
+      Collaboration-ready<br />tool
+    </div>
+
+     <div className={styles.hwStep}>
               <div className={styles.hwStepNum}>01</div>
               <h3 className={styles.hwStepTitle}>Upload document</h3>
               <p className={styles.hwStepDesc}>Drag and drop your PDF or document into Nexgn- ready in seconds</p>
             </div>
-            
-            <div className={styles.hwStep}>
+  </div>
+
+  {/* GROUP 2 */}
+  <div className={styles.hwGroup}>
+    <div className={styles.hwLabel}>
+      Enterprise-grade<br />security
+    </div>
+
+   <div className={styles.hwStep}>
               <div className={styles.hwStepNum}>02</div>
               <h3 className={styles.hwStepTitle}>Add signers</h3>
               <p className={styles.hwStepDesc}>Invite one or multiple signers by email with custom signing order</p>
             </div>
-            
-            <div className={styles.hwStep}>
+  </div>
+
+  {/* GROUP 3 */}
+  <div className={styles.hwGroup}>
+    <div className={styles.hwLabel}>
+      Efficiency-driven<br />design
+    </div>
+
+    <div className={styles.hwStep}>
               <div className={styles.hwStepNum}>03</div>
               <h3 className={styles.hwStepTitle}>Sign &amp; Complete</h3>
               <p className={styles.hwStepDesc}>Signers receive a link, sign digitally and the sealed document is delivered instantly</p>
             </div>
-          </div>
+  </div>           
+      </div>
           
         </div>
         
         {/* Right-aligned Graphic */}
-        <div className={styles.hwImageWrapper}>
+        <div className={styles.hwImageWrapper}  ref={hwImageRef}>
           <img src={workflowBg} alt="Workflow Stairs" className={styles.hwImage} />
         </div>
       </section>
 
       
 
-<section className={styles.benefits}>
-  <div className={styles.benefitsHeader}>
+<section className={styles.benefits} ref={benefitsRef}>
+  <div className={styles.benefitsHeader}  ref={benefitsHeaderRef}>
     <h2 className={styles.benefitsTitle}>KEY BENEFITS</h2>
     <p className={styles.benefitsSubtitle}>Unlock speed, security, and simplicity</p>
   </div>
   <div className={styles.benefitsContent}>
-    <div className={styles.imageCard}>
+    <div className={styles.imageCard}  ref={benefitsImageRef}>
       <img
         src={benefitsDashboard}
         alt="Secure document folders"
@@ -578,17 +1458,17 @@ useLayoutEffect(() => {
 </section> */}
 
 {/* ===================== NEW FEATURES SECTION ===================== */}
-      <section className={styles.featuresNew}>
+      <section className={styles.featuresNew} ref={featuresNewRef}>
         <div className={styles.featuresContainer}>
           
           {/* Left Column */}
           <div className={styles.featuresLeft}>
-            <div className={styles.featuresHeader}>
+            <div className={styles.featuresHeader} ref={featuresHeaderRef}>
               <h2 className={styles.featuresTitle}>FEATURES</h2>
               <p className={styles.featuresSubtitle}>Everything you need to go paperless</p>
             </div>
             
-            <div className={styles.featuresTextContent}>
+            <div className={styles.featuresTextContent} ref={featuresTextContentRef}>
               <h3 className={styles.featuresMainText}>A masterpiece of<br />engineering innovation.</h3>
               <p className={styles.featuresSubText}>
                 Nexgn replaces paperwork<br />with secure digital workflows,<br />helping businesses run<br />smarter.
@@ -604,7 +1484,7 @@ useLayoutEffect(() => {
           <div className={styles.featuresRight}>
             
             {/* Number Grid */}
-            <div className={styles.featuresGridNew}>
+            <div className={styles.featuresGridNew} ref={featuresGridNewRef}>
               {/* Item 1 */}
               <div className={styles.featureItemNew}>
                 <div className={styles.featureNumber}>01</div>
@@ -647,7 +1527,7 @@ useLayoutEffect(() => {
             </div>
 
             {/* Collage Placeholder Grid */}
-            <div className={styles.featureImagesCollage}>
+            <div className={styles.featureImagesCollage}  ref={featureImagesCollageRef}>
               <div className={styles.collageBox}>
                 <img src={collage1} alt="Upload and manage" className={styles.collageImg} />
               </div>
@@ -667,21 +1547,21 @@ useLayoutEffect(() => {
       </section>
 
 
-<section ref={securityRef} className={styles.security}>
-  <div className={styles.securityHeader}>
+<section className={styles.security} ref={securityRef}>
+  <div className={styles.securityHeader} ref={securityHeaderRef}>
     <h2 className={styles.securityTitle}>TRUST &amp; SECURITY</h2>
     <p className={styles.securitySubtitle}>Your documents are in safe hands</p>
   </div>
 
   <div className={styles.securityGrid}>
-    <div className={styles.leftCol}>
+    <div className={styles.leftCol} ref={securityLeftRef}>
       <h3 className={styles.blockTitle}>Secure Signing</h3>
       <p className={styles.blockText}>
         End-to-end encryption ensures that every document and signature
         exchange on Nexgn is fully protected.
       </p>
 
-      <div className={styles.outlineCard}>
+      <div className={styles.outlineCard} ref={securityOutlineRef}>
         <p className={styles.outlineText}>
           Timestamped activity logs record every document and user action
           in real time, ensuring complete visibility and accountability.
@@ -690,7 +1570,7 @@ useLayoutEffect(() => {
       </div>
     </div>
 
-    <div className={styles.redCard}>
+    <div className={styles.redCard} ref={securityCenterRef}>
       <ul className={styles.redList}>
         <li>End-to-End Encryption</li>
         <li>Tamper-Proof</li>
@@ -719,7 +1599,7 @@ useLayoutEffect(() => {
       <span className={styles.redFooter}>THE NEXT GENERATION OF DOCUMENT SIGNATURES</span>
     </div>
 
-    <div className={styles.rightCol}>
+    <div className={styles.rightCol} ref={securityRightRef}>
       <div className={styles.infraCard}>
         <h3 className={styles.infraTitle}>Reliable Infrastructure</h3>
         <p className={styles.infraText}>
@@ -752,7 +1632,7 @@ useLayoutEffect(() => {
   </div>
 </section>
 
-<section className={styles.pricing}>
+<section className={styles.pricing} >
   <div className={styles.marqueeWrap}>
     <div className={styles.marqueeTrack}>
       {Array.from({ length: 8 }).map((_, i) => (
@@ -766,12 +1646,15 @@ useLayoutEffect(() => {
       ))}
     </div>
   </div>
-<div className={styles.newpricing}>
-  <div className={styles.above} >
+<div className={styles.newpricing} ref={pricingRef}>
+  <div className={styles.above} ref={pricingTopRef} >
     <span className={styles.abovesub}>Choose the plan that fits your document workflow and scale your business with Nexgn.</span>
     <h1>Simple Pricing .</h1>
   </div>
-  <div className={styles.pricingCarousel} ref={pricingCarouselRef} onScroll={handleScroll}>
+  <div className={styles.pricingCarousel} ref={(el) => {
+    pricingCarouselRef.current = el
+    pricingCarouselAnimRef.current = el
+  }} onScroll={handleScroll}>
     {pricingCards.map((card, index) => (
       <div key={index} className={`${styles.pricingCard} ${card.isPopular ? styles.popularCard : ''}`}>
         <div className={styles.shadow}>
@@ -802,7 +1685,7 @@ useLayoutEffect(() => {
       </div>
     ))}
   </div>
-  <div className={styles.above1} >
+  <div className={styles.above1} ref={pricingBottomRef}>
     <h1>Powerful Signing.</h1>
     <div className={styles.carouselDots}>
     {pricingCards.map((_, index) => (

@@ -94,8 +94,8 @@
 }
 
 .heroSubtext {
-  color: #e8261c;
-  font-size: 24px;
+  color: rgba(126, 123, 123, 1);
+  font-size: 20px;
   line-height: 1.6;
   letter-spacing: 0.3px;
   max-width: 420px;
@@ -189,7 +189,7 @@
   }
   .heroSubtext {
     font-size: 18px;
-    margin-top: 100px;
+    margin-top: 40px;
     max-width: 215px;
   }
    .ctaBtn {
@@ -213,7 +213,7 @@
   }
   .heroSubtext {
     font-size: 16px;
-        margin-top: 120px;
+        /* margin-top: 120px; */
         max-width: 190px;
   }
 }
@@ -297,23 +297,7 @@
   gap: 24px;
 }
 
-@media (max-width: 768px) {
-  .navbar {
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-  .navActions{
-    display: none;
-  }
-  .navLinks {
-    display: none;
-  }
-  .menuToggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
+
 
 .introScene {
   position: relative;
@@ -393,10 +377,30 @@
   background-color: #c91e15;
 }
 
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .navActions{
+    display: none;
+  }
+  .navLinks {
+    display: none;
+  }
+  .menuToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 /* about sextion */
 .about {
     width: 100%;
     height: auto;
+    position:relative;
+    z-index: 5411515;
     box-shadow: 0px -15px 105px 0px #0000006E;
     background-color: white;
     display: flex;
@@ -1994,4 +1998,36 @@
   .hwSubtitle {
     font-size: 15px;
   }
+}
+/* 
+css for animations */
+
+.heroTitleLine {
+  display: block;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.heroSubtextLine {
+  display: block;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.aboutWord {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(35px);
+  will-change: transform, opacity;
+}
+.hwImageWrapper,
+.hwHeader,
+.hwSubtitle,
+.hwStep {
+  will-change: transform, opacity;
+}
+.hwGroup{
+  display:flex;
+  flex-direction: column;
+  gap:40px;
 }

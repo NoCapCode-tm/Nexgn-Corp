@@ -1,5 +1,5 @@
 
-import React, { useRef } from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 import { useGSAP } from "@gsap/react";
 import styles from './css/Footer.module.css';
 import { FaLinkedin, FaInstagram } from "react-icons/fa";
@@ -13,203 +13,174 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Footer = () => {
   const footerRef = useRef(null);
-// useGSAP(() => {
 
-//   const footer = footerRef.current;
+ useLayoutEffect(() => {
+  const footer = footerRef.current;
 
-//   if (!footer) return;
+  if (!footer) return;
 
-//   const ctaBox = footer.querySelector(
-//     `.${styles.ctaCard}`
-//   );
+  const ctaCard = footer.querySelector(`.${styles.ctaCard}`);
+  const ctaHeading = footer.querySelector(`.${styles.ctaHeading}`);
+  const ctaSubheading = footer.querySelector(`.${styles.ctaSubheading}`);
+  const ctaButton = footer.querySelector(`.${styles.ctaButtonWrapper}`);
 
-//   const ctaHeading = footer.querySelector(
-//     `.${styles.ctaHeading}`
-//   );
+  const brandContent = footer.querySelector(`.${styles.brandTitleCol}`);
+  const proudly = footer.querySelector(`.${styles.proudlyCol}`);
+  const company = footer.querySelector(`.${styles.linkColCompany}`);
+  const resources = footer.querySelector(`.${styles.linkColResources}`);
+  const legal = footer.querySelector(`.${styles.linkColLegal}`);
 
-//   const ctaSubheading = footer.querySelector(
-//     `.${styles.ctaSubheading}`
-//   );
+  const bigLogo = footer.querySelector(`.${styles.footerBrand}`);
 
-//   const ctaButton = footer.querySelector(
-//     `.${styles.ctaButtonWrapper}`
-//   );
-
-//   const brandContent = footer.querySelector(
-//     `.${styles.brandTitleCol}`
-//   );
-
-//   const proudly = footer.querySelector(
-//     `.${styles.proudlyCol}`
-//   );
-
-//   const company = footer.querySelector(
-//     `.${styles.linkColCompany}`
-//   );
-
-//   const resources = footer.querySelector(
-//     `.${styles.linkColResources}`
-//   );
-
-//   const legal = footer.querySelector(
-//     `.${styles.linkColLegal}`
-//   );
-
-//   const bigLogo = footer.querySelector(
-//     `.${styles.footerBrand}`
-//   );
+  console.log("CTA CARD:", ctaCard);
+  console.log("CTA HEADING:", ctaHeading);
+  console.log("CTA SUBHEADING:", ctaSubheading);
+  console.log("CTA BUTTON:", ctaButton);
+  console.log("BRAND:", brandContent);
+  console.log("PROUDLY:", proudly);
+  console.log("COMPANY:", company);
+  console.log("RESOURCES:", resources);
+  console.log("LEGAL:", legal);
+  console.log("BIG LOGO:", bigLogo);
 
 
+  gsap.set(ctaCard, {
+    opacity: 0,
+    scale: 0.75,
+  });
 
-//   const companyItems =
-//     company?.querySelectorAll("h4, a") || [];
+  gsap.set(ctaHeading, {
+    opacity: 0,
+    y: 30,
+  });
 
-//   const resourceItems =
-//     resources?.querySelectorAll("h4, a") || [];
+  gsap.set(ctaSubheading, {
+    opacity: 0,
+    y: 25,
+  });
 
-//   const legalItems =
-//     legal?.querySelectorAll("h4, a") || [];
+  gsap.set(ctaButton, {
+    opacity: 0,
+    y: 25,
+  });
 
+  gsap.set(
+    [
+      brandContent,
+      proudly,
+      company,
+      resources,
+      legal,
+    ],
+    {
+      opacity: 0,
+      y: 25,
+    }
+  );
 
-//   const tl = gsap.timeline({
-//     scrollTrigger: {
-//   trigger: footer,
-//   start: "top 75%",
-//   end: "bottom %",
-//   scrub: 2,
-//   invalidateOnRefresh: true,
-//   markers: false,
-// }
-//   });
-
-
-//   tl.from(
-//     ctaBox,
-//     {
-//       opacity: 0,
-//       y: 60,
-//       scale: 0.98,
-//       duration: 2,
-//       ease: "power3.out",
-//     }
-//   );
-
-
-//   tl.from(
-//     ctaHeading,
-//     {
-//       opacity: 0,
-//       y: 40,
-//       duration: 1,
-//       ease: "power3.out",
-//     },
-//     "+=0.08"
-//   );
+  gsap.set(bigLogo, {
+    opacity: 0,
+    y: 180,
+  });
 
 
-//   tl.from(
-//     ctaSubheading,
-//     {
-//       opacity: 0,
-//       y: 30,
-//       duration: 2,
-//       ease: "power3.out",
-//     },
-//     "+=0.08"
-//   );
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: footer,
+      start: "top 90%",
+      end: "bottom 70%",
+      scrub: 1,
+      markers: true,
+      invalidateOnRefresh: true,
+    },
+  });
 
+  // 1. CTA CARD
+  tl.to(ctaCard, {
+    opacity: 1,
+    scale: 1,
+    duration: 1,
+    ease: "back.out(1.5)",
+  })
 
+  // 2. CTA HEADING
+  .to(ctaHeading, {
+    opacity: 1,
+    y: 0,
+    duration: 0.7,
+    ease: "power3.out",
+  })
 
+  // 3. CTA SUBHEADING
+  .to(ctaSubheading, {
+    opacity: 1,
+    y: 0,
+    duration: 0.7,
+    ease: "power3.out",
+  })
 
-//   tl.from(
-//     ctaButton,
-//     {
-//       opacity: 0,
-//       y: 25,
-//       scale: 0.96,
-//       duration: 0.5,
-//       ease: "power3.out",
-//     },
-//     "+=0.08"
-//   );
+  // 4. CTA BUTTON
+  .to(ctaButton, {
+    opacity: 1,
+    y: 0,
+    duration: 0.6,
+    ease: "power3.out",
+  })
 
-//   tl.from(
-//     brandContent,
-//     {
-//       opacity: 0,
-//       y: 35,
-//       duration: 0.65,
-//       ease: "power3.out",
-//     },
-//     "+=0.15"
-//   );
+  // 5. BRAND
+  .to(brandContent, {
+    opacity: 1,
+    y: 0,
+    duration: 0.6,
+    ease: "power3.out",
+  })
 
+  // 6. PROUDLY MADE IN BHARAT
+  .to(proudly, {
+    opacity: 1,
+    y: 0,
+    duration: 0.6,
+    ease: "power3.out",
+  })
 
-//   tl.from(
-//     proudly,
-//     {
-//       opacity: 0,
-//       y: 30,
-//       duration: 0.55,
-//       ease: "power3.out",
-//     },
-//     "+=0.08"
-//   );
+  // 7. COMPANY
+  .to(company, {
+    opacity: 1,
+    y: 0,
+    duration: 0.6,
+    ease: "power3.out",
+  })
 
+  // 8. RESOURCES
+  .to(resources, {
+    opacity: 1,
+    y: 0,
+    duration: 0.6,
+    ease: "power3.out",
+  })
 
-//   tl.from(
-//     companyItems,
-//     {
-//       opacity: 0,
-//       y: 24,
-//       duration: 0.4,
-//       stagger: 0.12,
-//       ease: "power3.out",
-//     },
-//     "+=0.08"
-//   );
+  // 9. LEGAL
+  .to(legal, {
+    opacity: 1,
+    y: 0,
+    duration: 0.6,
+    ease: "power3.out",
+  })
 
+  // 10. HUGE NEXGN
+  .to(bigLogo, {
+    opacity: 1,
+    y: 0,
+    duration: 1.8,
+    ease: "power2.out",
+  });
 
-//   tl.from(
-//     resourceItems,
-//     {
-//       opacity: 0,
-//       y: 24,
-//       duration: 0.4,
-//       stagger: 0.12,
-//       ease: "power3.out",
-//     },
-//     "+=0.08"
-//   );
+  ScrollTrigger.refresh();
 
-//   tl.from(
-//     legalItems,
-//     {
-//       opacity: 0,
-//       y: 24,
-//       duration: 0.4,
-//       stagger: 0.12,
-//       ease: "power3.out",
-//     },
-//     "+=0.08"
-//   );
-
-
-//   tl.from(
-//     bigLogo,
-//     {
-//       opacity: 0,
-//       y: 120,
-//       duration: 1,
-//       ease: "power3.out",
-//     },
-//     "+=0.2"
-//   );
-
-
-// }, {
-//   scope: footerRef,
-// });
+  return () => {
+    tl.kill();
+  };
+}, []);
 
   return (
     <footer

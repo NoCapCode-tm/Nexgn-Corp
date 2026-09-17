@@ -64,7 +64,7 @@ function ConditionalNavbar() {
 }
 
 
-function WebsiteContent() {
+function WebsiteContent({ startAnimation }) {
   return (
     <div className="websiteContent">
 
@@ -74,7 +74,7 @@ function WebsiteContent() {
 
         <Route
           path="/"
-          element={<Landing />}
+          element={<Landing startAnimation={startAnimation} />}
         />
 
         <Route
@@ -118,7 +118,6 @@ function WebsiteContent() {
   );
 }
 
-
 function App() {
 
   const loaderRef = useRef(null);
@@ -129,13 +128,13 @@ function App() {
   const [loaderFinished, setLoaderFinished] =
     useState(false);
 
+  const [startLandingAnimation, setStartLandingAnimation] =
+    useState(false);
+
   const [showLoader, setShowLoader] =
     useState(true);
 
 
-  /*
-    Detect when the page/resources have loaded.
-  */
   useEffect(() => {
 
     const handleLoad = () => {
@@ -145,34 +144,36 @@ function App() {
     if (document.readyState === "complete") {
       setWebsiteLoaded(true);
     } else {
-      window.addEventListener(
-        "load",
-        handleLoad
-      );
+      window.addEventListener("load", handleLoad);
     }
 
     return () => {
-      window.removeEventListener(
-        "load",
-        handleLoad
-      );
+      window.removeEventListener("load", handleLoad);
     };
 
   }, []);
 
 
   /*
-    Once BOTH:
+    LOCK SCROLL WHILE LOADER IS VISIBLE
+  */
+  useEffect(() => {
 
-    1. Website has loaded
-    2. LoadingScreen animation has finished
+    if (showLoader) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
 
-    move ONLY the loader away.
+    return () => {
+      document.body.style.overflow = "";
+    };
 
-    IMPORTANT:
-    We do NOT transform the website.
+  }, [showLoader]);
 
-    This keeps Landing/ScrollTrigger completely untouched.
+
+  /*
+    REMOVE LOADER
   */
   useLayoutEffect(() => {
 
@@ -195,7 +196,15 @@ function App() {
 
       onComplete: () => {
 
+        /*
+          Loader is now completely outside viewport
+        */
         setShowLoader(false);
+
+        /*
+          NOW allow Landing GSAP to start
+        */
+        setStartLandingAnimation(true);
 
         gsap.set(loader, {
           clearProps: "transform",
@@ -210,16 +219,11 @@ function App() {
   return (
     <BrowserRouter>
 
-      {/* 
-        IMPORTANT:
-        Website is completely normal.
-        NO transform.
-        NO fixed positioning.
-        NO height manipulation.
-      */}
       <div className="websiteReveal">
 
-        <WebsiteContent />
+        <WebsiteContent
+          startAnimation={startLandingAnimation}
+        />
 
       </div>
 
