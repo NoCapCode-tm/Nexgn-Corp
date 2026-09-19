@@ -1,10 +1,58 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '../pages/css/Landing.module.css'
 import { Menu, X } from 'lucide-react'
 import { Link } from 'react-router-dom' // Ensure this is react-router-dom
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState("home")
+
+  useEffect(() => {
+  const sections = [
+    document.getElementById("home"),
+    document.getElementById("product"),
+    document.getElementById("pricing"),
+  ].filter(Boolean)
+
+  if (!sections.length) return
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const visibleSections = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort(
+          (a, b) =>
+            b.intersectionRatio - a.intersectionRatio
+        )
+
+      if (visibleSections.length > 0) {
+        setActiveSection(visibleSections[0].target.id)
+      }
+    },
+    {
+      threshold: [0.15, 0.3, 0.5, 0.7],
+      rootMargin: "-15% 0px -55% 0px",
+    }
+  )
+
+  sections.forEach((section) => observer.observe(section))
+
+  return () => observer.disconnect()
+}, [])
+
+const handleNavClick = (sectionId) => {
+  const section = document.getElementById(sectionId)
+
+  if (!section) return
+
+  setActiveSection(sectionId)
+  setMenuOpen(false)
+
+  section.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  })
+}
 
   return (
     <nav className={styles.navbar}>
@@ -18,10 +66,39 @@ const Navbar = () => {
       </div>
 
       <ul className={styles.navLinks}>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#product">Product</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-      </ul>
+  <li>
+    <button
+      className={`${styles.navLink} ${
+        activeSection === "home" ? styles.activeNavLink : ""
+      }`}
+      onClick={() => handleNavClick("home")}
+    >
+      Home
+    </button>
+  </li>
+
+  <li>
+    <button
+      className={`${styles.navLink} ${
+        activeSection === "product" ? styles.activeNavLink : ""
+      }`}
+      onClick={() => handleNavClick("product")}
+    >
+      Product
+    </button>
+  </li>
+
+  <li>
+    <button
+      className={`${styles.navLink} ${
+        activeSection === "pricing" ? styles.activeNavLink : ""
+      }`}
+      onClick={() => handleNavClick("pricing")}
+    >
+      Pricing
+    </button>
+  </li>
+</ul>
 
       {/* --- DESKTOP ACTIONS UPDATED --- */}
       <div className={styles.navActions}>
@@ -44,10 +121,37 @@ const Navbar = () => {
       </button>
 
       {/* --- MOBILE ACTIONS UPDATED --- */}
-      <div className={`${styles.mobileMenu} ${menuOpen ? styles.mobileMenuOpen : ""}`}>
-        <a href="#home" onClick={() => setMenuOpen(false)}>Home</a>
-        <a href="#product" onClick={() => setMenuOpen(false)}>Product</a>
-        <a href="#pricing" onClick={() => setMenuOpen(false)}>Pricing</a>
+      <div
+  className={`${styles.mobileMenu} ${
+    menuOpen ? styles.mobileMenuOpen : ""
+  }`}
+>
+  <button
+    className={`${styles.navLink} ${
+      activeSection === "home" ? styles.activeNavLink : ""
+    }`}
+    onClick={() => handleNavClick("home")}
+  >
+    Home
+  </button>
+
+  <button
+    className={`${styles.navLink} ${
+      activeSection === "product" ? styles.activeNavLink : ""
+    }`}
+    onClick={() => handleNavClick("product")}
+  >
+    Product
+  </button>
+
+  <button
+    className={`${styles.navLink} ${
+      activeSection === "pricing" ? styles.activeNavLink : ""
+    }`}
+    onClick={() => handleNavClick("pricing")}
+  >
+    Pricing
+  </button>
         
         <a href="https://sign.nexgn.cloud" onClick={() => setMenuOpen(false)}>Log in</a>
         <button 

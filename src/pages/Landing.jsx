@@ -1033,7 +1033,7 @@ useLayoutEffect(() => {
       scrollTrigger: {
         trigger: section,
         start: "top 95%",
-        end: "bottom 20%",
+        end: "bottom 60%",
         scrub: 1,
       },
     })
@@ -1135,7 +1135,7 @@ useLayoutEffect(() => {
       </script>
     </Helmet>
     {/* <div ref={introRef} className={styles.introScene}> */}
-    <div className={styles.landing}>
+    <div className={styles.landing}  id="home">
  <section ref={heroRef} className={styles.hero}>
 
   <div className={styles.heroText}>
@@ -1150,15 +1150,14 @@ useLayoutEffect(() => {
       </span>
     </h1>
 
-    <button
+    <a
   ref={heroCtaRef}
-  className={styles.ctaBtn}
-  onClick={() => {
-    navigate("/Login");
-  }}
+   className={styles.ctaBtn}
+  style={{textDecorationLine:"none"}}
+  href="https://sign.nexgn.cloud"
 >
   Start Signing for Free
-</button>
+</a>
 
     <p ref={heroSubtextRef} className={styles.heroSubtext}>
       <span className={styles.heroSubtextLine}>
@@ -1475,7 +1474,7 @@ useLayoutEffect(() => {
 </section> */}
 
 {/* ===================== NEW FEATURES SECTION ===================== */}
-      <section className={styles.featuresNew} ref={featuresNewRef}>
+      <section className={styles.featuresNew} ref={featuresNewRef}  id="product">
         <div className={styles.featuresContainer}>
           
           {/* Left Column */}
@@ -1663,7 +1662,7 @@ useLayoutEffect(() => {
       ))}
     </div>
   </div>
-<div className={styles.newpricing} ref={pricingRef}>
+<div className={styles.newpricing} ref={pricingRef}  id="pricing">
   <div className={styles.above} ref={pricingTopRef} >
     <span className={styles.abovesub}>Choose the plan that fits your document workflow and scale your business with Nexgn.</span>
     <h1>Simple Pricing .</h1>
@@ -1692,7 +1691,7 @@ useLayoutEffect(() => {
             )}
           </div>
           <p className={styles.cardDesc1}>{card.description}</p>
-          <button className={styles.chooseBtn}>Choose {card.plan}</button>
+          <a style={{textDecorationLine:"none",display:"block" ,textAlign:"center"}} href="https://sign.nexgn.cloud" className={styles.chooseBtn}>Choose {card.plan}</a>
         </div>
         <ul className={styles.featureList}>
           {card.features.map((feature, idx) => (

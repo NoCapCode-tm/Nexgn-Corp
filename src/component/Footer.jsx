@@ -210,7 +210,7 @@ const Footer = () => {
 
             <div className={`${styles.ctaButtonWrapper} ${styles.footerReveal}`}>
               <Link
-                to="/Sign-up"
+                to="https://sign.nexgn.cloud/signup"
                 className={styles.ctaButton}
               >
                 Create your free account
