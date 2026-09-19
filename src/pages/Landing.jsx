@@ -200,11 +200,6 @@ const handleScroll = (e) => {
 
 //animation 1
 useLayoutEffect(() => {
-
-  if (!startAnimation) {
-    return;
-  }
-
   const ctx = gsap.context(() => {
 
     const image = heroImageRef.current;
@@ -218,15 +213,21 @@ useLayoutEffect(() => {
       heroSubtextRef.current?.querySelectorAll(
         `.${styles.heroSubtextLine}`
       );
-      const button = heroCtaRef.current;
+
+    const button = heroCtaRef.current;
 
     if (
       !image ||
       !titleLines?.length ||
-      !subtextLines?.length
+      !subtextLines?.length ||
+      !button
     ) {
       return;
     }
+
+    // -----------------------------------------
+    // INITIAL STATE
+    // -----------------------------------------
 
     gsap.set(image, {
       opacity: 0,
@@ -237,6 +238,7 @@ useLayoutEffect(() => {
       opacity: 0,
       y: 40,
     });
+
     gsap.set(button, {
       opacity: 0,
       y: 40,
@@ -247,13 +249,25 @@ useLayoutEffect(() => {
       y: 25,
     });
 
+    // -----------------------------------------
+    // DON'T PLAY YET
+    // LOADER IS STILL VISIBLE
+    // -----------------------------------------
+
+    if (!startAnimation) {
+      return;
+    }
+
+    // -----------------------------------------
+    // LANDING ANIMATION
+    // -----------------------------------------
+
     const tl = gsap.timeline({
       defaults: {
         ease: "power3.out",
       },
     });
 
-   
     tl.to(image, {
       opacity: 1,
       y: 0,
@@ -261,7 +275,6 @@ useLayoutEffect(() => {
       ease: "power3.out",
     })
 
-  
     .to(
       titleLines[0],
       {
@@ -273,7 +286,6 @@ useLayoutEffect(() => {
       "-=0.45"
     )
 
-    
     .to(
       titleLines[1],
       {
@@ -296,7 +308,6 @@ useLayoutEffect(() => {
       "-=0.55"
     )
 
-   
     .to(
       subtextLines[0],
       {
@@ -308,7 +319,6 @@ useLayoutEffect(() => {
       "-=0.25"
     )
 
-  
     .to(
       subtextLines[1],
       {
@@ -320,7 +330,6 @@ useLayoutEffect(() => {
       "-=0.45"
     )
 
-   
     .to(
       subtextLines[2],
       {
