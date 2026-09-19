@@ -70,10 +70,16 @@ const width = useWindowWidth()
       headerBg: '#FFCACA',
       headerColor: '#000000',
       features: [
-        '25 documents per month',
-        'Basic signing workflow',
-        'Limited templates',
-        'No credit card required'
+      'No Credit Card',
+      '19 Monthly Envelopes',
+      'Zero Signer Accounts',
+      'AES-256 Vault Encryption',
+      'Sealed Audit Certificates',
+      'Multi-Format Support',
+      'Tamper-Evident Delivery',
+      'Mobile-Optimized Signing',
+      'Instant Status Alerts',
+      'Global ESIGN Compliance'
       ]
     },
     {
@@ -85,11 +91,17 @@ const width = useWindowWidth()
       headerBg: 'linear-gradient(116.65deg, #FFFFFF 7.01%, #FF0915 32.03%, #100000 66.82%),linear-gradient(225.1deg, rgba(249, 0, 0, 0.2) 35.5%, rgba(0, 0, 0, 0.2) 98.07%)',
       headerColor: '#fff',
       features: [
-        '100 documents per month',
-        'Professional signing tools',
-        'Templates and reminders',
-        'SETU integration',
-        'Basic automation support'
+      '49 Monthly Envelopes',
+      'Multi-Signer Routing',
+      'Automated Email Reminders',
+      'Reusable Contract Templates',
+      // 'SETU Identity Checks',
+      'Granular Field Positioning',
+      'IP Timestamp Tracking',
+      'Custom Link Expiry',
+      'Signer Delegation Rules',
+      'Shared Team Folders',
+      'Standard SLA Support'
       ]
     },
     {
@@ -100,13 +112,18 @@ const width = useWindowWidth()
       headerBg: '#FE7474',
       headerColor: '#fff',
       features: [
-        'Unlimited documents',
-        'Bulk sending',
-        'Team collaboration',
-        'API access',
-        'Aadhaar verification credits',
-        'Custom branding',
-        'Priority support'
+      'Unlimited Document Execution',
+      'Role-Based Team Workspaces',
+      'Full REST APIs',
+      'Real-Time Webhooks',
+      'Aadhaar Verification Credits',
+      'CSV Bulk Dispatch',
+      'Custom Brand White-Labeling',
+      'Enterprise SSO Integration',
+      'Custom Data Residency',
+      'Conditional Logic Routing',
+      'Advanced Impact Analytics',
+      'Dedicated Priority Queue'
       ]
     },
     // {
