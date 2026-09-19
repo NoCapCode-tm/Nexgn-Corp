@@ -5,7 +5,6 @@ import PrivacyNavbar from '../component/PrivacyNavbar';
 import Footer from '../component/Footer';
 import styles from './css/PrivacyPolicy.module.css';
 
-// 1. IMPORT YOUR NEW HERO IMAGE HERE
 import heroBackgroundImage from '../assets/privacy-hero-bg.png'; 
 
 const PrivacyPolicy = () => {
@@ -41,7 +40,7 @@ const PrivacyPolicy = () => {
               <p className={styles.heroSubtext}>
                 This Privacy Policy explains how we collect, use, disclose, and
                 safeguard your information when you visit nexgn.cloud, use our
-                services, or interact with our platform.
+                services, or interact with our platform and third-party integrations (including Google Workspace).
               </p>
             </div>
           </section>
@@ -50,7 +49,7 @@ const PrivacyPolicy = () => {
         {/* ================= MAIN POLICY CONTENT ================= */}
         <main className={styles.contentContainer}>
           
-          {/* SECTION 1 */}
+          {/* SECTION 1: WHAT DATA IS ACCESSED */}
           <div className={styles.policyRow}>
             <div className={styles.leftCol}>
               <h2 className={styles.sectionHeading}>Information We Collect</h2>
@@ -65,9 +64,14 @@ const PrivacyPolicy = () => {
                   <span className={styles.bulletDot}></span>
                   <div>
                     <strong>Information You Provide Directly:</strong> When you
-                    join our wait list, register for an account, or contact
-                    support, we collect your email address, name and
+                    register for an account, we collect your email address, name, and
                     communication history.
+                  </div>
+                </li>
+                <li>
+                  <span className={styles.bulletDot}></span>
+                  <div>
+                    <strong>Google User Data Accessed:</strong> If you connect your Google Drive integration, our application will access the data you have provided to us, including your Google profile information (name, email) and Google Drive files, strictly to enable document importing and syncing features.
                   </div>
                 </li>
                 <li>
@@ -78,26 +82,18 @@ const PrivacyPolicy = () => {
                     browser types, request timestamps, and routing headers.
                   </div>
                 </li>
-                <li>
-                  <span className={styles.bulletDot}></span>
-                  <div>
-                    <strong>Cookies and Tracking:</strong> We use strictly
-                    necessary cookies to maintain session states and security
-                    tokens, we do not use third-party advertising trackers.
-                  </div>
-                </li>
               </ul>
             </div>
           </div>
 
-          {/* SECTION 2 */}
+          {/* SECTION 2: HOW DATA IS USED & AI PROHIBITION */}
           <div className={styles.policyRow}>
             <div className={styles.leftCol}>
               <h2 className={styles.sectionHeading}>
                 How We Use Your Information
               </h2>
               <p className={styles.sectionSubtext}>
-                We use your data exclusively for operational and security
+                We use your data exclusively for operational functionality and security
                 purposes.
               </p>
             </div>
@@ -105,42 +101,35 @@ const PrivacyPolicy = () => {
               <ul className={styles.bulletList}>
                 <li>
                   <span className={styles.bulletDot}></span>
-                  <div>To provision, maintain and deliver our cloud services.</div>
+                  <div>
+                    <strong>Providing Services:</strong> We will use your data (including Google user data) strictly to provide you with the services you requested, such as fetching documents for electronic signature workflows, email notifications, and secure storage.
+                  </div>
+                </li>
+                <li>
+                  <span className={styles.bulletDot}></span>
+                  <div>
+                    <strong>Prohibited Uses & AI/ML Limitation:</strong> We explicitly affirm that Google Workspace APIs and Google user data are not used to develop, improve, or train generalized or non-personalized AI and/or ML models.
+                  </div>
                 </li>
                 <li>
                   <span className={styles.bulletDot}></span>
                   <div>
                     To authenticate your identity and protect against malicious
-                    activity (e.g DDoS attacks, credential stuffing).
-                  </div>
-                </li>
-                <li>
-                  <span className={styles.bulletDot}></span>
-                  <div>
-                    To communicate transactional updates, security alerts and
-                    support responses.
-                  </div>
-                </li>
-                <li>
-                  <span className={styles.bulletDot}></span>
-                  <div>
-                    To analyze aggregated infrastructure load and improve edge
-                    routing performance.
+                    activity (e.g., DDoS attacks, credential stuffing).
                   </div>
                 </li>
               </ul>
             </div>
           </div>
 
-          {/* SECTION 3 */}
+          {/* SECTION 3: DATA SHARING */}
           <div className={styles.policyRow}>
             <div className={styles.leftCol}>
               <h2 className={styles.sectionHeading}>
                 Data Sharing and Disclosure
               </h2>
               <p className={styles.sectionSubtext}>
-                We do not sell, rent or trade your personal data. We only share
-                information under the following strict conditions:
+                We maintain strict limitations on how data is shared.
               </p>
             </div>
             <div className={styles.rightCol}>
@@ -148,35 +137,33 @@ const PrivacyPolicy = () => {
                 <li>
                   <span className={styles.bulletDot}></span>
                   <div>
-                    <strong>Sub-processors:</strong> With trusted infrastructure
-                    partners (such as our global CDN and DNS providers) strictly
-                    for the purpose of delivering the services. These partners
-                    are bound by confidentiality agreements.
+                    <strong>Strictly Limited Disclosure:</strong> We do not transfer or disclose your information (including Google user data) to third parties for purposes other than the ones provided to operate the core functionality of the application. 
                   </div>
                 </li>
                 <li>
                   <span className={styles.bulletDot}></span>
                   <div>
-                    <strong>Legal Compliance:</strong> If compelled by a
-                    legally binding subpoena, court order or regulatory
-                    mandate, we will disclose necessary data. We commit to
-                    notifying you of any such request unless legally prohibited
-                    from doing so.
+                    <strong>Prohibited Data Transfers:</strong> We will not sell your data to third parties, data brokers, or information resellers. We do not use or share your data for targeted advertising, personalized advertisements, retargeted advertisements, interest-based advertisements, or determining credit-worthiness and lending purposes.
+                  </div>
+                </li>
+                <li>
+                  <span className={styles.bulletDot}></span>
+                  <div>
+                    <strong>Sub-processors & Legal Compliance:</strong> We may share data with trusted infrastructure partners (e.g., CDN/DNS providers) bound by confidentiality agreements, or if compelled by a legally binding court order.
                   </div>
                 </li>
               </ul>
             </div>
           </div>
 
-          {/* SECTION 4 */}
+          {/* SECTION 4: SECURITY & RETENTION */}
           <div className={styles.policyRow}>
             <div className={styles.leftCol}>
               <h2 className={styles.sectionHeading}>
-                Data Retention and Security
+                Data Retention & Security
               </h2>
               <p className={styles.sectionSubtext}>
-                Your data is encrypted in transit using TLS 1.3 and at rest with
-                AES-256.
+                We employ enterprise-grade mechanisms to safeguard your sensitive data.
               </p>
             </div>
             <div className={styles.rightCol}>
@@ -184,23 +171,26 @@ const PrivacyPolicy = () => {
                 <li>
                   <span className={styles.bulletDot}></span>
                   <div>
-                    We retain personal data only for as long as your account is
-                    active or as needed to fulfill our legal obligations,
-                    resolve disputes and enforce our agreements.
+                    <strong>Data Protection Mechanisms:</strong> Strict security procedures are in place to protect the confidentiality of your data. We use enterprise-grade encryption (TLS 1.3 in transit, AES-256 at rest) to protect your sensitive information, including any accessed Google user data.
                   </div>
                 </li>
                 <li>
                   <span className={styles.bulletDot}></span>
                   <div>
-                    Network logs and IP addresses used for security mitigation
-                    are purged on a rolling 30-day basis.
+                    <strong>Data Retention:</strong> We will retain your personal information for the length of time needed to fulfill the purposes outlined in this privacy policy, consistent with our business purposes, unless a longer retention period is required by law.
+                  </div>
+                </li>
+                <li>
+                  <span className={styles.bulletDot}></span>
+                  <div>
+                    <strong>Data Deletion:</strong> When the data retention period expires for a given type of data, we will delete or destroy it. You may request for your data to be permanently deleted at any time by contacting our support team or using the in-app account management tools.
                   </div>
                 </li>
               </ul>
             </div>
           </div>
 
-          {/* SECTION 5 */}
+          {/* SECTION 5: RIGHTS */}
           <div className={styles.policyRow}>
             <div className={styles.leftCol}>
               <h2 className={styles.sectionHeading}>Your Privacy Rights</h2>
@@ -219,7 +209,7 @@ const PrivacyPolicy = () => {
                     Right to Access &amp; Portability
                   </h3>
                   <p className={styles.rightCardDesc}>
-                    Request a copy the data we hold about you.
+                    Request a copy of the data we hold about you.
                   </p>
                 </div>
                 <div className={styles.rightCard}>
@@ -251,7 +241,7 @@ const PrivacyPolicy = () => {
           {/* CONTACT STATEMENT */}
           <div className={styles.contactBlock}>
             <p className={styles.contactPrompt}>
-              To exercise these rights, please contact our privacy team at:
+              To exercise these rights or request data deletion, please contact our privacy team at:
             </p>
             <a
               href="mailto:privacy@nexgn.cloud"
@@ -262,8 +252,6 @@ const PrivacyPolicy = () => {
           </div>
         </main>
 
-
-        {/* ================= FOOTER ================= */}
         <Footer />
       </div>
     </>
