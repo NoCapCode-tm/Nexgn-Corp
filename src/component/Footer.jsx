@@ -90,7 +90,7 @@ const Footer = () => {
       start: "top 90%",
       end: "bottom 70%",
       scrub: 1,
-      markers: true,
+      markers: false,
       invalidateOnRefresh: true,
     },
   });

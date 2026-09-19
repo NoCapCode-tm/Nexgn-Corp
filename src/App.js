@@ -160,7 +160,8 @@ function App() {
   useEffect(() => {
 
     if (showLoader) {
-      document.body.style.overflow = "hidden";
+     document.body.style.overflow = "hidden";
+     document.documentElement.style.scrollBehavior = "auto";
     } else {
       document.body.style.overflow = "";
     }
@@ -227,7 +228,7 @@ function App() {
 
       </div>
 
-
+      
       {showLoader && (
         <LoadingScreen
           loaderRef={loaderRef}

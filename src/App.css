@@ -12,11 +12,17 @@ body {
   width: 100%;
 }
 
+html {
+  overflow-x: hidden;
+}
 
 body {
   overflow-x: hidden;
 }
 
+body.loader-active {
+  overflow: hidden;
+}
 
 .App {
   width: 100%;
@@ -26,19 +32,8 @@ body {
 
 .websiteReveal {
   position: relative;
-  width: 100%;
+  width: 100vw;
   min-height: 100vh;
-
-  /*
-    VERY IMPORTANT:
-
-    Do NOT put transform here.
-    Do NOT put position: fixed here.
-    Do NOT put overflow: hidden here.
-
-    Landing's ScrollTrigger depends on its
-    normal document positioning.
-  */
 
   z-index: 1;
 }
