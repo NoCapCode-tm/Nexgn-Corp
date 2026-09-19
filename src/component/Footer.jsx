@@ -88,7 +88,7 @@ const Footer = () => {
     scrollTrigger: {
       trigger: footer,
       start: "top 90%",
-      end: "bottom 70%",
+      end: "bottom 85%",
       scrub: 1,
       markers: false,
       invalidateOnRefresh: true,
