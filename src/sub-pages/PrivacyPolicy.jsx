@@ -16,7 +16,7 @@ const PrivacyPolicy = () => {
           name="description"
           content="Learn how Nexgn collects, uses, and safeguards your corporate and personal data with enterprise-grade encryption."
         />
-        <link rel="canonical" href="https://nexgn.cloud/privacy-policy" />
+        <link rel="canonical" href="https://nexgn.cloud/privacy" />
       </Helmet>
 
       <div className={styles.privacyPage}>
