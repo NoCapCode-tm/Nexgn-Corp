@@ -114,7 +114,7 @@
 
   .textContainer {
     /* Shifts the text right slightly to balance the large image on the left */
-    margin-left: 15%; 
+    margin-left: -2%; 
   }
 
   .title {

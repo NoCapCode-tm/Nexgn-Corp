@@ -251,7 +251,7 @@ const Footer = () => {
               </a>
 
               <a
-                href="https://www.instagram.com"
+                href="https://www.instagram.com/nexgn.cloud"
                 target="_blank"
                 rel="noreferrer"
                 className={styles.socialIcon}
