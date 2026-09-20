@@ -26,7 +26,6 @@ import NotFound from "./pages/NotFound";
 import AboutUs from "./pages/AboutUs";
 import LoadingScreen from "./component/LoadingScreen";
 
-
 const VALID_ROUTES = [
   "/",
   "/contact",
@@ -37,7 +36,6 @@ const VALID_ROUTES = [
   "/about",
 ];
 
-
 const HIDE_NAVBAR_ROUTES = [
   "/help",
   "/privacy",
@@ -45,7 +43,6 @@ const HIDE_NAVBAR_ROUTES = [
   "/trust",
   "/about",
 ];
-
 
 function ConditionalNavbar() {
   const location = useLocation();
@@ -63,80 +60,61 @@ function ConditionalNavbar() {
   return <Navbar />;
 }
 
-
 function WebsiteContent({ startAnimation }) {
   return (
     <div className="websiteContent">
-
       <ConditionalNavbar />
-
       <Routes>
-
         <Route
           path="/"
           element={<Landing startAnimation={startAnimation} />}
         />
-
         <Route
           path="/contact"
           element={<Contact />}
         />
-
         <Route
           path="/help"
           element={<HelpCenter />}
         />
-
         <Route
           path="/about"
           element={<AboutUs />}
         />
-
         <Route
           path="/privacy"
           element={<PrivacyPolicy />}
         />
-
         <Route
           path="/trust"
           element={<TrustSecurity />}
         />
-
         <Route
           path="/terms"
           element={<TermsServices />}
         />
-
         <Route
           path="*"
           element={<NotFound />}
         />
-
       </Routes>
-
     </div>
   );
 }
 
 function App() {
-
   const loaderRef = useRef(null);
 
-  const [websiteLoaded, setWebsiteLoaded] =
-    useState(false);
+  const [websiteLoaded, setWebsiteLoaded] = useState(false);
+  const [loaderFinished, setLoaderFinished] = useState(false);
+  
+  // Changed to true so Landing animations play immediately since loader is off
+  const [startLandingAnimation, setStartLandingAnimation] = useState(true);
 
-  const [loaderFinished, setLoaderFinished] =
-    useState(false);
-
-  const [startLandingAnimation, setStartLandingAnimation] =
-    useState(false);
-
-  const [showLoader, setShowLoader] =
-    useState(true);
-
+  // CHANGED FROM TRUE TO FALSE TO BYPASS GOOGLE BOT REJECTION
+  const [showLoader, setShowLoader] = useState(false);
 
   useEffect(() => {
-
     const handleLoad = () => {
       setWebsiteLoaded(true);
     };
@@ -150,15 +128,12 @@ function App() {
     return () => {
       window.removeEventListener("load", handleLoad);
     };
-
   }, []);
-
 
   /*
     LOCK SCROLL WHILE LOADER IS VISIBLE
   */
   useEffect(() => {
-
     if (showLoader) {
      document.body.style.overflow = "hidden";
      document.documentElement.style.scrollBehavior = "auto";
@@ -169,15 +144,12 @@ function App() {
     return () => {
       document.body.style.overflow = "";
     };
-
   }, [showLoader]);
 
-
   /*
-    REMOVE LOADER
+    REMOVE LOADER (This effect will essentially bypass now since showLoader is false)
   */
   useLayoutEffect(() => {
-
     if (!websiteLoaded || !loaderFinished) {
       return;
     }
@@ -196,7 +168,6 @@ function App() {
       ease: "power4.inOut",
 
       onComplete: () => {
-
         /*
           Loader is now completely outside viewport
         */
@@ -210,24 +181,18 @@ function App() {
         gsap.set(loader, {
           clearProps: "transform",
         });
-
       },
     });
 
   }, [websiteLoaded, loaderFinished]);
 
-
   return (
     <BrowserRouter>
-
       <div className="websiteReveal">
-
         <WebsiteContent
           startAnimation={startLandingAnimation}
         />
-
       </div>
-
       
       {showLoader && (
         <LoadingScreen
@@ -237,10 +202,8 @@ function App() {
           }}
         />
       )}
-
     </BrowserRouter>
   );
 }
-
 
 export default App;
