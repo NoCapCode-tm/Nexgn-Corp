@@ -1,4 +1,3 @@
-
 import React, { useLayoutEffect, useRef } from 'react';
 import { useGSAP } from "@gsap/react";
 import styles from './css/Footer.module.css';
@@ -31,18 +30,6 @@ const Footer = () => {
   const legal = footer.querySelector(`.${styles.linkColLegal}`);
 
   const bigLogo = footer.querySelector(`.${styles.footerBrand}`);
-
-  console.log("CTA CARD:", ctaCard);
-  console.log("CTA HEADING:", ctaHeading);
-  console.log("CTA SUBHEADING:", ctaSubheading);
-  console.log("CTA BUTTON:", ctaButton);
-  console.log("BRAND:", brandContent);
-  console.log("PROUDLY:", proudly);
-  console.log("COMPANY:", company);
-  console.log("RESOURCES:", resources);
-  console.log("LEGAL:", legal);
-  console.log("BIG LOGO:", bigLogo);
-
 
   gsap.set(ctaCard, {
     opacity: 0,
@@ -273,6 +260,13 @@ const Footer = () => {
 
             </div>
 
+            {/* NEW: LAUNCHBUFF BADGE PLACEMENT */}
+            <div className={styles.badgeRow}>
+              <a href="https://launchbuff.com/products/nexgn-wv9opp" target="_blank" rel="noopener noreferrer" title="Featured on LaunchBuff">
+                <img src="https://launchbuff.com/badge-featured-light.svg" alt="Featured on LaunchBuff" width="160" height="62" />
+              </a>
+            </div>
+
           </div>
 
 
@@ -418,4 +412,3 @@ const Footer = () => {
 };
 
 export default Footer;
-

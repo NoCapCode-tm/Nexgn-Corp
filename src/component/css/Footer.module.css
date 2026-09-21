@@ -399,3 +399,18 @@
   z-index: 20;
   will-change: transform;
 }
+
+.badgeRow {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.badgeRow img {
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.badgeRow a:hover img {
+  transform: translateY(-2px);
+}

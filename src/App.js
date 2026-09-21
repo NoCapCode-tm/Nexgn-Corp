@@ -112,7 +112,7 @@ function App() {
   const [startLandingAnimation, setStartLandingAnimation] = useState(true);
 
   // CHANGED FROM TRUE TO FALSE TO BYPASS GOOGLE BOT REJECTION
-  const [showLoader, setShowLoader] = useState(false);
+  const [showLoader, setShowLoader] = useState(true);
 
   useEffect(() => {
     const handleLoad = () => {
