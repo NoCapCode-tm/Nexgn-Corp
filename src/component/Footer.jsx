@@ -273,6 +273,15 @@ const Footer = () => {
               </a>
             </div>
 
+
+            <div className={styles.badgeRow}>
+              <a href="https://startupbase.io/products/nexgn?utm_source=startupbase&utm_medium=badge&utm_campaign=launch-badge-light" target="_blank" rel="noopener noreferrer">
+                <img src="https://statics.startupbase.io/site/badges/launched-on-sb.svg" alt="Launched on StartupBase" height="55" style="height:55px;width:auto;" />
+              </a>
+            </div>
+
+
+
           </div>
 
 
