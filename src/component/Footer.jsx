@@ -263,7 +263,13 @@ const Footer = () => {
             {/* NEW: LAUNCHBUFF BADGE PLACEMENT */}
             <div className={styles.badgeRow}>
               <a href="https://launchbuff.com/products/nexgn-wv9opp" target="_blank" rel="noopener noreferrer" title="Featured on LaunchBuff">
-                <img src="https://launchbuff.com/badge-featured-light.svg" alt="Featured on LaunchBuff" width="160" height="62" />
+                <img src="https://launchbuff.com/badge-featured-light.svg" alt="Featured on LaunchBuff" width="140" height="62" />
+              </a>
+            </div>
+
+            <div className={styles.badgeRow}>
+              <a href="https://smollaunch.com" target="_blank" rel="noopener noreferrer" title="Featured on Smol Launch">
+                <img src="https://smollaunch.com/badges/featured.svg" alt="Nexgn — Featured on Smol Launch" loading="lazy" width="160" height="60" />
               </a>
             </div>
 
