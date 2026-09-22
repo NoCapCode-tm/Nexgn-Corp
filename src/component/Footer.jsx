@@ -261,11 +261,11 @@ const Footer = () => {
             </div>
 
             {/* NEW: LAUNCHBUFF BADGE PLACEMENT */}
-            <div className={styles.badgeRow}>
+            {/* <div className={styles.badgeRow}>
               <a href="https://launchbuff.com/products/nexgn-wv9opp" target="_blank" rel="noopener noreferrer" title="Featured on LaunchBuff">
                 <img src="https://launchbuff.com/badge-featured-light.svg" alt="Featured on LaunchBuff" width="140" height="62" />
               </a>
-            </div>
+            </div> */}
 
             <div className={styles.badgeRow}>
               <a href="https://smollaunch.com" target="_blank" rel="noopener noreferrer" title="Featured on Smol Launch">
