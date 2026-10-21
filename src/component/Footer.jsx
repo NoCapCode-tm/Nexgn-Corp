@@ -283,6 +283,10 @@ const Footer = () => {
                 <img src="https://statics.startupbase.io/site/badges/featured-on-sb-neutral.svg" alt="Featured on StartupBase" height="55" styles="height:55px;width:auto;" />
               </a>
             </div>
+
+            <a href="https://apprater.net" target="_blank" rel="noopener">
+              <img src="https://apprater.net/badge.svg" alt="AppRater — the independent app index" width="112" height="40" loading="lazy" />
+            </a>
             
 
           </div>
